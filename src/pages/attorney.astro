@@ -1,0 +1,228 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/newsreader/400.css";
+import "@fontsource/newsreader/500.css";
+import "@fontsource/newsreader/600.css";
+import "@fontsource/newsreader/400-italic.css";
+import "@fontsource/source-sans-3/400.css";
+import "@fontsource/source-sans-3/600.css";
+
+const practiceAreas = [
+  { name: "Business & Contracts", desc: "Formation, agreements, and disputes handled with commercial judgment, not just legal theory." },
+  { name: "Real Estate", desc: "Closings, leases, and title matters, reviewed line by line before you sign anything." },
+  { name: "Estate Planning", desc: "Wills, trusts, and succession plans built to hold up when your family needs them most." },
+  { name: "Civil Litigation", desc: "Measured, well-prepared representation from first filing through trial or settlement." },
+];
+
+const steps = [
+  { n: "01", t: "Consultation", d: "A confidential 30-minute call to understand your situation and whether we're the right fit." },
+  { n: "02", t: "Engagement", d: "A clear, written scope of work and fee structure before any billable time begins." },
+  { n: "03", t: "Counsel", d: "Direct access to the attorney handling your matter — not a rotating cast of associates." },
+  { n: "04", t: "Resolution", d: "Regular plain-language updates until your matter is closed, not just billed." },
+];
+---
+<BaseLayout
+  title="Whitfield & Cole — Attorney at Law"
+  description="Measured, direct legal counsel for business, real estate, estate planning, and civil matters."
+  themeColor="#0F1B2D"
+  bodyClass="attorney"
+  consent={{ bg: "#0F1B2D", fg: "#F4F0E6", accent: "#A9832D", accentFg: "#0F1B2D", border: "rgba(244,240,230,0.16)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">Whitfield <span>&amp;</span> Cole</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#practice">Practice Areas</a></li>
+        <li><a href="#process">How We Work</a></li>
+        <li><a href="#contact" class="nav-cta">Book a Consultation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="eyebrow">Attorney at Law · Est. 2011</p>
+        <h1>Counsel that reads every clause before it reads you the bill.</h1>
+        <p class="hero__lede">Business, real estate, estate planning, and litigation matters, handled personally by the attorney you actually hire — from the first call to the last signature.</p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#contact">Book a Consultation</a>
+          <a class="btn btn--ghost" href="#practice">View Practice Areas</a>
+        </div>
+        <dl class="hero__stats">
+          <div><dt>Years practicing</dt><dd>14</dd></div>
+          <div><dt>Matters closed</dt><dd>600+</dd></div>
+          <div><dt>Client rating</dt><dd>4.9/5</dd></div>
+        </dl>
+      </div>
+      <div class="hero__seal" aria-hidden="true">
+        <svg viewBox="0 0 220 220" width="220" height="220">
+          <circle cx="110" cy="110" r="104" fill="none" stroke="#A9832D" stroke-width="1.5"/>
+          <circle cx="110" cy="110" r="88" fill="none" stroke="#A9832D" stroke-width="1"/>
+          <text x="110" y="70" text-anchor="middle" fill="#A9832D" font-family="Newsreader" font-size="13" letter-spacing="3">WHITFIELD</text>
+          <text x="110" y="160" text-anchor="middle" fill="#A9832D" font-family="Newsreader" font-size="13" letter-spacing="3">&amp; COLE</text>
+          <text x="110" y="118" text-anchor="middle" fill="#A9832D" font-family="Newsreader" font-style="italic" font-size="15">Est. 2011</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="practice" id="practice">
+      <h2>Practice Areas</h2>
+      <div class="practice__grid">
+        {practiceAreas.map((p) => (
+          <article class="practice__card">
+            <h3>{p.name}</h3>
+            <p>{p.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <h2>How We Work Together</h2>
+      <ol class="process__list">
+        {steps.map((s) => (
+          <li>
+            <span class="process__n" aria-hidden="true">{s.n}</span>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="quote">
+      <blockquote>
+        <p>"Every question I had was answered the same day, in language I could actually understand. That mattered more to me than any hourly rate."</p>
+        <footer>— M. Alvarez, business client</footer>
+      </blockquote>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <div>
+          <h2>Book a Consultation</h2>
+          <p>Tell us briefly what's going on. We reply within one business day and never charge for the first call.</p>
+        </div>
+        <form class="contact__form">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="matter">What's this regarding?</label>
+            <textarea id="matter" name="matter" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--solid">Request Consultation</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Whitfield &amp; Cole, Attorneys at Law. Attorney advertising — prior results do not guarantee a similar outcome.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .attorney { background: #FAF8F3; color: #17232F; font-family: "Source Sans 3", sans-serif; }
+  h1, h2, h3, .brand { font-family: "Newsreader", serif; }
+  :global(.attorney) :focus-visible { outline-color: #A9832D; }
+
+  /* Header */
+  .site-header { background: #0F1B2D; color: #F4F0E6; }
+  .nav { max-width: 76rem; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.5rem; }
+  .brand { font-size: 1.3rem; font-weight: 600; text-decoration: none; color: #F4F0E6; letter-spacing: 0.02em; }
+  .brand span { color: #A9832D; }
+  .nav-menu { list-style: none; display: flex; gap: 2rem; align-items: center; }
+  .nav-menu a { text-decoration: none; color: #F4F0E6; font-size: 0.95rem; }
+  .nav-cta { border: 1px solid #A9832D; padding: 0.5rem 1.1rem; border-radius: 0.25rem; color: #A9832D !important; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 22px; height: 2px; background: #F4F0E6; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -7px; }
+  .nav-toggle__bar::after { position: absolute; top: 7px; }
+
+  /* Hero */
+  .hero { background: #0F1B2D; color: #F4F0E6; display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 2rem; padding: 4rem 1.5rem 5rem; max-width: 76rem; margin-inline: auto; }
+  .eyebrow { color: #A9832D; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.1rem; font-family: "Source Sans 3", sans-serif; }
+  h1 { font-size: clamp(2.1rem, 4vw, 3.1rem); font-weight: 500; line-height: 1.18; margin-bottom: 1.2rem; }
+  .hero__lede { font-size: 1.08rem; line-height: 1.65; color: #D8D2C2; max-width: 34rem; margin-bottom: 2rem; }
+  .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.75rem; }
+  .btn { display: inline-block; padding: 0.85rem 1.6rem; border-radius: 0.3rem; font-size: 0.95rem; font-weight: 600; text-decoration: none; font-family: "Source Sans 3", sans-serif; }
+  .btn--solid { background: #A9832D; color: #0F1B2D; }
+  .btn--ghost { border: 1px solid rgba(244,240,230,0.4); color: #F4F0E6; }
+  .hero__stats { display: flex; gap: 2.5rem; }
+  .hero__stats dt { font-size: 0.78rem; color: #A79E86; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.25rem; }
+  .hero__stats dd { font-size: 1.5rem; font-weight: 600; font-family: "Newsreader", serif; }
+  .hero__seal { justify-self: center; opacity: 0.95; }
+
+  /* Practice */
+  .practice { max-width: 76rem; margin-inline: auto; padding: 5.5rem 1.5rem; }
+  .practice h2, .process h2, .contact h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 2.5rem; }
+  .practice__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+  .practice__card { border-top: 2px solid #A9832D; padding-top: 1.1rem; }
+  .practice__card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.6rem; }
+  .practice__card p { line-height: 1.6; color: #4A5563; }
+
+  /* Process */
+  .process { background: #F1ECDD; padding: 5.5rem 1.5rem; }
+  .process__list { max-width: 76rem; margin-inline: auto; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; counter-reset: step; }
+  .process__n { display: block; font-family: "Newsreader", serif; font-style: italic; color: #A9832D; font-size: 1.9rem; margin-bottom: 0.5rem; }
+  .process__list h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .process__list p { font-size: 0.92rem; line-height: 1.55; color: #4A5563; }
+
+  /* Quote */
+  .quote { max-width: 46rem; margin-inline: auto; padding: 5.5rem 1.5rem; text-align: center; }
+  .quote p { font-family: "Newsreader", serif; font-style: italic; font-size: 1.5rem; line-height: 1.5; color: #17232F; margin-bottom: 1.25rem; }
+  .quote footer { color: #6B7482; font-size: 0.9rem; }
+
+  /* Contact */
+  .contact { background: #0F1B2D; color: #F4F0E6; padding: 5.5rem 1.5rem; }
+  .contact__inner { max-width: 76rem; margin-inline: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .contact p { color: #D8D2C2; line-height: 1.6; max-width: 26rem; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .field label { font-size: 0.85rem; color: #D8D2C2; }
+  .field input, .field textarea { background: #16233A; border: 1px solid rgba(244,240,230,0.25); border-radius: 0.3rem; padding: 0.7rem 0.85rem; color: #F4F0E6; font-family: inherit; }
+
+  /* Footer */
+  .site-footer { background: #0B1420; color: #A79E86; padding: 2rem 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; max-width: 76rem; margin-inline: auto; font-size: 0.82rem; }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #A79E86; text-decoration: underline; }
+
+  @media (max-width: 60rem) {
+    .hero { grid-template-columns: 1fr; }
+    .hero__seal { display: none; }
+    .practice__grid, .process__list { grid-template-columns: 1fr 1fr; }
+    .contact__inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #0F1B2D; flex-direction: column; align-items: flex-start; padding: 1rem 1.5rem 1.5rem; display: none; }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+    .practice__grid, .process__list { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>

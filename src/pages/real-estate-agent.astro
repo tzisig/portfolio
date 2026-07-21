@@ -1,0 +1,182 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/prata/400.css";
+import "@fontsource/mulish/400.css";
+import "@fontsource/mulish/500.css";
+import "@fontsource/mulish/600.css";
+
+const listings = [
+  { name: "The Cascais Villa", price: "€3,650,000", tag: "5 bed · Ocean view" },
+  { name: "Príncipe Real Loft", price: "€1,180,000", tag: "2 bed · Rooftop terrace" },
+  { name: "Quinta da Serra", price: "€5,900,000", tag: "8 bed · 12 hectares" },
+];
+
+const stats = [
+  { n: "€210M+", l: "in closed sales" },
+  { n: "17", l: "years in luxury real estate" },
+  { n: "48h", l: "average offer response" },
+];
+---
+<BaseLayout
+  title="Beatriz Nogueira Real Estate — Luxury Listings"
+  description="Discreet representation for buyers and sellers of exceptional properties across Lisbon and the coast."
+  themeColor="#0E2F26"
+  bodyClass="realestate"
+  consent={{ bg: "#0E2F26", fg: "#F4EFE3", accent: "#D4B483", accentFg: "#0E2F26", border: "rgba(244,239,227,0.16)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">Beatriz Nogueira</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#listings">Listings</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-cta">Request a Valuation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Lisbon &amp; Cascais · Private Client Real Estate</p>
+      <h1>Exceptional homes, represented discreetly.</h1>
+      <p class="hero__lede">Seventeen years placing exceptional properties with the right buyer — often before they're publicly listed at all.</p>
+      <a class="hero__cta" href="#listings">View Current Listings</a>
+      <dl class="stats">
+        {stats.map((s) => (<div><dd>{s.n}</dd><dt>{s.l}</dt></div>))}
+      </dl>
+    </section>
+
+    <section class="listings" id="listings">
+      <h2>Current Listings</h2>
+      <div class="listings__grid">
+        {listings.map((l) => (
+          <article class="listings__card">
+            <div class="listings__window" aria-hidden="true"></div>
+            <h3>{l.name}</h3>
+            <p class="tag">{l.tag}</p>
+            <p class="price">{l.price}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about__text">
+        <h2>A different kind of representation</h2>
+        <p>Most of what I sell never appears in a public listing. Sellers who value discretion, and buyers who value not competing in a bidding war on the open market, work with me for exactly that reason. Every relationship starts with an honest valuation — not the highest number to win your listing.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Request a Valuation</h2>
+      <p>Buying, selling, or simply curious what your property is worth today.</p>
+      <form class="contact__form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="interest">I'm interested in</label>
+          <select id="interest" name="interest">
+            <option>Selling a property</option>
+            <option>Buying a property</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Request Valuation</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Beatriz Nogueira Real Estate.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .realestate { background: #F4EFE3; color: #0E2F26; font-family: "Mulish", sans-serif; }
+  h1, h2, h3, .brand { font-family: "Prata", serif; font-weight: 400; }
+  :global(.realestate) :focus-visible { outline-color: #D4B483; }
+
+  .site-header { background: #0E2F26; color: #F4EFE3; }
+  .nav { max-width: 78rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; }
+  .brand { font-size: 1.2rem; text-decoration: none; color: #F4EFE3; }
+  .nav-menu { list-style: none; display: flex; gap: 2rem; align-items: center; }
+  .nav-menu a { text-decoration: none; color: #F4EFE3; font-size: 0.92rem; }
+  .nav-cta { border: 1px solid #D4B483; padding: 0.5rem 1.1rem; border-radius: 2px; color: #D4B483 !important; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 22px; height: 1.5px; background: #F4EFE3; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -7px; }
+  .nav-toggle__bar::after { position: absolute; top: 7px; }
+
+  .hero { background: #0E2F26; color: #F4EFE3; padding: 5rem 2rem 5.5rem; text-align: center; }
+  .eyebrow { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: #D4B483; margin-bottom: 1.4rem; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.2; max-width: 42rem; margin-inline: auto; margin-bottom: 1.4rem; }
+  .hero__lede { max-width: 32rem; margin-inline: auto; color: #C9DBD1; line-height: 1.65; margin-bottom: 2.25rem; }
+  .hero__cta { display: inline-block; background: #D4B483; color: #0E2F26; padding: 0.9rem 1.9rem; text-decoration: none; font-weight: 600; font-size: 0.92rem; letter-spacing: 0.02em; }
+  .stats { display: flex; justify-content: center; gap: 3rem; margin-top: 3.5rem; flex-wrap: wrap; }
+  .stats dd { font-family: "Prata", serif; font-size: 1.8rem; margin-bottom: 0.25rem; }
+  .stats dt { font-size: 0.8rem; color: #A9C4B6; }
+
+  .listings { max-width: 78rem; margin-inline: auto; padding: 5.5rem 2rem; }
+  .listings h2, .about h2 { text-align: center; font-size: 2rem; margin-bottom: 3rem; }
+  .listings__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .listings__window { aspect-ratio: 4/3; margin-bottom: 1.1rem; background:
+    linear-gradient(180deg, #a9c9e0 0%, #a9c9e0 55%, #0E2F26 55%, #0E2F26 100%);
+    position: relative; border-radius: 0.25rem; overflow: hidden; }
+  .listings__window::after { content: ""; position: absolute; inset: 0; background:
+    linear-gradient(90deg, transparent 49%, rgba(212,180,131,0.6) 49%, rgba(212,180,131,0.6) 51%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(212,180,131,0.6) 49%, rgba(212,180,131,0.6) 51%, transparent 51%); }
+  .listings__card h3 { font-size: 1.25rem; margin-bottom: 0.3rem; }
+  .tag { font-size: 0.85rem; color: #5C6E64; margin-bottom: 0.5rem; }
+  .price { font-weight: 700; color: #0E2F26; }
+
+  .about { background: #0E2F26; color: #F4EFE3; padding: 5.5rem 2rem; }
+  .about__text { max-width: 42rem; margin-inline: auto; text-align: center; }
+  .about p { line-height: 1.75; color: #C9DBD1; }
+
+  .contact { max-width: 32rem; margin-inline: auto; padding: 5.5rem 2rem 6rem; text-align: center; }
+  .contact h2 { font-size: 2rem; margin-bottom: 0.6rem; }
+  .contact > p { color: #5C6E64; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; text-align: left; }
+  .field label { font-size: 0.85rem; color: #5C6E64; }
+  .field input, .field select { background: #fff; border: 1px solid rgba(14,47,38,0.25); padding: 0.7rem 0.85rem; font-family: inherit; border-radius: 2px; }
+  .btn { margin-top: 0.5rem; background: #0E2F26; color: #F4EFE3; border: none; padding: 0.85rem 1.6rem; font-weight: 600; }
+
+  .site-footer { max-width: 78rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #5C6E64; border-top: 1px solid rgba(14,47,38,0.15); }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #5C6E64; text-decoration: underline; }
+
+  @media (max-width: 55rem) {
+    .listings__grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #0E2F26; flex-direction: column; align-items: flex-start; padding: 1rem 2rem 1.5rem; display: none; }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>

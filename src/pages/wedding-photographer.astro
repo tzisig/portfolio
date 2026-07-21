@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource/cormorant-garamond/400-italic.css";
+import "@fontsource/karla/400.css";
+import "@fontsource/karla/500.css";
+
+const collections = [
+  { name: "The Elopement", price: "from €1,400", desc: "Two to six hours, one location, quiet and unscripted." },
+  { name: "The Full Day", price: "from €3,200", desc: "Getting-ready through last dance, with a second shooter." },
+  { name: "The Weekend", price: "from €4,800", desc: "Rehearsal dinner, ceremony, and the morning after brunch." },
+];
+
+const journal = [
+  { couple: "Inês & Tomás", place: "Sintra, May" },
+  { couple: "Laila & Beatriz", place: "Comporta, September" },
+  { couple: "Marta & Duarte", place: "Douro Valley, June" },
+];
+---
+<BaseLayout
+  title="Rosa Vale Photography — Wedding Photographer"
+  description="Quiet, unscripted wedding photography across Portugal, documenting the day as it actually happens."
+  themeColor="#FBF3EE"
+  bodyClass="wedding"
+  consent={{ bg: "#FBF3EE", fg: "#4A2338", accent: "#4A2338", accentFg: "#FBF3EE", border: "rgba(74,35,56,0.16)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">Rosa Vale</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#contact">Enquire</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Wedding &amp; elopement photography — Portugal</p>
+      <h1>Photographs that feel<br /><em>like the day did.</em></h1>
+      <p class="hero__lede">I document weddings the way they actually unfold — the nervous laugh before the vows, not the pose after them. Based in Lisbon, available worldwide.</p>
+      <a class="hero__cta" href="#contact">Check your date</a>
+    </section>
+
+    <section class="collections" id="collections">
+      <h2>Collections</h2>
+      <div class="collections__grid">
+        {collections.map((c) => (
+          <article class="collections__card">
+            <h3>{c.name}</h3>
+            <p class="price">{c.price}</p>
+            <p>{c.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="journal" id="journal">
+      <h2>From the Journal</h2>
+      <div class="journal__grid">
+        {journal.map((j) => (
+          <article class="journal__card">
+            <div class="journal__plate" aria-hidden="true"></div>
+            <h3>{j.couple}</h3>
+            <p>{j.place}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="quote">
+      <blockquote>
+        <p>She disappeared into the background so completely that half our photos, we forgot she was even there taking them.</p>
+        <footer>— Inês, married in Sintra</footer>
+      </blockquote>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Check Your Date</h2>
+      <p>Tell me the date and where you're getting married — I'll reply within 48 hours.</p>
+      <form class="contact__form">
+        <div class="field">
+          <label for="name">Your names</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div class="field">
+          <label for="date">Wedding date</label>
+          <input id="date" name="date" type="date" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <button type="submit" class="btn">Send Enquiry</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Rosa Vale Photography.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .wedding { background: #FBF3EE; color: #4A2338; font-family: "Karla", sans-serif; }
+  h1, h2, h3, .brand { font-family: "Cormorant Garamond", serif; }
+  :global(.wedding) :focus-visible { outline-color: #4A2338; }
+
+  .nav { max-width: 74rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 2rem; }
+  .brand { font-size: 1.5rem; text-decoration: none; color: #4A2338; letter-spacing: 0.02em; }
+  .nav-menu { list-style: none; display: flex; gap: 2.25rem; }
+  .nav-menu a { text-decoration: none; color: #4A2338; font-size: 0.92rem; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 20px; height: 1.5px; background: #4A2338; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -6px; }
+  .nav-toggle__bar::after { position: absolute; top: 6px; }
+
+  .hero { max-width: 46rem; margin-inline: auto; text-align: center; padding: 3rem 1.5rem 6rem; }
+  .eyebrow { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: #A9647F; margin-bottom: 1.4rem; }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 500; line-height: 1.12; margin-bottom: 1.5rem; }
+  h1 em { font-style: italic; color: #A9647F; }
+  .hero__lede { font-size: 1.1rem; line-height: 1.7; color: #6B3E52; max-width: 34rem; margin-inline: auto; margin-bottom: 2.25rem; }
+  .hero__cta { display: inline-block; border: 1px solid #4A2338; padding: 0.85rem 2rem; text-decoration: none; color: #4A2338; font-size: 0.92rem; letter-spacing: 0.03em; border-radius: 999px; }
+
+  .collections { max-width: 74rem; margin-inline: auto; padding: 4rem 1.5rem 5rem; }
+  .collections h2, .journal h2 { text-align: center; font-size: 2rem; font-weight: 500; margin-bottom: 3rem; }
+  .collections__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .collections__card { text-align: center; padding: 2.25rem 1.5rem; border: 1px solid rgba(74,35,56,0.18); border-radius: 0.75rem; }
+  .collections__card h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.4rem; }
+  .price { color: #A9647F; font-size: 0.9rem; margin-bottom: 1rem; }
+  .collections__card p:not(.price) { line-height: 1.6; color: #6B3E52; font-size: 0.95rem; }
+
+  .journal { background: #F3E4DC; padding: 5rem 1.5rem; }
+  .journal__grid { max-width: 74rem; margin-inline: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .journal__plate { aspect-ratio: 4/5; border-radius: 0.5rem; margin-bottom: 1rem; background: linear-gradient(160deg, #e9c9bd, #c98fa0); }
+  .journal__card h3 { font-size: 1.25rem; font-weight: 500; }
+  .journal__card p { color: #6B3E52; font-size: 0.9rem; }
+
+  .quote { max-width: 40rem; margin-inline: auto; padding: 5.5rem 1.5rem; text-align: center; }
+  .quote p { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.6rem; line-height: 1.5; margin-bottom: 1rem; }
+  .quote footer { color: #A9647F; font-size: 0.9rem; }
+
+  .contact { max-width: 32rem; margin-inline: auto; padding: 2rem 1.5rem 6rem; text-align: center; }
+  .contact h2 { font-size: 2rem; font-weight: 500; margin-bottom: 0.6rem; }
+  .contact > p { color: #6B3E52; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; text-align: left; }
+  .field label { font-size: 0.85rem; color: #6B3E52; }
+  .field input { background: #fff; border: 1px solid rgba(74,35,56,0.25); border-radius: 0.4rem; padding: 0.7rem 0.85rem; font-family: inherit; }
+  .btn { margin-top: 0.5rem; background: #4A2338; color: #FBF3EE; border: none; padding: 0.85rem 1.6rem; border-radius: 999px; font-size: 0.95rem; }
+
+  .site-footer { max-width: 74rem; margin-inline: auto; padding: 2rem 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #8A5B71; border-top: 1px solid rgba(74,35,56,0.15); }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #8A5B71; text-decoration: underline; }
+
+  @media (max-width: 55rem) {
+    .collections__grid, .journal__grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #FBF3EE; flex-direction: column; padding: 1rem 2rem 1.5rem; display: none; }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>

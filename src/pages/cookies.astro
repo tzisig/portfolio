@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+---
+<BaseLayout
+  title="Cookie Policy"
+  description="Which cookies this site uses and how to control them."
+  themeColor="#111111"
+  bodyClass="legal"
+>
+  <main id="main" class="legal-wrap">
+    <a class="back" href="/">&larr; Back</a>
+    <h1>Cookie Policy</h1>
+    <p class="updated">Last updated: placeholder — set this to your real launch date.</p>
+
+    <p class="note">
+      <strong>Template note:</strong> replace this table with the cookies your
+      real analytics/marketing tools actually set once you add them; this
+      demo ships with none active by default.
+    </p>
+
+    <h2>What cookies do</h2>
+    <p>Cookies are small files a site can store in your browser to remember
+    information between visits, such as your consent choice.</p>
+
+    <h2>Categories used on this site</h2>
+    <table>
+      <thead>
+        <tr><th scope="col">Category</th><th scope="col">Purpose</th><th scope="col">Consent needed?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Strictly necessary</td>
+          <td>Remembers your cookie choice, keeps the site secure and functional.</td>
+          <td>No — required to operate the site.</td>
+        </tr>
+        <tr>
+          <td>Analytics (optional)</td>
+          <td>Aggregated, anonymised usage statistics to improve the site.</td>
+          <td>Yes — off until you accept.</td>
+        </tr>
+        <tr>
+          <td>Marketing (optional)</td>
+          <td>Not enabled in this template. Add only with disclosure and consent.</td>
+          <td>Yes — off until you accept.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Managing your choice</h2>
+    <p>Use the banner shown on your first visit, or clear this site's data in
+    your browser settings to be asked again. You can also block cookies
+    entirely in your browser, though some site features may not work as
+    intended.</p>
+
+    <nav class="legal-links" aria-label="Legal pages">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/accessibility">Accessibility Statement</a>
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+  .legal-wrap {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding: 4rem 1.5rem 6rem;
+    font-family: "Inter", system-ui, sans-serif;
+    color: #1c1c1c;
+    background: #ffffff;
+  }
+  .back { display: inline-block; margin-bottom: 2rem; font-size: 0.9rem; text-decoration: none; color: #555; }
+  h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .updated { color: #666; font-size: 0.875rem; margin-bottom: 1.75rem; }
+  .note {
+    background: #f3f3f1; border-radius: 0.6rem; padding: 1rem 1.25rem;
+    font-size: 0.9rem; line-height: 1.6; margin-bottom: 2.25rem;
+  }
+  h2 { font-size: 1.15rem; margin-top: 2rem; margin-bottom: 0.6rem; }
+  p { font-size: 0.97rem; line-height: 1.7; color: #333; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.65rem 0.6rem; border-bottom: 1px solid #e6e6e3; vertical-align: top; }
+  th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: #666; }
+  .legal-links {
+    margin-top: 3rem; display: flex; gap: 1.5rem;
+    border-top: 1px solid #e6e6e3; padding-top: 1.5rem; font-size: 0.9rem;
+  }
+  .legal-links a { text-decoration: underline; }
+</style>

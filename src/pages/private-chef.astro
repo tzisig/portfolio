@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/fraunces/400-italic.css";
+import "@fontsource/fraunces/500.css";
+import "@fontsource/fraunces/600.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+
+const menu = [
+  { course: "First", dish: "Charred octopus, black garlic, citrus" },
+  { course: "Second", dish: "Roasted celeriac, brown butter, hazelnut" },
+  { course: "Third", dish: "Dry-aged duck, cherry, smoked jus" },
+  { course: "Fourth", dish: "Aged sheep's cheese, honeycomb, thyme" },
+  { course: "Fifth", dish: "Burnt basque cheesecake, olive oil" },
+];
+
+const services = [
+  { name: "Private Dinners", desc: "A full tasting menu, cooked and plated in your own kitchen, for 2 to 12 guests." },
+  { name: "Events & Celebrations", desc: "Menus built around the occasion, from engagement dinners to milestone birthdays." },
+  { name: "Seasonal Residencies", desc: "A short run of ticketed dinners in a single location, menu changes each week." },
+];
+---
+<BaseLayout
+  title="Ember & Ash — Private Chef"
+  description="A private chef offering seasonal tasting menus cooked in your home, for private dinners and celebrations."
+  themeColor="#1B1613"
+  bodyClass="chef"
+  consent={{ bg: "#1B1613", fg: "#EFE7DA", accent: "#C9A15A", accentFg: "#1B1613", border: "rgba(239,231,218,0.16)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">Ember &amp; Ash</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#menu">Tasting Menu</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Enquire</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Private Chef · Seasonal Tasting Menus</p>
+      <h1>Dinner, cooked <em>in</em> your kitchen, not out of it.</h1>
+      <p class="hero__lede">A five-course seasonal menu, sourced that morning and finished at your table — private dinners for 2 to 12 guests.</p>
+      <a class="hero__cta" href="#contact">Enquire About a Date</a>
+    </section>
+
+    <section class="menu" id="menu">
+      <h2>This Week's Tasting Menu</h2>
+      <ol class="menu__list">
+        {menu.map((m) => (
+          <li>
+            <span class="menu__course">{m.course}</span>
+            <span class="menu__leader" aria-hidden="true"></span>
+            <span class="menu__dish">{m.dish}</span>
+          </li>
+        ))}
+      </ol>
+      <p class="menu__note">Menu changes weekly with the market. Dietary needs accommodated with notice.</p>
+    </section>
+
+    <section class="services" id="services">
+      <h2>Services</h2>
+      <div class="services__grid">
+        {services.map((s) => (
+          <article>
+            <h3>{s.name}</h3>
+            <p>{s.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Enquire About a Date</h2>
+      <p>Tell me the occasion, guest count, and preferred date — I'll confirm availability within a day.</p>
+      <form class="contact__form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="guests">Guest count</label>
+          <input id="guests" name="guests" type="number" min="2" max="12" />
+        </div>
+        <button type="submit" class="btn">Send Enquiry</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Ember &amp; Ash Private Dining.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .chef { background: #1B1613; color: #EFE7DA; font-family: "Inter", sans-serif; }
+  h1, h2, h3, .brand { font-family: "Fraunces", serif; }
+  :global(.chef) :focus-visible { outline-color: #C9A15A; }
+
+  .nav { max-width: 62rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 2rem; }
+  .brand { font-size: 1.3rem; font-style: italic; text-decoration: none; color: #EFE7DA; }
+  .nav-menu { list-style: none; display: flex; gap: 2rem; }
+  .nav-menu a { text-decoration: none; color: #EFE7DA; font-size: 0.9rem; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 20px; height: 1.5px; background: #EFE7DA; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -6px; }
+  .nav-toggle__bar::after { position: absolute; top: 6px; }
+
+  .hero { max-width: 42rem; margin-inline: auto; text-align: center; padding: 3rem 1.5rem 5.5rem; }
+  .eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: #C9A15A; margin-bottom: 1.5rem; }
+  h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 500; line-height: 1.22; margin-bottom: 1.4rem; }
+  h1 em { font-style: italic; color: #C9A15A; }
+  .hero__lede { color: #C9BBA5; line-height: 1.7; margin-bottom: 2.25rem; }
+  .hero__cta { display: inline-block; border: 1px solid #C9A15A; color: #C9A15A; padding: 0.85rem 2rem; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.03em; }
+
+  .menu { max-width: 40rem; margin-inline: auto; padding: 2rem 1.5rem 5.5rem; }
+  .menu h2 { text-align: center; font-size: 1.7rem; font-weight: 500; margin-bottom: 2.5rem; }
+  .menu__list { list-style: none; }
+  .menu__list li { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.85rem 0; border-bottom: 1px dotted rgba(239,231,218,0.25); }
+  .menu__course { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C9A15A; width: 4.5rem; flex-shrink: 0; }
+  .menu__leader { flex: 1; }
+  .menu__dish { font-family: "Fraunces", serif; font-size: 1.05rem; }
+  .menu__note { margin-top: 1.5rem; text-align: center; font-size: 0.85rem; color: #A99A82; }
+
+  .services { background: #241D18; padding: 5.5rem 1.5rem; }
+  .services h2 { text-align: center; font-size: 1.9rem; font-weight: 500; margin-bottom: 3rem; }
+  .services__grid { max-width: 62rem; margin-inline: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .services__grid h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.6rem; }
+  .services__grid p { line-height: 1.65; color: #C9BBA5; font-size: 0.95rem; }
+
+  .contact { max-width: 32rem; margin-inline: auto; padding: 5.5rem 1.5rem 6rem; text-align: center; }
+  .contact h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 0.6rem; }
+  .contact > p { color: #A99A82; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; text-align: left; }
+  .field label { font-size: 0.85rem; color: #A99A82; }
+  .field input { background: #241D18; border: 1px solid rgba(239,231,218,0.2); color: #EFE7DA; padding: 0.7rem 0.85rem; font-family: inherit; }
+  .btn { margin-top: 0.5rem; background: #C9A15A; color: #1B1613; border: none; padding: 0.85rem 1.6rem; font-weight: 600; }
+
+  .site-footer { max-width: 62rem; margin-inline: auto; padding: 2rem 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #A99A82; border-top: 1px solid rgba(239,231,218,0.12); }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #A99A82; text-decoration: underline; }
+
+  @media (max-width: 50rem) {
+    .services__grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #1B1613; flex-direction: column; padding: 1rem 2rem 1.5rem; display: none; }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>

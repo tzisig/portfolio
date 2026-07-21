@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/space-grotesk/500.css";
+import "@fontsource/space-grotesk/700.css";
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/500.css";
+
+const metrics = [
+  { label: "Avg. client portfolio growth (5yr)", value: "+7.8%" },
+  { label: "Clients advised", value: "240+" },
+  { label: "Years as a fiduciary advisor", value: "11" },
+];
+
+const services = [
+  { code: "01", name: "Retirement Planning", desc: "A withdrawal strategy modeled against real market volatility, not a straight-line assumption." },
+  { code: "02", name: "Tax-Aware Investing", desc: "Portfolio decisions made with your actual tax bracket and accounts in view, not in isolation." },
+  { code: "03", name: "Wealth Transfer", desc: "Structuring transfers and trusts so more of what you built reaches who you intend." },
+];
+---
+<BaseLayout
+  title="Ledger Advisory — Independent Financial Advisor"
+  description="Fee-only, fiduciary financial planning and portfolio management with full transparency into every decision."
+  themeColor="#0A0A0F"
+  bodyClass="advisor"
+  consent={{ bg: "#0A0A0F", fg: "#F1F1F4", accent: "#FF5A1F", accentFg: "#0A0A0F", border: "rgba(241,241,244,0.16)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">Ledger<span>.</span></a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Fee-only · Fiduciary · No commissions</p>
+      <h1>Financial advice with the math shown, not hidden.</h1>
+      <p class="hero__lede">Independent portfolio management and retirement planning, billed transparently and never funded by product commissions.</p>
+      <a class="btn" href="#contact">Book a Call</a>
+      <dl class="metrics">
+        {metrics.map((m) => (<div><dd>{m.value}</dd><dt>{m.label}</dt></div>))}
+      </dl>
+    </section>
+
+    <section class="services" id="services">
+      <h2>Services</h2>
+      <div class="services__grid">
+        {services.map((s) => (
+          <article>
+            <span class="services__code">{s.code}</span>
+            <h3>{s.name}</h3>
+            <p>{s.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="approach" id="approach">
+      <div class="approach__ticker" aria-hidden="true">
+        <div class="approach__row">S&amp;P 500 +11.2%</div>
+        <div class="approach__row">10Y TREASURY 4.31%</div>
+        <div class="approach__row">CLIENT AVG. FEE 0.65%</div>
+        <div class="approach__row">INDUSTRY AVG. FEE 1.10%</div>
+      </div>
+      <div class="approach__text">
+        <h2>The approach</h2>
+        <p>Every recommendation comes with the underlying numbers, not just a conclusion. You'll see the same projections and fee comparisons I use internally, so you can evaluate the advice on its merits — not on trust alone.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Book a Call</h2>
+      <p>A free 30-minute introductory call, no obligation and no sales pitch.</p>
+      <form class="contact__form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="assets">Approx. investable assets</label>
+          <select id="assets" name="assets">
+            <option>Under $250k</option>
+            <option>$250k – $1M</option>
+            <option>$1M – $5M</option>
+            <option>$5M+</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Request Call</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Ledger Advisory LLC. Registered Investment Adviser. Not investment advice.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .advisor { background: #0A0A0F; color: #F1F1F4; font-family: "IBM Plex Sans", sans-serif; }
+  h1, h2, h3, .brand { font-family: "Space Grotesk", sans-serif; }
+  :global(.advisor) :focus-visible { outline-color: #FF5A1F; }
+
+  .nav { max-width: 76rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; }
+  .brand { font-size: 1.25rem; font-weight: 700; text-decoration: none; color: #F1F1F4; }
+  .brand span { color: #FF5A1F; }
+  .nav-menu { list-style: none; display: flex; gap: 2rem; align-items: center; }
+  .nav-menu a { text-decoration: none; color: #F1F1F4; font-size: 0.92rem; }
+  .nav-cta { border: 1px solid #FF5A1F; padding: 0.5rem 1.1rem; border-radius: 2px; color: #FF5A1F !important; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 22px; height: 2px; background: #F1F1F4; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -7px; }
+  .nav-toggle__bar::after { position: absolute; top: 7px; }
+
+  .hero { max-width: 76rem; margin-inline: auto; padding: 5rem 2rem 4rem; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; color: #7DD8FF; font-size: 0.82rem; letter-spacing: 0.04em; margin-bottom: 1.4rem; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.12; max-width: 40rem; margin-bottom: 1.4rem; }
+  .hero__lede { max-width: 32rem; color: #B7B7C2; line-height: 1.65; margin-bottom: 2.25rem; }
+  .btn { display: inline-block; background: #FF5A1F; color: #0A0A0F; padding: 0.85rem 1.7rem; text-decoration: none; font-weight: 500; border: none; font-family: "IBM Plex Sans", sans-serif; }
+  .metrics { display: flex; gap: 3rem; margin-top: 3.5rem; flex-wrap: wrap; border-top: 1px solid rgba(241,241,244,0.14); padding-top: 2rem; }
+  .metrics dd { font-family: "IBM Plex Mono", monospace; font-size: 1.6rem; color: #7DD8FF; margin-bottom: 0.3rem; }
+  .metrics dt { font-size: 0.82rem; color: #8C8C99; max-width: 12rem; }
+
+  .services { max-width: 76rem; margin-inline: auto; padding: 4rem 2rem 5.5rem; }
+  .services h2, .approach__text h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 2.5rem; }
+  .services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .services__code { font-family: "IBM Plex Mono", monospace; color: #FF5A1F; font-size: 0.85rem; }
+  .services__grid h3 { font-size: 1.15rem; font-weight: 500; margin: 0.6rem 0 0.6rem; }
+  .services__grid p { color: #B7B7C2; line-height: 1.6; font-size: 0.94rem; }
+
+  .approach { background: #111117; padding: 5.5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 76rem; margin-inline: auto; align-items: center; }
+  .approach__ticker { font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; border: 1px solid rgba(241,241,244,0.14); border-radius: 0.5rem; overflow: hidden; }
+  .approach__row { padding: 0.9rem 1.1rem; border-bottom: 1px solid rgba(241,241,244,0.1); color: #7DD8FF; }
+  .approach__row:last-child { border-bottom: none; }
+  .approach__text p { color: #B7B7C2; line-height: 1.7; max-width: 30rem; }
+
+  .contact { max-width: 32rem; margin-inline: auto; padding: 5.5rem 2rem 6rem; }
+  .contact h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 0.6rem; }
+  .contact > p { color: #8C8C99; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .field label { font-size: 0.85rem; color: #8C8C99; }
+  .field input, .field select { background: #16161D; border: 1px solid rgba(241,241,244,0.2); color: #F1F1F4; padding: 0.7rem 0.85rem; font-family: "IBM Plex Sans", sans-serif; border-radius: 2px; }
+
+  .site-footer { max-width: 76rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #8C8C99; border-top: 1px solid rgba(241,241,244,0.12); }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #8C8C99; text-decoration: underline; }
+
+  @media (max-width: 60rem) {
+    .services__grid { grid-template-columns: 1fr; }
+    .approach { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #0A0A0F; flex-direction: column; align-items: flex-start; padding: 1rem 2rem 1.5rem; display: none; }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>

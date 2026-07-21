@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/archivo/700.css";
+import "@fontsource/archivo/900.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/700.css";
+
+const programs = [
+  { name: "Strength Foundations", weeks: "8 weeks", desc: "Barbell fundamentals for people who've never lifted before, or want to fix their form." },
+  { name: "Performance Block", weeks: "12 weeks", desc: "For lifters chasing a specific number — squat, deadlift, or a race day." },
+  { name: "Rebuild", weeks: "10 weeks", desc: "Returning to training after injury or a long break, paced by a real recovery plan." },
+];
+
+const stats = [
+  { n: "312", l: "clients coached" },
+  { n: "9", l: "years coaching" },
+  { n: "0", l: "cookie-cutter plans" },
+];
+---
+<BaseLayout
+  title="Forge Coaching — Personal Training"
+  description="One-on-one strength coaching with programming built around your body, schedule, and actual goals."
+  themeColor="#1447E6"
+  bodyClass="trainer"
+  consent={{ bg: "#0B1650", fg: "#F4F6FF", accent: "#F2C94C", accentFg: "#0B1650", border: "rgba(244,246,255,0.18)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">FORGE</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#contact" class="nav-cta">Apply to Train</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Online &amp; in-person coaching</p>
+      <h1>Train with a plan<br />that knows your name.</h1>
+      <p class="hero__lede">Forge is one coach, a small roster of clients, and programming rebuilt every week around how you actually recover — not a template PDF.</p>
+      <a class="btn" href="#contact">Apply to Train<span aria-hidden="true"> →</span></a>
+      <dl class="stats">
+        {stats.map((s) => (
+          <div><dt>{s.l}</dt><dd>{s.n}</dd></div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="programs" id="programs">
+      <h2>Coaching Programs</h2>
+      <div class="programs__grid">
+        {programs.map((p, i) => (
+          <article class="programs__card" style={`--tilt: ${i % 2 === 0 ? "-1.2deg" : "1.2deg"}`}>
+            <p class="programs__weeks">{p.weeks}</p>
+            <h3>{p.name}</h3>
+            <p>{p.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="method" id="method">
+      <div class="method__block">
+        <h2>The method</h2>
+        <p>Every client starts with a movement and recovery assessment, not a generic intake form. From there your program is written and adjusted weekly based on what you actually log — sleep, soreness, and how the bar speed looked on video. No plan survives contact with real life unchanged, so yours won't either.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Apply to Train</h2>
+      <p>Spots are limited to keep coaching genuinely one-on-one. Tell us where you're starting from.</p>
+      <form class="contact__form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="goal">Main goal right now</label>
+          <input id="goal" name="goal" type="text" required />
+        </div>
+        <button type="submit" class="btn btn--dark">Send Application<span aria-hidden="true"> →</span></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Forge Coaching.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .trainer { background: #1447E6; color: #F4F6FF; font-family: "Inter", sans-serif; }
+  h1, h2, h3, .brand { font-family: "Archivo", sans-serif; font-weight: 900; text-transform: uppercase; }
+  :global(.trainer) :focus-visible { outline-color: #F2C94C; }
+
+  .site-header { max-width: 78rem; margin-inline: auto; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; }
+  .brand { font-size: 1.2rem; letter-spacing: 0.06em; text-decoration: none; color: #F4F6FF; }
+  .nav-menu { list-style: none; display: flex; gap: 2rem; align-items: center; }
+  .nav-menu a { text-decoration: none; color: #F4F6FF; font-family: "Inter", sans-serif; font-weight: 500; text-transform: none; font-size: 0.95rem; }
+  .nav-cta { background: #F2C94C; color: #0B1650 !important; padding: 0.55rem 1.1rem; border-radius: 2px; font-weight: 700 !important; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 22px; height: 3px; background: #F4F6FF; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -8px; }
+  .nav-toggle__bar::after { position: absolute; top: 8px; }
+
+  .hero { max-width: 78rem; margin-inline: auto; padding: 3rem 2rem 5rem; position: relative; }
+  .eyebrow { font-family: "Inter", sans-serif; font-weight: 700; color: #F2C94C; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; margin-bottom: 1.2rem; }
+  h1 { font-size: clamp(2.4rem, 6.5vw, 4.6rem); line-height: 0.98; letter-spacing: -0.01em; margin-bottom: 1.5rem; max-width: 40rem; }
+  .hero__lede { font-family: "Inter", sans-serif; font-weight: 400; text-transform: none; font-size: 1.1rem; line-height: 1.6; max-width: 32rem; color: #D8DFFF; margin-bottom: 2.25rem; }
+  .btn { display: inline-block; background: #F2C94C; color: #0B1650; padding: 0.9rem 1.75rem; font-family: "Inter", sans-serif; font-weight: 700; text-decoration: none; clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%); }
+  .stats { display: flex; gap: 3rem; margin-top: 3.5rem; flex-wrap: wrap; }
+  .stats dt { font-family: "Inter", sans-serif; text-transform: none; font-weight: 400; font-size: 0.85rem; color: #B9C6FF; margin-bottom: 0.3rem; }
+  .stats dd { font-size: 2.2rem; font-weight: 900; font-family: "Archivo", sans-serif; }
+
+  .programs { background: #F4F6FF; color: #0B1650; padding: 5.5rem 2rem; }
+  .programs h2, .method h2 { max-width: 78rem; margin-inline: auto; font-size: 2rem; margin-bottom: 2.5rem; }
+  .programs__grid { max-width: 78rem; margin-inline: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+  .programs__card { background: #fff; border: 3px solid #0B1650; padding: 1.75rem; transform: rotate(var(--tilt)); box-shadow: 6px 6px 0 #1447E6; }
+  .programs__weeks { display: inline-block; background: #F2C94C; padding: 0.2rem 0.6rem; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.9rem; }
+  .programs__card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
+  .programs__card p:not(.programs__weeks) { font-family: "Inter", sans-serif; font-weight: 400; text-transform: none; line-height: 1.55; color: #3A3F63; }
+
+  .method { padding: 5.5rem 2rem; }
+  .method__block { max-width: 78rem; margin-inline: auto; }
+  .method p { font-family: "Inter", sans-serif; font-weight: 400; text-transform: none; font-size: 1.05rem; line-height: 1.75; max-width: 42rem; color: #DCE3FF; }
+
+  .contact { background: #0B1650; padding: 5.5rem 2rem 6rem; text-align: left; }
+  .contact h2 { max-width: 40rem; margin-inline: auto; font-size: 2rem; margin-bottom: 0.6rem; }
+  .contact > p { max-width: 40rem; margin-inline: auto; font-family: "Inter", sans-serif; font-weight: 400; text-transform: none; color: #B9C6FF; margin-bottom: 2rem; }
+  .contact__form { max-width: 40rem; margin-inline: auto; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .field label { font-family: "Inter", sans-serif; font-weight: 400; text-transform: none; font-size: 0.85rem; color: #B9C6FF; }
+  .field input { background: #16205E; border: 1px solid rgba(244,246,255,0.25); padding: 0.7rem 0.85rem; color: #F4F6FF; font-family: "Inter", sans-serif; }
+  .btn--dark { background: #F2C94C; color: #0B1650; }
+
+  .site-footer { max-width: 78rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #B9C6FF; font-family: "Inter", sans-serif; text-transform: none; }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #B9C6FF; text-decoration: underline; }
+
+  @media (max-width: 55rem) {
+    .programs__grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #1447E6; flex-direction: column; align-items: flex-start; padding: 1rem 2rem 1.5rem; display: none; }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>

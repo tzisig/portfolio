@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/space-grotesk/500.css";
+import "@fontsource/space-grotesk/700.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+
+const pages = [
+  { href: "/attorney", title: "Attorney", desc: "Whitfield & Cole — Law Firm", bg: "#0F1B2D", fg: "#F4F0E6", accent: "#A9832D" },
+  { href: "/architect", title: "Architect", desc: "Monolith — Architecture Studio", bg: "#E8E6E1", fg: "#16171A", accent: "#B5651D" },
+  { href: "/trainer", title: "Personal Trainer", desc: "Forge — Strength Coaching", bg: "#1447E6", fg: "#F4F6FF", accent: "#F2C94C" },
+  { href: "/wedding-photographer", title: "Wedding Photographer", desc: "Rosa Vale Photography", bg: "#FBF3EE", fg: "#4A2338", accent: "#4A2338" },
+  { href: "/real-estate-agent", title: "Real Estate Agent", desc: "Beatriz Nogueira — Luxury Listings", bg: "#0E2F26", fg: "#F4EFE3", accent: "#D4B483" },
+  { href: "/private-chef", title: "Private Chef", desc: "Ember & Ash — Tasting Menus", bg: "#1B1613", fg: "#EFE7DA", accent: "#C9A15A" },
+  { href: "/financial-advisor", title: "Financial Advisor", desc: "Ledger Advisory — Fiduciary Planning", bg: "#0A0A0F", fg: "#F1F1F4", accent: "#FF5A1F" },
+  { href: "/life-coach", title: "Life Coach & Therapist", desc: "Clara Mendes — Individual Sessions", bg: "#F1EEE6", fg: "#24302C", accent: "#3E6259" },
+  { href: "/fashion-designer", title: "Fashion Designer", desc: "Inês Rocha — Made-to-Order Studio", bg: "#2B4570", fg: "#F3F1EA", accent: "#C9C69A" },
+  { href: "/graphic-designer", title: "Graphic Designer", desc: "Tomás Reis — Brand & Web Design", bg: "#FFFFFF", fg: "#111111", accent: "#6E56CF" },
+];
+---
+<BaseLayout
+  title="Landing Page Portfolio — 10 Professions, 10 Designs"
+  description="A collection of ten fully custom, WCAG-conscious landing page designs, one for each profession."
+  themeColor="#0A0A0A"
+  bodyClass="gallery"
+  consent={{ bg: "#0A0A0A", fg: "#F5F5F5", accent: "#6E56CF", accentFg: "#F5F5F5", border: "rgba(245,245,245,0.16)" }}
+>
+  <main id="main">
+    <header class="gallery__hero">
+      <p class="eyebrow">Design Portfolio</p>
+      <h1>Ten professions.<br />Ten distinct landing pages.</h1>
+      <p class="lede">Every page below is a fully built, standalone site: unique palette, typography, and layout for the profession it represents — built with performance, accessibility, and privacy compliance in mind from the start.</p>
+    </header>
+
+    <section class="grid" aria-label="Landing page designs">
+      {pages.map((p) => (
+        <a class="card" href={p.href} style={`--bg:${p.bg}; --fg:${p.fg}; --accent:${p.accent};`}>
+          <span class="card__swatches" aria-hidden="true">
+            <span class="card__swatch" style="background: var(--bg);"></span>
+            <span class="card__swatch" style="background: var(--accent);"></span>
+          </span>
+          <span class="card__title">{p.title}</span>
+          <span class="card__desc">{p.desc}</span>
+          <span class="card__arrow" aria-hidden="true">→</span>
+        </a>
+      ))}
+    </section>
+
+    <footer class="gallery__footer">
+      <p>&copy; {new Date().getFullYear()} Design Portfolio. Built with Astro.</p>
+      <nav aria-label="Legal">
+        <a href="/privacy">Privacy</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/accessibility">Accessibility</a>
+      </nav>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style>
+  .gallery { background: #0A0A0A; color: #F5F5F5; font-family: "Inter", sans-serif; min-height: 100svh; }
+  .gallery__hero { max-width: 52rem; margin-inline: auto; padding: 5rem 1.5rem 3.5rem; text-align: center; }
+  .eyebrow { font-family: "Space Grotesk", sans-serif; color: #6E56CF; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; margin-bottom: 1.4rem; }
+  h1 { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-bottom: 1.3rem; }
+  .lede { color: #B8B8B8; line-height: 1.7; max-width: 38rem; margin-inline: auto; }
+
+  .grid { max-width: 74rem; margin-inline: auto; padding: 1rem 1.5rem 5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1.25rem; }
+  .card {
+    display: flex; flex-direction: column; gap: 0.6rem;
+    background: #131313; border: 1px solid rgba(245,245,245,0.1); border-radius: 0.9rem;
+    padding: 1.5rem; text-decoration: none; color: #F5F5F5; position: relative;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover, .card:focus-visible { border-color: var(--accent); transform: translateY(-2px); }
+  .card__swatches { display: flex; gap: 0.4rem; margin-bottom: 0.3rem; }
+  .card__swatch { width: 1.4rem; height: 1.4rem; border-radius: 50%; border: 1px solid rgba(245,245,245,0.25); }
+  .card__title { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.1rem; }
+  .card__desc { color: #A0A0A0; font-size: 0.88rem; }
+  .card__arrow { position: absolute; top: 1.4rem; right: 1.4rem; color: var(--accent); font-size: 1.1rem; }
+
+  .gallery__footer { max-width: 74rem; margin-inline: auto; padding: 2rem 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #8A8A8A; border-top: 1px solid rgba(245,245,245,0.1); }
+  .gallery__footer nav { display: flex; gap: 1.25rem; }
+  .gallery__footer a { color: #8A8A8A; text-decoration: underline; }
+</style>

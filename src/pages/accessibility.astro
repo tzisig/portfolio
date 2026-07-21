@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+---
+<BaseLayout
+  title="Accessibility Statement"
+  description="Our commitment to an accessible website, conformance target, and how to report issues."
+  themeColor="#111111"
+  bodyClass="legal"
+>
+  <main id="main" class="legal-wrap">
+    <a class="back" href="/">&larr; Back</a>
+    <h1>Accessibility Statement</h1>
+    <p class="updated">Last updated: placeholder — set this to your real launch date.</p>
+
+    <p class="note">
+      <strong>Template note:</strong> the design in this template is built to
+      WCAG 2.1 AA practices (semantic landmarks, visible focus states, colour
+      contrast, alt text, reduced-motion support, keyboard operability).
+      Run a full audit with real content before claiming conformance publicly.
+    </p>
+
+    <h2>Conformance target</h2>
+    <p>[Business name] aims to conform to WCAG 2.1 level AA. This is an
+    ongoing effort and we welcome feedback.</p>
+
+    <h2>What we've done</h2>
+    <ul>
+      <li>Semantic HTML landmarks (header, nav, main, footer) and heading structure.</li>
+      <li>Visible keyboard focus indicators on every interactive element.</li>
+      <li>Text and background colours checked for sufficient contrast.</li>
+      <li>Motion and animation respect your system's "reduce motion" setting.</li>
+      <li>Descriptive link text and alt text on meaningful images.</li>
+    </ul>
+
+    <h2>Known limitations</h2>
+    <p>As with most sites, some third-party embeds you add later (maps,
+    payment widgets, video players) may not fully match this standard —
+    review each one individually.</p>
+
+    <h2>Feedback</h2>
+    <p>If you encounter an accessibility barrier, contact
+    [accessibility@yourdomain.com]. We aim to respond within 5 business days
+    and, where relevant, mention alternative ways to complete your task in
+    the meantime.</p>
+
+    <nav class="legal-links" aria-label="Legal pages">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/cookies">Cookie Policy</a>
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+  .legal-wrap {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding: 4rem 1.5rem 6rem;
+    font-family: "Inter", system-ui, sans-serif;
+    color: #1c1c1c;
+    background: #ffffff;
+  }
+  .back { display: inline-block; margin-bottom: 2rem; font-size: 0.9rem; text-decoration: none; color: #555; }
+  h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .updated { color: #666; font-size: 0.875rem; margin-bottom: 1.75rem; }
+  .note {
+    background: #f3f3f1; border-radius: 0.6rem; padding: 1rem 1.25rem;
+    font-size: 0.9rem; line-height: 1.6; margin-bottom: 2.25rem;
+  }
+  h2 { font-size: 1.15rem; margin-top: 2rem; margin-bottom: 0.6rem; }
+  p, li { font-size: 0.97rem; line-height: 1.7; color: #333; }
+  ul { padding-inline-start: 1.25rem; }
+  .legal-links {
+    margin-top: 3rem; display: flex; gap: 1.5rem;
+    border-top: 1px solid #e6e6e3; padding-top: 1.5rem; font-size: 0.9rem;
+  }
+  .legal-links a { text-decoration: underline; }
+</style>

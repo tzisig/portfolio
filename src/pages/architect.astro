@@ -1,0 +1,188 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/archivo/400.css";
+import "@fontsource/archivo/500.css";
+import "@fontsource/archivo/700.css";
+import "@fontsource/work-sans/400.css";
+import "@fontsource/work-sans/500.css";
+
+const works = [
+  { title: "Casa Vertente", type: "Private residence · São Roque", desc: "A concrete-and-glass house folded around a single existing oak tree." },
+  { title: "Fold Pavilion", type: "Cultural pavilion · Lisbon", desc: "A roof structure that reads as one continuous folded plane from every angle." },
+  { title: "Nº 12 Office Retrofit", type: "Adaptive reuse · Porto", desc: "A 1960s warehouse reopened as daylight-first studio space for 40 people." },
+  { title: "Quiet House", type: "Private residence · Sintra", desc: "Six rooms, one material palette, and no interior door taller than it needs to be." },
+];
+
+const services = ["Residential design", "Adaptive reuse", "Interior architecture", "Planning & permitting"];
+---
+<BaseLayout
+  title="Monolith Studio — Architecture"
+  description="An architecture studio designing quiet, material-honest buildings for residential and cultural clients."
+  themeColor="#E8E6E1"
+  bodyClass="architect"
+  consent={{ bg: "#16171A", fg: "#E8E6E1", accent: "#B5651D", accentFg: "#16171A", border: "rgba(232,230,225,0.14)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">MONOLITH</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1>Buildings that<br />say less,<br />and mean it.</h1>
+      <p class="hero__lede">Monolith is a five-person architecture studio designing houses, pavilions, and adaptive reuse projects around material honesty and quiet proportion.</p>
+      <a class="hero__cta" href="#contact">Start a project<span aria-hidden="true"> →</span></a>
+      <div class="hero__mark" aria-hidden="true">
+        <svg viewBox="0 0 400 240" width="100%" height="100%" preserveAspectRatio="none">
+          <line x1="0" y1="200" x2="400" y2="200" stroke="#16171A" stroke-width="1"/>
+          <polyline points="20,200 20,60 200,10 380,60 380,200" fill="none" stroke="#B5651D" stroke-width="1.4"/>
+          <line x1="20" y1="130" x2="380" y2="130" stroke="#16171A" stroke-width="0.6" stroke-dasharray="2 6"/>
+          <line x1="110" y1="200" x2="110" y2="40" stroke="#16171A" stroke-width="0.6" stroke-dasharray="2 6"/>
+          <line x1="290" y1="200" x2="290" y2="40" stroke="#16171A" stroke-width="0.6" stroke-dasharray="2 6"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="work__head">
+        <h2>Selected Work</h2>
+        <p>Four projects from the last three years, spanning private houses to cultural infrastructure.</p>
+      </div>
+      <div class="work__list">
+        {works.map((w) => (
+          <article class="work__item">
+            <div class="work__plate" aria-hidden="true"></div>
+            <div>
+              <h3>{w.title}</h3>
+              <p class="work__type">{w.type}</p>
+              <p>{w.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="practice" id="practice">
+      <div class="practice__text">
+        <h2>How we practice</h2>
+        <p>Every project starts on site, not on a screen. We spend the first weeks measuring light, wind, and how people already move through a space before drawing a single wall. That discipline is why our buildings tend to need fewer explanations — they just make sense once you're standing in them.</p>
+      </div>
+      <ul class="practice__services">
+        {services.map((s) => <li>{s}</li>)}
+      </ul>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Tell us about the site</h2>
+      <p>New builds, retrofits, and interiors. We reply within two business days with next steps.</p>
+      <form class="contact__form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="brief">Project brief</label>
+          <textarea id="brief" name="brief" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send brief<span aria-hidden="true"> →</span></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Monolith Studio, Lda.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .architect { background: #E8E6E1; color: #16171A; font-family: "Work Sans", sans-serif; }
+  h1, h2, .brand { font-family: "Archivo", sans-serif; }
+  :global(.architect) :focus-visible { outline-color: #B5651D; }
+
+  .site-header { border-bottom: 1px solid rgba(22,23,26,0.15); }
+  .nav { max-width: 82rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; }
+  .brand { font-weight: 700; letter-spacing: 0.14em; font-size: 1rem; text-decoration: none; color: #16171A; }
+  .nav-menu { list-style: none; display: flex; gap: 2.5rem; }
+  .nav-menu a { text-decoration: none; color: #16171A; font-size: 0.92rem; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 22px; height: 2px; background: #16171A; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -7px; }
+  .nav-toggle__bar::after { position: absolute; top: 7px; }
+
+  .hero { max-width: 82rem; margin-inline: auto; padding: 5rem 2rem 3rem; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: end; }
+  h1 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.01em; grid-column: 1; }
+  .hero__lede { grid-column: 1; max-width: 30rem; font-size: 1.05rem; line-height: 1.65; margin-top: 2rem; color: #3B3C3E; }
+  .hero__cta { grid-column: 1; display: inline-block; margin-top: 2rem; text-decoration: none; color: #16171A; font-weight: 500; border-bottom: 2px solid #B5651D; padding-bottom: 0.2rem; }
+  .hero__mark { grid-column: 2; grid-row: 1 / 3; align-self: center; }
+
+  .work { max-width: 82rem; margin-inline: auto; padding: 6rem 2rem; }
+  .work__head { max-width: 34rem; margin-bottom: 3.5rem; }
+  .work__head h2 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .work__head p { color: #3B3C3E; line-height: 1.6; }
+  .work__list { display: grid; gap: 3rem; }
+  .work__item { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2.5rem; align-items: center; border-top: 1px solid rgba(22,23,26,0.15); padding-top: 2.25rem; }
+  .work__plate { aspect-ratio: 4 / 3; background: linear-gradient(135deg, #d9d6cd, #c3bfb2); }
+  .work__item h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .work__type { font-size: 0.82rem; color: #B5651D; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+  .work__item p:not(.work__type) { color: #3B3C3E; line-height: 1.6; max-width: 28rem; }
+
+  .practice { background: #16171A; color: #E8E6E1; padding: 6rem 2rem; display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; max-width: 82rem; margin-inline: auto; }
+  .practice__text h2 { font-size: 1.9rem; font-weight: 700; margin-bottom: 1.25rem; }
+  .practice__text p { line-height: 1.75; color: #C8C6C0; max-width: 34rem; }
+  .practice__services { list-style: none; border-top: 1px solid rgba(232,230,225,0.2); }
+  .practice__services li { padding: 1rem 0; border-bottom: 1px solid rgba(232,230,225,0.2); font-size: 1.02rem; }
+
+  .contact { max-width: 42rem; margin-inline: auto; padding: 6rem 2rem 7rem; text-align: left; }
+  .contact h2 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .contact > p { color: #3B3C3E; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .field label { font-size: 0.85rem; color: #3B3C3E; }
+  .field input, .field textarea { background: #fff; border: 1px solid rgba(22,23,26,0.25); padding: 0.7rem 0.85rem; font-family: inherit; }
+  .btn { margin-top: 0.5rem; background: #16171A; color: #E8E6E1; border: none; padding: 0.85rem 1.6rem; font-weight: 500; font-family: "Work Sans", sans-serif; }
+
+  .site-footer { max-width: 82rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; border-top: 1px solid rgba(22,23,26,0.15); color: #3B3C3E; }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #3B3C3E; text-decoration: underline; }
+
+  @media (max-width: 60rem) {
+    .hero { grid-template-columns: 1fr; }
+    .hero__mark { grid-row: auto; margin-top: 2rem; }
+    .work__item { grid-template-columns: 1fr; }
+    .practice { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #E8E6E1; flex-direction: column; padding: 1rem 2rem 1.5rem; display: none; border-bottom: 1px solid rgba(22,23,26,0.15); }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>

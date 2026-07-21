@@ -1,0 +1,169 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
+import "@fontsource/jetbrains-mono/700.css";
+import "@fontsource/manrope/400.css";
+import "@fontsource/manrope/500.css";
+import "@fontsource/manrope/700.css";
+
+const work = [
+  { client: "Nectar Co.", role: "Brand identity + packaging" },
+  { client: "Fieldnote", role: "Editorial design system" },
+  { client: "Loop Studio", role: "Motion + web design" },
+  { client: "Salt House", role: "Signage + brand identity" },
+];
+
+const skills = ["Brand identity", "Editorial & print", "Web design", "Motion design", "Packaging"];
+---
+<BaseLayout
+  title="Tomás Reis — Graphic Designer"
+  description="A graphic designer working across brand identity, editorial, web, and motion for independent studios and brands."
+  themeColor="#FFFFFF"
+  bodyClass="graphic"
+  consent={{ bg: "#111111", fg: "#FAFAFA", accent: "#6E56CF", accentFg: "#FAFAFA", border: "rgba(250,250,250,0.16)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">tomas.design</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact" class="nav-cta">Say Hello</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero__blob" aria-hidden="true"></div>
+      <p class="eyebrow">// graphic designer, based in Porto</p>
+      <h1>I make brands<br />that don't blend in.</h1>
+      <p class="hero__lede">Identity, editorial, web, and motion design for independent studios, restaurants, and brands who'd rather stand out than fit in.</p>
+      <a class="hero__cta" href="#work">See the work<span aria-hidden="true"> ↓</span></a>
+    </section>
+
+    <section class="work" id="work">
+      <h2>Selected Work</h2>
+      <div class="work__grid">
+        {work.map((w, i) => (
+          <article class="work__card" style={`--h: ${["#6E56CF", "#00B8A9", "#FF6B6B", "#FFC145"][i % 4]}`}>
+            <div class="work__plate" aria-hidden="true"></div>
+            <h3>{w.client}</h3>
+            <p>{w.role}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="skills" id="skills">
+      <h2>What I Do</h2>
+      <ul class="skills__list">
+        {skills.map((s) => <li>{s}</li>)}
+      </ul>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Say Hello</h2>
+      <p>Got a project in mind? Tell me about it.</p>
+      <form class="contact__form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="msg">Project details</label>
+          <textarea id="msg" name="msg" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Tomás Reis Design.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .graphic { background: #FFFFFF; color: #111111; font-family: "Manrope", sans-serif; }
+  h1, h2, .brand, .eyebrow, .hero__cta { font-family: "JetBrains Mono", monospace; }
+  :global(.graphic) :focus-visible { outline-color: #6E56CF; }
+
+  .nav { max-width: 74rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 1.75rem 2rem; }
+  .brand { font-size: 1rem; font-weight: 500; text-decoration: none; color: #111111; }
+  .nav-menu { list-style: none; display: flex; gap: 2rem; align-items: center; }
+  .nav-menu a { text-decoration: none; color: #111111; font-size: 0.9rem; font-family: "Manrope", sans-serif; }
+  .nav-cta { background: #111111; color: #FAFAFA !important; padding: 0.5rem 1.1rem; border-radius: 999px; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 20px; height: 2px; background: #111111; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -6px; }
+  .nav-toggle__bar::after { position: absolute; top: 6px; }
+
+  .hero { max-width: 74rem; margin-inline: auto; padding: 4rem 2rem 6rem; position: relative; }
+  .hero__blob { position: absolute; top: -4rem; right: -2rem; width: 26rem; height: 26rem; border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%; background: conic-gradient(from 90deg, #6E56CF, #00B8A9, #FFC145, #FF6B6B, #6E56CF); filter: blur(2px); opacity: 0.85; z-index: -1; }
+  .eyebrow { font-size: 0.85rem; color: #6E56CF; margin-bottom: 1.4rem; }
+  h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 1.5rem; max-width: 30rem; }
+  .hero__lede { font-family: "Manrope", sans-serif; font-size: 1.1rem; line-height: 1.65; max-width: 30rem; color: #4A4A4A; margin-bottom: 2rem; }
+  .hero__cta { display: inline-block; background: #111111; color: #FAFAFA; text-decoration: none; padding: 0.85rem 1.6rem; border-radius: 999px; font-size: 0.9rem; }
+
+  .work { max-width: 74rem; margin-inline: auto; padding: 3rem 2rem 6rem; }
+  .work h2, .skills h2 { font-family: "JetBrains Mono", monospace; font-size: 1.3rem; margin-bottom: 2.5rem; }
+  .work__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .work__card:nth-child(2n) { margin-top: 3rem; }
+  .work__plate { aspect-ratio: 5/4; border-radius: 0.9rem; margin-bottom: 1.1rem; background: var(--h); }
+  .work__card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .work__card p { color: #6B6B6B; font-size: 0.92rem; }
+
+  .skills { background: #111111; color: #FAFAFA; padding: 5.5rem 2rem; }
+  .skills h2 { color: #FAFAFA; max-width: 74rem; margin-inline: auto; margin-bottom: 2.5rem; }
+  .skills__list { max-width: 74rem; margin-inline: auto; list-style: none; display: flex; flex-wrap: wrap; gap: 1rem; }
+  .skills__list li { border: 1px solid rgba(250,250,250,0.25); border-radius: 999px; padding: 0.6rem 1.25rem; font-size: 0.92rem; }
+
+  .contact { max-width: 32rem; margin-inline: auto; padding: 6rem 2rem; }
+  .contact h2 { font-family: "JetBrains Mono", monospace; font-size: 1.3rem; margin-bottom: 0.6rem; }
+  .contact > p { color: #6B6B6B; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .field label { font-size: 0.85rem; color: #6B6B6B; }
+  .field input, .field textarea { background: #F5F5F5; border: 1px solid #DDD; border-radius: 0.5rem; padding: 0.7rem 0.85rem; font-family: "Manrope", sans-serif; }
+  .btn { margin-top: 0.5rem; background: #111111; color: #FAFAFA; border: none; padding: 0.85rem 1.6rem; border-radius: 999px; font-weight: 700; font-family: "Manrope", sans-serif; }
+
+  .site-footer { max-width: 74rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #8A8A8A; border-top: 1px solid #EEE; }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #8A8A8A; text-decoration: underline; }
+
+  @media (max-width: 55rem) {
+    .work__grid { grid-template-columns: 1fr; }
+    .work__card:nth-child(2n) { margin-top: 0; }
+    .hero__blob { width: 18rem; height: 18rem; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #FFFFFF; flex-direction: column; align-items: flex-start; padding: 1rem 2rem 1.5rem; display: none; border-bottom: 1px solid #EEE; }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>

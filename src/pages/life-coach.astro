@@ -1,0 +1,182 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource/sora/400.css";
+import "@fontsource/sora/500.css";
+import "@fontsource/sora/600.css";
+import "@fontsource/manrope/400.css";
+import "@fontsource/manrope/500.css";
+
+const areas = [
+  { name: "Life transitions", desc: "Career changes, relationships ending or beginning, becoming a parent — the moments that reshape everything else." },
+  { name: "Anxiety & overwhelm", desc: "Practical tools alongside the deeper work, so you're not just coping but actually changing your relationship to stress." },
+  { name: "Self-trust & direction", desc: "For when you know something needs to change but can't yet name what, or feel able to choose it." },
+];
+
+const faqs = [
+  { q: "Is this therapy or coaching?", a: "I'm a licensed therapist offering both talk therapy and structured coaching, depending on what you need — we'll figure out which fits in the first session." },
+  { q: "Do you offer online sessions?", a: "Yes — most clients meet with me over video. In-person sessions are available in Lisbon by request." },
+  { q: "How long before I notice a difference?", a: "Most clients report a shift in how they're thinking about their situation within four to six sessions, though the pace is always yours." },
+];
+---
+<BaseLayout
+  title="Clara Mendes — Life Coach & Therapist"
+  description="Individual therapy and life coaching for transitions, anxiety, and finding direction, online and in Lisbon."
+  themeColor="#F1EEE6"
+  bodyClass="coach"
+  consent={{ bg: "#24302C", fg: "#F1EEE6", accent: "#3E6259", accentFg: "#F1EEE6", border: "rgba(241,238,230,0.16)" }}
+>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#main" class="brand">Clara Mendes</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#areas">Areas of Focus</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a href="#contact">Book a Session</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Licensed Therapist &amp; Life Coach</p>
+      <h1>A steady place to think things through.</h1>
+      <p class="hero__lede">Individual sessions for the transitions, anxieties, and quiet questions that are easier to sit with alongside someone than alone.</p>
+      <a class="hero__cta" href="#contact">Book a Free Intro Call</a>
+    </section>
+
+    <section class="areas" id="areas">
+      <h2>Areas of Focus</h2>
+      <div class="areas__grid">
+        {areas.map((a) => (
+          <article>
+            <div class="areas__mark" aria-hidden="true"></div>
+            <h3>{a.name}</h3>
+            <p>{a.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="quote">
+      <blockquote>
+        <p>I stopped feeling like I had to have it figured out before I showed up. That alone changed what our sessions could actually do.</p>
+        <footer>— A client, three months in</footer>
+      </blockquote>
+    </section>
+
+    <section class="faq" id="faq">
+      <h2>Questions People Ask</h2>
+      <div class="faq__list">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Book a Free Intro Call</h2>
+      <p>Fifteen minutes, no pressure, to see if working together feels right.</p>
+      <form class="contact__form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="note">What brings you here? (optional)</label>
+          <textarea id="note" name="note" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn">Book Intro Call</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Clara Mendes, LMFT.</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </footer>
+</BaseLayout>
+
+<style>
+  .coach { background: #F1EEE6; color: #24302C; font-family: "Manrope", sans-serif; }
+  h1, h2, h3, .brand { font-family: "Sora", sans-serif; }
+  :global(.coach) :focus-visible { outline-color: #3E6259; }
+
+  .nav { max-width: 66rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 1.75rem 1.5rem; }
+  .brand { font-size: 1.1rem; font-weight: 600; text-decoration: none; color: #24302C; }
+  .nav-menu { list-style: none; display: flex; gap: 2rem; }
+  .nav-menu a { text-decoration: none; color: #24302C; font-size: 0.92rem; }
+  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 20px; height: 1.5px; background: #24302C; position: relative; }
+  .nav-toggle__bar::before { position: absolute; top: -6px; }
+  .nav-toggle__bar::after { position: absolute; top: 6px; }
+
+  .hero { max-width: 40rem; margin-inline: auto; text-align: center; padding: 3.5rem 1.5rem 5.5rem; }
+  .eyebrow { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #3E6259; margin-bottom: 1.4rem; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; line-height: 1.25; margin-bottom: 1.4rem; }
+  .hero__lede { color: #4B5851; line-height: 1.7; margin-bottom: 2.25rem; }
+  .hero__cta { display: inline-block; background: #3E6259; color: #F1EEE6; padding: 0.9rem 2rem; text-decoration: none; border-radius: 999px; font-size: 0.92rem; }
+
+  .areas { max-width: 66rem; margin-inline: auto; padding: 3rem 1.5rem 5.5rem; }
+  .areas h2, .faq h2 { text-align: center; font-size: 1.8rem; font-weight: 600; margin-bottom: 3rem; }
+  .areas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .areas__mark { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #E7B7A3; margin-bottom: 1.1rem; }
+  .areas__grid h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; }
+  .areas__grid p { line-height: 1.65; color: #4B5851; font-size: 0.95rem; }
+
+  .quote { background: #24302C; color: #F1EEE6; padding: 5.5rem 1.5rem; text-align: center; }
+  .quote blockquote { max-width: 38rem; margin-inline: auto; }
+  .quote p { font-size: 1.35rem; line-height: 1.55; margin-bottom: 1rem; font-weight: 500; }
+  .quote footer { color: #A9C4B6; font-size: 0.9rem; }
+
+  .faq { max-width: 42rem; margin-inline: auto; padding: 5.5rem 1.5rem; }
+  .faq__list details { border-bottom: 1px solid rgba(36,48,44,0.18); padding: 1.1rem 0; }
+  .faq__list summary { font-weight: 600; cursor: pointer; font-size: 1.02rem; }
+  .faq__list p { margin-top: 0.75rem; color: #4B5851; line-height: 1.65; }
+
+  .contact { max-width: 32rem; margin-inline: auto; padding: 2rem 1.5rem 6rem; text-align: center; }
+  .contact h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 0.6rem; }
+  .contact > p { color: #4B5851; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; text-align: left; }
+  .field label { font-size: 0.85rem; color: #4B5851; }
+  .field input, .field textarea { background: #fff; border: 1px solid rgba(36,48,44,0.2); border-radius: 0.5rem; padding: 0.7rem 0.85rem; font-family: inherit; }
+  .btn { margin-top: 0.5rem; background: #3E6259; color: #F1EEE6; border: none; padding: 0.85rem 1.6rem; border-radius: 999px; font-size: 0.95rem; }
+
+  .site-footer { max-width: 66rem; margin-inline: auto; padding: 2rem 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #6B776F; border-top: 1px solid rgba(36,48,44,0.15); }
+  .site-footer nav { display: flex; gap: 1.25rem; }
+  .site-footer a { color: #6B776F; text-decoration: underline; }
+
+  @media (max-width: 50rem) {
+    .areas__grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 40rem) {
+    .nav-toggle { display: block; }
+    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #F1EEE6; flex-direction: column; padding: 1rem 1.5rem 1.5rem; display: none; }
+    .nav-menu[data-open="true"] { display: flex; }
+    .nav { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.dataset.open === "true";
+    menu?.setAttribute("data-open", String(!open));
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>
