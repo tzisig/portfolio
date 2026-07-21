@@ -19,7 +19,7 @@ const services = ["Made-to-order collections", "Personal styling", "Capsule ward
   description="A made-to-order fashion label and personal styling practice built around considered, long-wear pieces."
   themeColor="#2B4570"
   bodyClass="fashion"
-  consent={{ bg: "#2B4570", fg: "#F3F1EA", accent: "#C9C69A", accentFg: "#2B4570", border: "rgba(243,241,234,0.18)" }}
+  consent={{ bg: "#2B4570", fg: "#ffffff", accent: "#C9C69A", accentFg: "#2B4570", border: "rgba(243,241,234,0.18)" }}
 >
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
@@ -103,45 +103,45 @@ const services = ["Made-to-order collections", "Personal styling", "Capsule ward
   :global(.fashion) :focus-visible { outline-color: #C9C69A; }
 
   .nav { max-width: 78rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 1.75rem 2rem; }
-  .brand { font-size: 1.3rem; text-decoration: none; color: #F3F1EA; letter-spacing: 0.05em; }
+  .brand { font-size: 1.3rem; text-decoration: none; color: #1a1a1a; letter-spacing: 0.05em; }
   .nav-menu { list-style: none; display: flex; gap: 2rem; }
-  .nav-menu a { text-decoration: none; color: #F3F1EA; font-size: 0.9rem; font-family: "Inter", sans-serif; }
+  .nav-menu a { text-decoration: none; color: #1a1a1a; font-size: 0.9rem; font-family: "Inter", sans-serif; }
   .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
-  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 20px; height: 2px; background: #F3F1EA; position: relative; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 20px; height: 2px; background: #1a1a1a; position: relative; }
   .nav-toggle__bar::before { position: absolute; top: -6px; }
   .nav-toggle__bar::after { position: absolute; top: 6px; }
 
   .hero { max-width: 78rem; margin-inline: auto; padding: 3rem 2rem 6rem; }
   h1 { font-size: clamp(4rem, 14vw, 9rem); line-height: 0.85; letter-spacing: -0.01em; margin-bottom: 2rem; }
-  .hero__lede { font-family: "Inter", sans-serif; text-transform: none; font-weight: 400; font-size: 1.1rem; max-width: 26rem; color: #D6DCE8; line-height: 1.65; margin-bottom: 2rem; }
-  .hero__cta { display: inline-block; border-bottom: 2px solid #C9C69A; color: #F3F1EA; text-decoration: none; font-family: "Inter", sans-serif; font-weight: 500; padding-bottom: 0.25rem; }
+  .hero__lede { font-family: "Inter", sans-serif; text-transform: none; font-weight: 400; font-size: 1.1rem; max-width: 26rem; color: #333333; line-height: 1.65; margin-bottom: 2rem; }
+  .hero__cta { display: inline-block; background: #1a1a1a; color: #ffffff; text-decoration: none; font-family: "Inter", sans-serif; font-weight: 500; padding: 0.7rem 1.5rem; border-radius: 0.25rem; }
 
   .collections { background: #F3F1EA; color: #2B4570; padding: 5.5rem 2rem; }
   .collections h2 { max-width: 78rem; margin-inline: auto; font-size: 1.6rem; margin-bottom: 2.5rem; }
   .collections__list { max-width: 78rem; margin-inline: auto; }
   .collections__row { display: grid; grid-template-columns: 6rem 1fr 5rem; align-items: center; gap: 1.5rem; padding: 1.75rem 0; border-top: 1px solid rgba(43,69,112,0.2); font-family: "Inter", sans-serif; }
   .collections__row:last-child { border-bottom: 1px solid rgba(43,69,112,0.2); }
-  .collections__season { color: #7D8FA9; font-size: 0.85rem; }
+  .collections__season { color: #333333; font-size: 0.85rem; }
   .collections__name { font-family: "Libre Franklin", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.5rem; }
   .collections__plate { justify-self: end; width: 4rem; height: 4rem; border-radius: 0.4rem; background: linear-gradient(135deg, #2B4570, #C9C69A); }
 
   .styling { max-width: 78rem; margin-inline: auto; padding: 5.5rem 2rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; }
   .styling__text h2 { font-size: 1.6rem; margin-bottom: 1.25rem; }
-  .styling__text p { font-family: "Inter", sans-serif; text-transform: none; font-weight: 400; line-height: 1.75; color: #D6DCE8; max-width: 32rem; }
+  .styling__text p { font-family: "Inter", sans-serif; text-transform: none; font-weight: 400; line-height: 1.75; color: #2b2b2b; max-width: 32rem; }
   .styling__list { list-style: none; border-top: 1px solid rgba(243,241,234,0.25); }
   .styling__list li { padding: 1rem 0; border-bottom: 1px solid rgba(243,241,234,0.25); font-family: "Inter", sans-serif; }
 
   .contact { max-width: 32rem; margin-inline: auto; padding: 2rem 2rem 6rem; }
   .contact h2 { font-size: 1.6rem; margin-bottom: 0.6rem; }
-  .contact > p { font-family: "Inter", sans-serif; text-transform: none; font-weight: 400; color: #D6DCE8; margin-bottom: 2rem; }
+  .contact > p { font-family: "Inter", sans-serif; text-transform: none; font-weight: 400; color: #2b2b2b; margin-bottom: 2rem; }
   .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
-  .field label { font-family: "Inter", sans-serif; font-size: 0.85rem; color: #D6DCE8; }
+  .field label { font-family: "Inter", sans-serif; font-size: 0.85rem; color: #1a1a1a; }
   .field input, .field textarea { background: #1E3252; border: 1px solid rgba(243,241,234,0.25); color: #F3F1EA; padding: 0.7rem 0.85rem; font-family: "Inter", sans-serif; }
   .btn { margin-top: 0.5rem; background: #C9C69A; color: #2B4570; border: none; padding: 0.85rem 1.6rem; font-family: "Inter", sans-serif; font-weight: 600; }
 
-  .site-footer { max-width: 78rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #AEB9CF; font-family: "Inter", sans-serif; }
+  .site-footer { max-width: 78rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #333333; font-family: "Inter", sans-serif; }
   .site-footer nav { display: flex; gap: 1.25rem; }
-  .site-footer a { color: #AEB9CF; text-decoration: underline; }
+  .site-footer a { color: #1a1a1a; text-decoration: underline; }
 
   @media (max-width: 55rem) {
     .styling { grid-template-columns: 1fr; }
