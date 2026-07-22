@@ -1,0 +1,542 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Emergency Plumber | 24/7 RapidFlow Plumbing | Burst Pipes & Blocked Drains"
+  description="Need an emergency plumber? RapidFlow Plumbing offers 24/7 response for burst pipes, blocked drains, and water leaks. Clear pricing, local service, and licensed plumbers."
+  themeColor="#0f172a"
+  bodyClass="plumber"
+  consent={{ bg: "#0f172a", fg: "#ffffff", accent: "#f97316", accentFg: "#000000", border: "rgba(255,255,255,0.16)" }}
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "RapidFlow Plumbing",
+    "description": "Emergency plumbing contractor serving Portland metro. 24/7 response for burst pipes, blocked drains, and water leaks.",
+    "address": { "@type": "PostalAddress", "streetAddress": "1425 River Road", "addressLocality": "Portland", "addressRegion": "OR", "postalCode": "97201" },
+    "telephone": "+15035550200",
+    "openingHours": "Mo-Su 00:00-23:59",
+    "url": "https://rapidflowplumbing.com",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog", "name": "Emergency Plumbing Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Burst Pipe Repair" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blocked Drain" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Water Leak Detection" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Toilet Repairs" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Water Heater Services" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Callouts" } }
+      ]
+    }
+  }
+  </script>
+
+  <nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">RapidFlow Plumbing</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:555-0200" class="nav-phone">555-0200</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <p class="hero-tag">24/7 Emergency Plumbing Service</p>
+      <h1 class="hero-title">Plumbing Emergency?<br>We'll Get the Water Under Control.</h1>
+      <p class="hero-sub">Burst pipe at 2am? Blocked drain flooding your kitchen? RapidFlow Plumbing answers the call 24 hours a day, 7 days a week. Licensed plumbers dispatched to your location within the hour — no overtime charges, no hidden fees, no excuses.</p>
+      <div class="hero-cta-group">
+        <a href="tel:555-0200" class="btn btn-primary btn-large">
+          <span>Call for Emergency Service</span>
+          <strong>555-0200</strong>
+        </a>
+        <a href="#contact" class="btn btn-secondary">Request a Plumber</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="section-title">Emergency Plumbing Services</h2>
+        <p class="section-sub">Every service includes a free phone estimate, transparent pricing, and a licensed plumber who shows up on time.</p>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-icon">&#x1F527;</span>
+            <h3>Burst Pipe Repair</h3>
+            <p>A burst pipe can flood your home in minutes. We locate the rupture, shut off the water, and make a permanent repair — not a temporary patch. Most burst pipes handled within 60 minutes of your call.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">&#x1FAA0;</span>
+            <h3>Blocked Drains</h3>
+            <p>Standing water in your sink or shower signals a blockage deeper in the line. We use industrial augers and hydro-jetting to clear the clog and restore flow fast. No drain too stubborn.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">&#x1F4A7;</span>
+            <h3>Water Leak Detection</h3>
+            <p>That damp spot on the ceiling or mysterious puddle could mean a hidden leak. We use thermal imaging and acoustic sensors to find leaks behind walls and under slabs without tearing anything apart.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">&#x1F6BD;</span>
+            <h3>Toilet Repairs</h3>
+            <p>Running toilet, weak flush, or a complete clog that won't budge — we handle all makes and models. From flapper replacements to full toilet installations, we get your bathroom working again.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">&#x1F525;</span>
+            <h3>Water Heater Services</h3>
+            <p>No hot water for your morning shower? We repair gas and electric water heaters, flush sediment buildup, replace thermostats and heating elements, and install new units when needed.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">&#x1F4DE;</span>
+            <h3>Emergency Callouts</h3>
+            <p>Any plumbing problem that can't wait — gas line concerns, sewage backups, main line breaks, frozen pipes. Call and a licensed plumber heads your way immediately, day or night.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <h2 class="section-title">How We Respond</h2>
+        <p class="section-sub">From your first call to a finished repair, here's exactly what happens.</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="process-icon">&#x1F4DE;</span>
+            <span class="process-num">1</span>
+            <h3>Your Call</h3>
+            <p>Call 555-0200. A live operator answers, asks a few quick questions, and dispatches the nearest plumber to your location.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-icon">&#x1F690;</span>
+            <span class="process-num">2</span>
+            <h3>We Dispatch</h3>
+            <p>A fully stocked service vehicle heads your way. We send your plumber's name, photo, and ETA by text so you know exactly who to expect.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-icon">&#x1F50D;</span>
+            <span class="process-num">3</span>
+            <h3>We Diagnose</h3>
+            <p>We inspect the problem, explain what's going on in plain English, and give you a fixed price before any work begins — no surprises.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-icon">&#x1F6E0;&#xFE0F;</span>
+            <span class="process-num">4</span>
+            <h3>We Fix It</h3>
+            <p>We complete the repair with manufacturer-approved parts and techniques. Cleanup included. You don't pay until the job is done and you're satisfied.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" id="trust">
+      <div class="container">
+        <div class="trust-content">
+          <h2 class="section-title">Licensed, Insured, and Local</h2>
+          <p>RapidFlow Plumbing has served Portland metro homeowners and businesses for over 15 years. Every plumber on our team is licensed by the Oregon Building Codes Division, fully insured, and background checked. We charge by the job — not by the hour — so you know the cost upfront. No overtime charges for nights, weekends, or holidays. If it's not fixed right, we come back and make it right at no additional cost. That's not a gimmick. That's how we've earned a 4.9-star rating across hundreds of reviews.</p>
+          <div class="trust-badges">
+            <span>&#x2705; Licensed & Bonded</span>
+            <span>&#x2705; $2M General Liability Insurance</span>
+            <span>&#x2705; 15+ Years Local Service</span>
+            <span>&#x2705; Upfront Pricing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-card">
+            <p class="testimonial-text">"Our basement pipe burst at 2am on a Sunday. I called RapidFlow in a panic. Tony arrived in 40 minutes, shut off the main, and had the pipe replaced by 4am. Clean, professional, and the price was exactly what they quoted over the phone. A lifesaver."</p>
+            <footer class="testimonial-author">
+              <img src="https://picsum.photos/seed/margaret/60/60" alt="Margaret Chen" width="60" height="60" loading="lazy">
+              <div>
+                <strong>Margaret Chen</strong>
+                <span>Southeast Portland</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p class="testimonial-text">"Kitchen sink was completely backed up and starting to smell. Called RapidFlow at 9am — they were here by 9:45. Cleared a grease blockage deep in the main line with hydro-jetting. Walked me through everything. Fair price. Will call them for every plumbing issue going forward."</p>
+            <footer class="testimonial-author">
+              <img src="https://picsum.photos/seed/david/60/60" alt="David Okonkwo" width="60" height="60" loading="lazy">
+              <div>
+                <strong>David Okonkwo</strong>
+                <span>North Portland</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p class="testimonial-text">"Our water heater died in the middle of winter. No hot water for three days before I found RapidFlow. They installed a new 50-gallon unit the same day I called. The technician even helped move things out of the way in the utility closet. Great service, great people."</p>
+            <footer class="testimonial-author">
+              <img src="https://picsum.photos/seed/linda/60/60" alt="Linda Hartwell" width="60" height="60" loading="lazy">
+              <div>
+                <strong>Linda Hartwell</strong>
+                <span>West Hills, Portland</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-question">Do you charge extra for nights, weekends, or holidays?<span class="faq-indicator">-</span></summary>
+            <div class="faq-answer"><p>No. Our pricing is the same whether you call at 2pm on a Tuesday or 3am on Christmas morning. We believe emergency plumbing shouldn't come with a penalty for when the emergency happens. You get a fixed price quote before any work begins, and that price doesn't change based on the time of day.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How fast can a plumber get to my location?<span class="faq-indicator">+</span></summary>
+            <div class="faq-answer"><p>We aim to have a plumber at your door within 60 minutes of your call anywhere in Portland metro. For emergencies like burst pipes or gas line concerns, we prioritize those calls and typically arrive in under 45 minutes. When you call, the dispatcher will give you a precise ETA based on current traffic and which plumber is nearest.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do you provide upfront pricing before starting work?<span class="faq-indicator">+</span></summary>
+            <div class="faq-answer"><p>Always. After we diagnose the problem, we provide a written fixed-price quote for the complete job — including parts and labor. No hourly billing, no "we'll see how long it takes." If we discover additional issues during the repair, we stop and get your approval before proceeding with any extra work. You decide yes or no at every step.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What areas do you serve?<span class="faq-indicator">+</span></summary>
+            <div class="faq-answer"><p>We serve all of Portland metro including: Portland proper, Gresham, Beaverton, Hillsboro, Tigard, Tualatin, Lake Oswego, Milwaukie, Oregon City, and Happy Valley. If you live in the surrounding suburbs, give us a call — we likely cover your area too. We're based in Portland and keep multiple service trucks positioned around the city for fast response.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Are your plumbers licensed and insured?<span class="faq-indicator">+</span></summary>
+            <div class="faq-answer"><p>Yes. Every plumber we send is licensed through the Oregon Building Codes Division, bonded, and covered by our $2 million general liability and workers' compensation policies. We also run background checks on all technicians. We're happy to provide our license and insurance details — just ask when you call, and we'll email them to you before the plumber arrives.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Request a Plumber</h2>
+        <p class="section-sub">Fill out the form below and we'll call you back within 15 minutes to confirm your appointment and provide a free phone estimate.</p>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="formName">Full Name</label>
+            <input type="text" id="formName" name="name" required placeholder="e.g. Jane Miller">
+            <span class="form-error" id="nameError">Please enter your name.</span>
+          </div>
+          <div class="form-group">
+            <label for="formEmail">Email Address</label>
+            <input type="email" id="formEmail" name="email" required placeholder="jane@example.com">
+            <span class="form-error" id="emailError">Please enter a valid email address.</span>
+          </div>
+          <div class="form-group">
+            <label for="formPhone">Phone Number</label>
+            <input type="tel" id="formPhone" name="phone" required placeholder="503-555-1234">
+            <span class="form-error" id="phoneError">Please enter your phone number.</span>
+          </div>
+          <div class="form-group">
+            <label for="formService">Service Needed</label>
+            <select id="formService" name="service" required>
+              <option value="">Select a service...</option>
+              <option value="burst-pipe">Burst Pipe Repair</option>
+              <option value="blocked-drain">Blocked Drain</option>
+              <option value="water-leak">Water Leak Detection</option>
+              <option value="toilet">Toilet Repair</option>
+              <option value="water-heater">Water Heater Service</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="form-error" id="serviceError">Please select a service type.</span>
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Describe the Problem</label>
+            <textarea id="formMessage" name="message" rows="4" placeholder="Tell us what's going on so we can come prepared with the right tools and parts."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large btn-block">Send Request</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <span class="form-success-icon">&#x2705;</span>
+          <h3>Request Sent Successfully</h3>
+          <p>We've received your request and will call you back within 15 minutes. If this is an urgent emergency, please call us directly at <a href="tel:555-0200">555-0200</a> for the fastest response.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>RapidFlow Plumbing</h4>
+        <p>Licensed plumbers serving Portland metro since 2009. Emergency service available 24/7 for residential and commercial properties.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>1425 River Road<br>Portland, OR 97201</p>
+        <p><a href="tel:555-0200">555-0200</a></p>
+        <p><a href="mailto:info@rapidflowplumbing.com">info@rapidflowplumbing.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Open 24/7 — every day of the year, including holidays.</p>
+        <h4>Service Area</h4>
+        <p>Portland metro and surrounding suburbs.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <p><a href="#">Privacy Policy</a></p>
+        <p><a href="#">Terms of Service</a></p>
+        <p>License #OR-PL-12345</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 RapidFlow Plumbing. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="tel:555-0200" class="mobile-sticky" id="mobileSticky">Call 555-0200</a>
+</BaseLayout>
+
+<style>
+  :global(.plumber) {
+    --navy: #0f172a;
+    --orange: #f97316;
+    --orange-hover: #ea580c;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-900: #1e293b;
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 8px 30px rgba(15, 23, 42, 0.15);
+    --radius: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--gray-900);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 80px 0; }
+
+  .section-title { font-size: 2.25rem; font-weight: 900; letter-spacing: -0.5px; line-height: 1.15; color: var(--navy); margin-bottom: 12px; }
+  .section-sub { font-size: 1.1rem; color: var(--gray-600); max-width: 680px; margin: 0 auto 48px; text-align: center; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-weight: 700; text-decoration: none; border-radius: 8px; transition: all 0.25s ease; cursor: pointer; border: none; font-family: inherit; }
+  .btn-primary { background: var(--orange); color: #000; }
+  .btn-primary:hover { background: var(--orange-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4); }
+  .btn-secondary { background: transparent; color: var(--white); border: 2px solid var(--white); }
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+  .btn-large { padding: 16px 36px; font-size: 1.1rem; }
+  .btn-block { width: 100%; }
+
+  .nav { background: var(--navy); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav-logo { font-size: 1.25rem; font-weight: 900; letter-spacing: -0.5px; color: var(--white); text-decoration: none; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-phone { background: var(--orange); color: #000; padding: 10px 20px; border-radius: 8px; font-weight: 800; font-size: 1.1rem; transition: background 0.2s; }
+  .nav-phone:hover { background: var(--orange-hover); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { width: 26px; height: 3px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+  .hero { background: var(--navy); color: var(--white); padding: 120px 0 100px; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 50%); }
+  .hero-content { position: relative; text-align: center; }
+  .hero-tag { display: inline-block; background: rgba(249, 115, 22, 0.15); color: var(--orange); padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
+  .hero-title { font-size: 3.25rem; font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .hero-sub { font-size: 1.15rem; color: rgba(255, 255, 255, 0.75); max-width: 620px; margin: 0 auto 36px; line-height: 1.7; }
+  .hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .hero-cta-group .btn-primary strong { display: block; font-size: 1.4rem; margin-top: 2px; }
+
+  .services { background: var(--gray-50); }
+  .services .section-title, .services .section-sub { text-align: center; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .service-card { background: var(--white); border-radius: var(--radius); padding: 32px 26px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--orange); transition: all 0.3s ease; }
+  .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .service-icon { font-size: 2rem; display: block; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1.2rem; font-weight: 900; letter-spacing: -0.3px; color: var(--navy); margin-bottom: 10px; }
+  .service-card p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.65; }
+
+  .process { background: var(--white); }
+  .process .section-title, .process .section-sub { text-align: center; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
+  .process-step { text-align: center; padding: 32px 18px; position: relative; }
+  .process-step::after { content: ''; position: absolute; top: 48px; right: -10px; width: 20px; height: 2px; background: var(--gray-200); }
+  .process-step:last-child::after { display: none; }
+  .process-icon { font-size: 1.8rem; display: block; margin-bottom: 12px; }
+  .process-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--orange); color: #000; font-weight: 900; font-size: 0.9rem; margin-bottom: 14px; }
+  .process-step h3 { font-size: 1.1rem; font-weight: 900; letter-spacing: -0.3px; color: var(--navy); margin-bottom: 8px; }
+  .process-step p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.6; }
+
+  .trust { background: var(--navy); color: var(--white); text-align: center; }
+  .trust .section-title { color: var(--white); }
+  .trust-content p { font-size: 1.05rem; color: rgba(255, 255, 255, 0.8); max-width: 760px; margin: 0 auto 36px; line-height: 1.8; }
+  .trust-badges { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; }
+  .trust-badges span { background: rgba(255, 255, 255, 0.08); padding: 10px 20px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; }
+
+  .testimonials { background: var(--gray-50); }
+  .testimonials .section-title { text-align: center; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testimonial-card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm); }
+  .testimonial-text { font-size: 0.95rem; color: var(--gray-700); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .testimonial-author img { border-radius: 50%; object-fit: cover; }
+  .testimonial-author strong { display: block; font-size: 0.95rem; color: var(--navy); }
+  .testimonial-author span { font-size: 0.82rem; color: var(--gray-600); }
+
+  .faq { background: var(--white); }
+  .faq .section-title { text-align: center; margin-bottom: 40px; }
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--gray-200); list-style: none; }
+  .faq-item[open] .faq-answer { animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-size: 1.05rem; font-weight: 700; color: var(--navy); cursor: pointer; list-style: none; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question:hover { color: var(--orange); }
+  .faq-indicator { font-size: 1.4rem; font-weight: 700; color: var(--orange); margin-left: 16px; flex-shrink: 0; width: 24px; text-align: center; }
+  .faq-answer { padding-bottom: 20px; color: var(--gray-600); line-height: 1.7; }
+  .faq-answer p { margin: 0; }
+
+  .contact { background: var(--gray-50); }
+  .contact .section-title, .contact .section-sub { text-align: center; }
+  .contact-form { max-width: 600px; margin: 0 auto; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-md); }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1.5px solid var(--gray-200); border-radius: 6px; font-size: 0.95rem; font-family: inherit; transition: border-color 0.2s; background: var(--white); color: var(--gray-900); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-error { display: none; font-size: 0.82rem; color: #dc2626; margin-top: 4px; }
+  .form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea { border-color: #dc2626; }
+  .form-group.invalid .form-error { display: block; }
+  .form-success { display: none; max-width: 600px; margin: 24px auto 0; text-align: center; background: #f0fdf4; border: 1px solid #86efac; border-radius: var(--radius); padding: 40px; }
+  .form-success.is-visible { display: block; }
+  .form-success-icon { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+  .form-success h3 { font-size: 1.3rem; color: #166534; margin-bottom: 8px; }
+  .form-success p { color: #15803d; }
+  .form-success a { color: var(--orange); font-weight: 700; }
+
+  .footer { background: var(--navy); color: rgba(255, 255, 255, 0.8); padding: 60px 0 0; font-size: 0.92rem; }
+  .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; padding-bottom: 40px; }
+  .footer-col h4 { color: var(--white); font-size: 1rem; font-weight: 900; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .footer-col p { margin-bottom: 8px; line-height: 1.6; }
+  .footer-col a { color: #ffffff; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--orange); }
+  .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 20px 0; text-align: center; font-size: 0.85rem; color: #e5e7eb; }
+
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--orange); color: #000; text-align: center; padding: 16px; font-weight: 800; font-size: 1.15rem; text-decoration: none; z-index: 99; box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15); }
+  .mobile-sticky:hover { background: var(--orange-hover); }
+
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .process-step::after { display: none; }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--navy); flex-direction: column; padding: 20px 24px; gap: 0; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+    .nav-links.is-open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    .nav-phone { display: none; }
+    .nav-toggle { display: flex; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-sub { font-size: 1rem; }
+    .hero { padding: 80px 0 70px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    .section-title { font-size: 1.75rem; }
+    .contact-form { padding: 24px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .mobile-sticky { display: block; }
+    .hero-cta-group .btn-large { width: 100%; }
+    section { padding: 60px 0; }
+  }
+</style>
+
+<script>
+(function () {
+  var toggleBtn = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', function () { navLinks.classList.toggle('is-open'); });
+    document.addEventListener('click', function (e) {
+      if (!toggleBtn.contains(e.target) && !navLinks.contains(e.target)) navLinks.classList.remove('is-open');
+    });
+  }
+
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function (item) {
+    var summary = item.querySelector('.faq-question');
+    var indicator = item.querySelector('.faq-indicator');
+    if (summary) {
+      summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = item.hasAttribute('open');
+        faqItems.forEach(function (other) { other.removeAttribute('open'); var ind = other.querySelector('.faq-indicator'); if (ind) ind.textContent = '+'; });
+        if (!isOpen) { item.setAttribute('open', ''); if (indicator) indicator.textContent = '-'; }
+        else { if (indicator) indicator.textContent = '+'; }
+      });
+    }
+    if (indicator) indicator.textContent = item.hasAttribute('open') ? '-' : '+';
+  });
+
+  var form = document.getElementById('contactForm');
+  var successDiv = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var isValid = true;
+      var fields = [
+        { id: 'formName', errorId: 'nameError' },
+        { id: 'formEmail', errorId: 'emailError' },
+        { id: 'formPhone', errorId: 'phoneError' },
+        { id: 'formService', errorId: 'serviceError' }
+      ];
+      fields.forEach(function (field) {
+        var input = document.getElementById(field.id);
+        var group = input ? input.closest('.form-group') : null;
+        if (!group) return;
+        var value = input.value.trim();
+        var valid = true;
+        if (field.id === 'formEmail') valid = value.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        else if (field.id === 'formService') valid = value !== '';
+        else valid = value.length > 0;
+        if (!valid) { group.classList.add('invalid'); isValid = false; }
+        else group.classList.remove('invalid');
+      });
+      if (isValid) {
+        var name = document.getElementById('formName').value.trim();
+        var email = document.getElementById('formEmail').value.trim();
+        var phone = document.getElementById('formPhone').value.trim();
+        var service = document.getElementById('formService').value;
+        var msg = document.getElementById('formMessage') ? document.getElementById('formMessage').value.trim() : '';
+        var waMessage = 'New service request from the website:\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nService needed: ' + service + '\nDetails: ' + (msg || 'None');
+        window.open('https://wa.me/972584433181?text=' + encodeURIComponent(waMessage), '_blank');
+        form.style.display = 'none';
+        if (successDiv) successDiv.classList.add('is-visible');
+      }
+    });
+    var inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(function (input) {
+      input.addEventListener('input', function () {
+        var group = input.closest('.form-group');
+        if (group) group.classList.remove('invalid');
+      });
+    });
+  }
+})();
+</script>

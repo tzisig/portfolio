@@ -24,7 +24,7 @@ const services = [
   description="Fee-only, fiduciary financial planning and portfolio management with full transparency into every decision."
   themeColor="#0A0A0F"
   bodyClass="advisor"
-  consent={{ bg: "#0A0A0F", fg: "#F1F1F4", accent: "#FF5A1F", accentFg: "#0A0A0F", border: "rgba(241,241,244,0.16)" }}
+  consent={{ bg: "#0A0A0F", fg: "#ffffff", accent: "#FF5A1F", accentFg: "#0A0A0F", border: "rgba(241,241,244,0.16)" }}
 >
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
@@ -120,48 +120,49 @@ const services = [
   :global(.advisor) :focus-visible { outline-color: #FF5A1F; }
 
   .nav { max-width: 76rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; }
-  .brand { font-size: 1.25rem; font-weight: 700; text-decoration: none; color: #F1F1F4; }
+  .brand { font-size: 1.25rem; font-weight: 700; text-decoration: none; color: #111111; }
   .brand span { color: #FF5A1F; }
   .nav-menu { list-style: none; display: flex; gap: 2rem; align-items: center; }
-  .nav-menu a { text-decoration: none; color: #F1F1F4; font-size: 0.92rem; }
-  .nav-cta { border: 1px solid #FF5A1F; padding: 0.5rem 1.1rem; border-radius: 2px; color: #FF5A1F !important; }
+  .nav-menu a { text-decoration: none; color: #111111; font-size: 0.92rem; }
+  .nav-cta { border: 1px solid #111111; padding: 0.5rem 1.1rem; border-radius: 2px; color: #111111 !important; }
   .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
-  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 22px; height: 2px; background: #F1F1F4; position: relative; }
+  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 22px; height: 2px; background: #111111; position: relative; }
   .nav-toggle__bar::before { position: absolute; top: -7px; }
   .nav-toggle__bar::after { position: absolute; top: 7px; }
 
   .hero { max-width: 76rem; margin-inline: auto; padding: 5rem 2rem 4rem; }
-  .eyebrow { font-family: "IBM Plex Mono", monospace; color: #7DD8FF; font-size: 0.82rem; letter-spacing: 0.04em; margin-bottom: 1.4rem; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; color: #2d2d2d; font-size: 0.82rem; letter-spacing: 0.04em; margin-bottom: 1.4rem; }
   h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.12; max-width: 40rem; margin-bottom: 1.4rem; }
-  .hero__lede { max-width: 32rem; color: #B7B7C2; line-height: 1.65; margin-bottom: 2.25rem; }
+  .hero__lede { max-width: 32rem; color: #2d2d2d; line-height: 1.65; margin-bottom: 2.25rem; }
   .btn { display: inline-block; background: #FF5A1F; color: #0A0A0F; padding: 0.85rem 1.7rem; text-decoration: none; font-weight: 500; border: none; font-family: "IBM Plex Sans", sans-serif; }
   .metrics { display: flex; gap: 3rem; margin-top: 3.5rem; flex-wrap: wrap; border-top: 1px solid rgba(241,241,244,0.14); padding-top: 2rem; }
-  .metrics dd { font-family: "IBM Plex Mono", monospace; font-size: 1.6rem; color: #7DD8FF; margin-bottom: 0.3rem; }
-  .metrics dt { font-size: 0.82rem; color: #8C8C99; max-width: 12rem; }
+  .metrics dd { font-family: "IBM Plex Mono", monospace; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 0.3rem; }
+  .metrics dt { font-size: 0.82rem; color: #1a1a1a; max-width: 12rem; }
 
   .services { max-width: 76rem; margin-inline: auto; padding: 4rem 2rem 5.5rem; }
-  .services h2, .approach__text h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 2.5rem; }
+  .services h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 2.5rem; color: #111111; }
+  .approach__text h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 2.5rem; color: #ffffff; }
   .services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .services__code { font-family: "IBM Plex Mono", monospace; color: #FF5A1F; font-size: 0.85rem; }
+  .services__code { font-family: "IBM Plex Mono", monospace; color: #1a1a1a; font-size: 0.85rem; }
   .services__grid h3 { font-size: 1.15rem; font-weight: 500; margin: 0.6rem 0 0.6rem; }
-  .services__grid p { color: #B7B7C2; line-height: 1.6; font-size: 0.94rem; }
+  .services__grid p { color: #2d2d2d; line-height: 1.6; font-size: 0.94rem; }
 
   .approach { background: #111117; padding: 5.5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 76rem; margin-inline: auto; align-items: center; }
   .approach__ticker { font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; border: 1px solid rgba(241,241,244,0.14); border-radius: 0.5rem; overflow: hidden; }
-  .approach__row { padding: 0.9rem 1.1rem; border-bottom: 1px solid rgba(241,241,244,0.1); color: #7DD8FF; }
+  .approach__row { padding: 0.9rem 1.1rem; border-bottom: 1px solid rgba(241,241,244,0.1); color: #ffffff; }
   .approach__row:last-child { border-bottom: none; }
-  .approach__text p { color: #B7B7C2; line-height: 1.7; max-width: 30rem; }
+  .approach__text p { color: #ffffff; line-height: 1.7; max-width: 30rem; }
 
   .contact { max-width: 32rem; margin-inline: auto; padding: 5.5rem 2rem 6rem; }
-  .contact h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 0.6rem; }
-  .contact > p { color: #8C8C99; margin-bottom: 2rem; }
+  .contact h2 { font-size: 1.9rem; font-weight: 500; margin-bottom: 0.6rem; color: #111111; }
+  .contact > p { color: #2d2d2d; margin-bottom: 2rem; }
   .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
-  .field label { font-size: 0.85rem; color: #8C8C99; }
+  .field label { font-size: 0.85rem; color: #1a1a1a; }
   .field input, .field select { background: #16161D; border: 1px solid rgba(241,241,244,0.2); color: #F1F1F4; padding: 0.7rem 0.85rem; font-family: "IBM Plex Sans", sans-serif; border-radius: 2px; }
 
-  .site-footer { max-width: 76rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #8C8C99; border-top: 1px solid rgba(241,241,244,0.12); }
+  .site-footer { max-width: 76rem; margin-inline: auto; padding: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #4a4a4a; border-top: 1px solid rgba(241,241,244,0.12); }
   .site-footer nav { display: flex; gap: 1.25rem; }
-  .site-footer a { color: #8C8C99; text-decoration: underline; }
+  .site-footer a { color: #4a4a4a; text-decoration: underline; }
 
   @media (max-width: 60rem) {
     .services__grid { grid-template-columns: 1fr; }

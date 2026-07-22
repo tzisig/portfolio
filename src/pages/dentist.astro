@@ -1,0 +1,610 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  { icon: "🦷", title: "Family Checkups", desc: "Regular six-month exams catch problems early, save you money, and keep your smile healthy. We check for cavities, gum disease, oral cancer, and bite issues. Each exam includes a digital X-ray review and a frank conversation about your oral health." },
+  { icon: "🧒", title: "Children's Dentistry", desc: "We treat children from age one through their teenage years. Our team is trained in pediatric behavior management and knows how to make young patients feel at ease. We teach proper brushing, discuss diet and fluoride, and monitor growth and development." },
+  { icon: "✨", title: "Dental Cleaning", desc: "Professional cleanings remove plaque and tartar that regular brushing misses. Our hygienists are gentle yet thorough. We use ultrasonic scalers and hand instruments, and we'll make sure you're comfortable throughout the appointment." },
+  { icon: "🩹", title: "Fillings & Repairs", desc: "Tooth-colored composite fillings that match your natural enamel. We also handle fractured teeth, old filling replacements, minor chips, and crown recementation. Same-day service available for most repairs." },
+  { icon: "🌟", title: "Teeth Whitening", desc: "In-office whitening that lifts years of staining in about an hour. We use a professional-grade hydrogen peroxide gel activated by a curing light. Results last 12 to 18 months with proper care. Custom take-home trays also available." },
+  { icon: "🚑", title: "Emergency Appointments", desc: "Severe tooth pain, swelling, a knocked-out tooth, or a broken restoration — we keep same-day emergency slots open. Call us first so we can triage your situation and give you instructions on what to do before you arrive." },
+];
+
+const team = [
+  { name: "Dr. Sarah Mitchell, DDS", role: "Lead Dentist", img: "https://picsum.photos/seed/sarah-mitchell/380/380", desc: "Dr. Mitchell earned her DDS from the University of Washington School of Dentistry and has practiced family dentistry in Portland for over 12 years. She completed advanced training in pediatric behavior management and sedation dentistry at OHSU. She lives in Northeast Portland with her husband and two children and volunteers with the Oregon Mission of Mercy providing free dental care to underserved communities." },
+  { name: "Dr. James Torres, DMD", role: "Associate Dentist", img: "https://picsum.photos/seed/james-torres/380/380", desc: "Dr. Torres graduated from the Harvard School of Dental Medicine and completed a general practice residency at Legacy Emanuel Medical Center. He focuses on restorative dentistry, cosmetic procedures, and treating patients with dental phobias. He grew up in Beaverton and joined BrightSmile to bring high-quality, empathetic dental care back to the community where he was raised." },
+];
+
+const steps = [
+  { num: "1", title: "Check-in", desc: "Arrive at our Elm Street office. Our front desk greets you, confirms your paperwork (new patients fill out a health history form), and offers coffee, tea, or water in the waiting area." },
+  { num: "2", title: "Examination", desc: "You're brought to a private treatment room. The dentist reviews your health history, takes any needed X-rays, and performs a thorough oral exam — checking teeth, gums, tongue, and soft tissues." },
+  { num: "3", title: "Treatment Plan", desc: "We discuss findings in plain language and show you photos or X-rays so you can see what we see. We present treatment options, timelines, and costs — never pressuring you into anything." },
+  { num: "4", title: "Follow-up", desc: "Before you leave, we schedule your next visit, answer any lingering questions, and send a summary of your visit by email. We also follow up the next day to see how you're feeling." },
+];
+
+const testimonials = [
+  { text: "I hadn't been to a dentist in nearly six years because of anxiety. A friend recommended BrightSmile and I am so glad she did. Dr. Mitchell talked me through everything, never made me feel embarrassed, and my cleaning was genuinely painless. I've already booked my follow-up.", name: "Elena Ramirez", location: "South Waterfront", img: "https://picsum.photos/seed/elena/60/60" },
+  { text: "Took my 4-year-old for his first checkup and was amazed at how patient and kind the whole team was. They let him hold the mirror, count his own teeth, and gave him a sticker at the end. He actually asked when he could go back. That's a win in my book.", name: "Marcus Bell", location: "Pearl District", img: "https://picsum.photos/seed/marcus/60/60" },
+  { text: "Dr. Torres did three fillings for me last month and I barely felt the numbing shots. The composite work matches my teeth perfectly — you can't even tell where the fillings are. Fair pricing and they worked with my insurance directly. No surprises on the bill.", name: "Nina Patel", location: "Hawthorne", img: "https://picsum.photos/seed/nina/60/60" },
+];
+
+const faqs = [
+  { q: "Do you accept dental insurance?", a: "We accept most major PPO dental insurance plans, including Delta Dental, Cigna, MetLife, Aetna, and Regence. We are out-of-network for some HMO plans, but we'll check your coverage before your first visit and give you a clear breakdown of what your plan pays and what your portion will be. We also file claims on your behalf so you don't have to deal with the paperwork." },
+  { q: "What happens during a child's first visit?", a: "We recommend scheduling a child's first dental visit by their first birthday or within six months of their first tooth erupting. The appointment is short and low-pressure. We count teeth, examine gums, check for proper development, and apply fluoride varnish if needed. We also talk to parents about brushing techniques, thumb-sucking, and diet. Our goal is to build positive associations with the dentist from the very beginning." },
+  { q: "How much does teeth whitening cost?", a: "Our in-office whitening treatment is $450 and includes a pre-treatment exam, the 60-minute whitening procedure, and a take-home touch-up kit with custom trays. Results are noticeable immediately and typically last 12 to 18 months. We also offer custom take-home trays for $200 if you prefer to whiten gradually at your own pace." },
+  { q: "Do you handle dental emergencies?", a: "Yes. We reserve same-day emergency slots every day we're open. If you have a toothache, broken tooth, lost filling or crown, swelling, or bleeding, call us at 555-0199 and we'll triage your situation over the phone. If you need immediate care, we'll get you in the same day. After hours, our voicemail gives instructions for reaching the on-call dentist for true emergencies." },
+  { q: "What payment options do you offer?", a: "We accept cash, personal checks, Visa, Mastercard, American Express, and Discover. We also offer financing through CareCredit, which allows you to pay for treatment in monthly installments with no interest for 6 or 12 months on qualifying plans. We provide a written treatment plan with itemized costs before any work begins, so you know exactly what to expect financially." },
+];
+---
+<BaseLayout
+  title="BrightSmile Family Dental | Comfortable Dental Care"
+  description="BrightSmile Family Dental offers gentle family dentistry including checkups, children's dentistry, teeth whitening, and fillings. Anxiety-friendly care in a calm environment."
+  themeColor="#e0f2fe"
+  bodyClass="dentist"
+  consent={{ bg: "#0F766E", fg: "#FFFFFF", accent: "#14b8a6", accentFg: "#0F172A", border: "rgba(255,255,255,0.16)" }}
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" slot="head">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" slot="head">
+
+  <nav class="nav" id="navbar">
+    <div class="nav-inner container">
+      <a href="#" class="nav-logo">BrightSmile Family Dental</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta btn btn-accent">Book an Appointment</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Comfortable Dental Care for Every Stage of Life.</h1>
+        <p class="hero-sub">From a child's first checkup to routine cleanings and restorative work, BrightSmile Family Dental provides gentle, anxiety-friendly care in a calm and welcoming environment. No judgment, no rushing — just thorough dentistry from people who truly care about your comfort.</p>
+        <div class="hero-cta-group">
+          <a href="#contact" class="btn btn-accent btn-large">Book an Appointment</a>
+          <a href="#team" class="btn btn-outline">Meet the Dental Team</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="appt-types" id="appt-types">
+      <div class="container">
+        <h2 class="section-title">What Kind of Appointment Are You Looking For?</h2>
+        <p class="section-sub">Select the option that best describes your visit. Not sure? Give us a call and we'll help you decide.</p>
+        <div class="appt-cards" id="apptCards">
+          <button class="appt-card" data-type="new-patient" aria-pressed="false">
+            <span class="appt-card-icon">🦷</span>
+            <h3>New Patient Checkup</h3>
+            <p>A complete exam, full-mouth X-rays, professional cleaning, and a personalized treatment plan. We'll review your dental history and answer every question you have.</p>
+          </button>
+          <button class="appt-card" data-type="child-first" aria-pressed="false">
+            <span class="appt-card-icon">👶</span>
+            <h3>Child's First Visit</h3>
+            <p>A gentle introduction to the dentist. We count teeth, do a quick exam, and focus on making your child feel safe and comfortable. Parents stay in the room the entire time.</p>
+          </button>
+          <button class="appt-card" data-type="emergency" aria-pressed="false">
+            <span class="appt-card-icon">⚡</span>
+            <h3>Emergency Appointment</h3>
+            <p>Toothache, broken tooth, lost filling, or other urgent concern. We reserve same-day slots for emergency patients and will get you in as quickly as possible.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-sub">Comprehensive dental care for infants, children, teens, adults, and seniors — all in one practice.</p>
+        <div class="services-grid">
+          {services.map((s) => (
+            <article class="service-card">
+              <span class="service-icon">{s.icon}</span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="comfort" id="comfort">
+      <div class="container">
+        <div class="comfort-inner">
+          <div class="comfort-text">
+            <h2 class="section-title">Dentistry Without the Worry</h2>
+            <p>We know that sitting in a dental chair makes some people anxious. That's why everything about BrightSmile is designed to reduce stress — from the calming paint colors and noise-cancelling headphones to the way our team speaks with you.</p>
+            <p>We explain each step before we do it. You control the pace. If you need a break, you raise your hand and we stop. For patients with higher anxiety, we offer nitrous oxide sedation (laughing gas) and discuss other sedation options during your consultation. There is no shame in feeling nervous about the dentist. Our job is to make it easier for you, not harder.</p>
+            <ul class="comfort-list">
+              <li>Gentle numbing techniques that minimize injection discomfort</li>
+              <li>Nitrous oxide sedation available for anxious patients</li>
+              <li>Private treatment rooms with natural light</li>
+              <li>No judgment — we meet you where you are</li>
+            </ul>
+          </div>
+          <img src="https://picsum.photos/seed/comfort-room/560/420" alt="BrightSmile Family Dental calm treatment room with natural light and comfortable chair" width="560" height="420" loading="lazy" class="comfort-img">
+        </div>
+      </div>
+    </section>
+
+    <section class="team" id="team">
+      <div class="container">
+        <h2 class="section-title">Meet Your Dental Team</h2>
+        <p class="section-sub">Experienced, caring professionals who treat you like family.</p>
+        <div class="team-grid">
+          {team.map((t) => (
+            <article class="team-card">
+              <img src={t.img} alt={t.name} width="380" height="380" loading="lazy" class="team-img">
+              <h3>{t.name}</h3>
+              <span class="team-role">{t.role}</span>
+              <p>{t.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <h2 class="section-title">What to Expect During Your Visit</h2>
+        <p class="section-sub">From the moment you walk in to the moment you leave, here's how a typical appointment goes.</p>
+        <div class="process-steps">
+          {steps.map((s) => (
+            <div class="process-step">
+              <span class="process-num">{s.num}</span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Our Patients Say</h2>
+        <div class="testimonials-slider">
+          <div class="testimonials-track" id="testimonialTrack">
+            {testimonials.map((t) => (
+              <blockquote class="testimonial-card">
+                <p class="testimonial-text">{t.text}</p>
+                <footer class="testimonial-author">
+                  <img src={t.img} alt={t.name} width="60" height="60" loading="lazy">
+                  <div>
+                    <strong>{t.name}</strong>
+                    <span>{t.location}</span>
+                  </div>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          {faqs.map((f, i) => (
+            <details class="faq-item" open={i === 0 ? true : undefined}>
+              <summary class="faq-question">{f.q}<span class="faq-indicator">{i === 0 ? "−" : "+"}</span></summary>
+              <div class="faq-answer">
+                <p>{f.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Book an Appointment</h2>
+        <p class="section-sub">Fill out the form below and we'll call or email you within one business day to confirm your visit. For same-day emergency appointments, please call us directly.</p>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formName">Full Name</label>
+              <input type="text" id="formName" name="name" required placeholder="Your name">
+              <span class="form-error" id="nameError">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label for="formEmail">Email Address</label>
+              <input type="email" id="formEmail" name="email" required placeholder="you@example.com">
+              <span class="form-error" id="emailError">Please enter a valid email.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formPhone">Phone Number</label>
+              <input type="tel" id="formPhone" name="phone" required placeholder="503-555-1234">
+              <span class="form-error" id="phoneError">Please enter your phone number.</span>
+            </div>
+            <div class="form-group">
+              <label for="formType">Appointment Type</label>
+              <select id="formType" name="type" required>
+                <option value="">Select type...</option>
+                <option value="new-patient">New Patient Checkup</option>
+                <option value="child-first">Child's First Visit</option>
+                <option value="emergency">Emergency Appointment</option>
+                <option value="cleaning">Routine Cleaning</option>
+                <option value="whitening">Teeth Whitening</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-error" id="typeError">Please select an appointment type.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="formDate">Preferred Date</label>
+            <input type="date" id="formDate" name="date">
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Message or Questions</label>
+            <textarea id="formMessage" name="message" rows="4" placeholder="Tell us about any concerns, preferred times, or special needs so we can prepare for your visit."></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent btn-large btn-block">Send Appointment Request</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <span class="form-success-icon">✅</span>
+          <h3>Appointment Request Received</h3>
+          <p>Thank you for choosing BrightSmile Family Dental. We'll reach out to you within one business day to confirm your appointment time. If you need immediate assistance, please call us at <a href="tel:555-0199">555-0199</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>BrightSmile Family Dental</h4>
+        <p>Gentle, comprehensive family dentistry in Portland. We treat every patient with respect, patience, and genuine care.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>282 Elm Street<br>Portland, OR 97201</p>
+        <p><a href="tel:555-0199">555-0199</a></p>
+        <p><a href="mailto:info@brightsmiledental.com">info@brightsmiledental.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Office Hours</h4>
+        <p>Monday – Friday: 8:00 am – 5:00 pm<br>Saturday: 9:00 am – 2:00 pm<br>Sunday: Closed</p>
+        <p>Evening appointments available by request.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <p><a href="/privacy">Privacy Policy</a></p>
+        <p><a href="/cookies">Terms of Service</a></p>
+        <p>HIPAA Compliant</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 BrightSmile Family Dental. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="#contact" class="mobile-sticky" id="mobileSticky">Book Now</a>
+</BaseLayout>
+
+<style>
+  :global(.dentist) {
+    --soft-blue: #e0f2fe;
+    --teal: #14b8a6;
+    --teal-hover: #0d9488;
+    --teal-light: #ccfbf1;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 10px 40px rgba(15, 23, 42, 0.1);
+    --radius: 12px;
+    --radius-sm: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  :global(.dentist) h1, :global(.dentist) h2, :global(.dentist) h3, :global(.dentist) h4 { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-weight: 700; line-height: 1.2; }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+  .section-title { font-size: 2.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 12px; text-align: center; }
+  .section-sub { font-size: 1.05rem; color: var(--gray-600); max-width: 640px; margin: 0 auto 48px; text-align: center; }
+  section { padding: 80px 0; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-weight: 600; text-decoration: none; border-radius: var(--radius-sm); transition: all 0.25s ease; cursor: pointer; border: none; font-family: inherit; }
+  .btn-accent { background: var(--teal); color: var(--white); }
+  .btn-accent:hover { background: var(--teal-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(20, 184, 166, 0.35); }
+  .btn-outline { background: transparent; color: var(--teal); border: 2px solid var(--teal); }
+  .btn-outline:hover { background: var(--teal); color: var(--white); }
+  .btn-large { padding: 16px 36px; font-size: 1.05rem; }
+  .btn-block { width: 100%; }
+
+  /* NAV */
+  .nav { background: var(--soft-blue); padding: 0; position: sticky; top: 0; z-index: 100; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .nav-logo { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: 1.25rem; font-weight: 700; color: var(--gray-900); text-decoration: none; }
+  .nav-links { display: flex; list-style: none; gap: 28px; }
+  .nav-links a { color: var(--gray-700); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta { padding: 10px 22px; font-size: 0.9rem; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { width: 26px; height: 3px; background: var(--gray-800); border-radius: 2px; transition: 0.3s; }
+
+  /* HERO */
+  .hero { background: var(--soft-blue); padding: 100px 0 80px; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(20, 184, 166, 0.06) 0%, transparent 60%); }
+  .hero-content { position: relative; text-align: center; max-width: 720px; }
+  .hero-title { font-size: 3rem; font-weight: 700; color: var(--gray-900); margin-bottom: 20px; letter-spacing: -0.5px; }
+  .hero-sub { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 36px; }
+  .hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* APPOINTMENT TYPES */
+  .appt-types { background: var(--white); }
+  .appt-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .appt-card { background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: var(--radius); padding: 32px 24px; text-align: center; cursor: pointer; transition: all 0.3s ease; font-family: inherit; color: inherit; width: 100%; }
+  .appt-card:hover { border-color: var(--teal); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .appt-card.is-selected { border-color: var(--teal); background: var(--teal-light); box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2); }
+  .appt-card-icon { font-size: 2rem; display: block; margin-bottom: 14px; }
+  .appt-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+  .appt-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; }
+
+  /* SERVICES */
+  .services { background: var(--gray-50); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card { background: var(--white); border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow-sm); transition: all 0.3s ease; border: 1px solid var(--gray-100); }
+  .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: var(--teal-light); }
+  .service-icon { font-size: 2rem; display: block; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--gray-900); }
+  .service-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; }
+
+  /* COMFORT */
+  .comfort { background: var(--white); }
+  .comfort-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .comfort-text .section-title { text-align: left; }
+  .comfort-text p { font-size: 1rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 16px; }
+  .comfort-list { list-style: none; margin-top: 20px; }
+  .comfort-list li { padding: 8px 0 8px 28px; position: relative; color: var(--gray-700); font-size: 0.95rem; }
+  .comfort-list li::before { content: '\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+  .comfort-img { border-radius: var(--radius); box-shadow: var(--shadow-lg); width: 100%; height: auto; object-fit: cover; }
+
+  /* TEAM */
+  .team { background: var(--gray-50); }
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; }
+  .team-card { background: var(--white); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-sm); text-align: center; }
+  .team-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; box-shadow: var(--shadow-md); }
+  .team-card h3 { font-size: 1.3rem; margin-bottom: 4px; }
+  .team-role { display: block; color: var(--teal); font-weight: 600; font-size: 0.9rem; margin-bottom: 14px; }
+  .team-card p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.7; text-align: left; }
+
+  /* PROCESS */
+  .process { background: var(--white); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .process-step { text-align: center; padding: 32px 16px; }
+  .process-num { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--teal); color: var(--white); font-size: 1.1rem; font-weight: 700; font-family: "Playfair Display", serif; margin-bottom: 16px; }
+  .process-step h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+  .process-step p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--soft-blue); }
+  .testimonials-slider { max-width: 800px; margin: 0 auto; overflow: hidden; }
+  .testimonials-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testimonial-card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm); }
+  .testimonial-text { font-size: 0.95rem; color: var(--gray-700); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .testimonial-author img { border-radius: 50%; object-fit: cover; }
+  .testimonial-author strong { display: block; font-size: 0.95rem; color: var(--gray-900); font-family: "Playfair Display", serif; }
+  .testimonial-author span { font-size: 0.82rem; color: var(--gray-500); }
+
+  /* FAQ */
+  .faq { background: var(--white); }
+  .faq .section-title { margin-bottom: 40px; }
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--gray-200); list-style: none; }
+  .faq-item[open] .faq-answer { animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-size: 1.05rem; font-weight: 600; color: var(--gray-900); cursor: pointer; list-style: none; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question:hover { color: var(--teal); }
+  .faq-indicator { font-size: 1.4rem; font-weight: 700; color: var(--teal); margin-left: 16px; flex-shrink: 0; width: 24px; text-align: center; }
+  .faq-answer { padding-bottom: 20px; color: var(--gray-600); line-height: 1.7; }
+
+  /* CONTACT */
+  .contact { background: var(--gray-50); }
+  .contact-form { max-width: 640px; margin: 0 auto; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-md); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-weight: 600; font-size: 0.9rem; color: var(--gray-800); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm); font-size: 0.95rem; font-family: inherit; transition: border-color 0.2s; background: var(--white); color: var(--gray-900); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-error { display: none; font-size: 0.82rem; color: #dc2626; margin-top: 4px; }
+  .form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea { border-color: #dc2626; }
+  .form-group.invalid .form-error { display: block; }
+  .form-success { display: none; max-width: 640px; margin: 24px auto 0; text-align: center; background: var(--teal-light); border: 1px solid var(--teal); border-radius: var(--radius); padding: 40px; }
+  .form-success.is-visible { display: block; }
+  .form-success-icon { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+  .form-success h3 { font-size: 1.25rem; color: #134e4a; margin-bottom: 8px; }
+  .form-success p { color: #0f766e; }
+  .form-success a { color: var(--teal); font-weight: 700; }
+
+  /* FOOTER */
+  .footer { background: var(--gray-900); color: rgba(255, 255, 255, 0.8); padding: 60px 0 0; font-size: 0.92rem; }
+  .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; padding-bottom: 40px; }
+  .footer-col h4 { color: var(--white); font-family: "Playfair Display", serif; font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+  .footer-col p { margin-bottom: 8px; line-height: 1.6; }
+  .footer-col a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--teal); }
+  .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 20px 0; text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+  /* MOBILE STICKY */
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--teal); color: var(--white); text-align: center; padding: 16px; font-weight: 700; font-size: 1.1rem; text-decoration: none; z-index: 99; box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15); }
+  .mobile-sticky:hover { background: var(--teal-hover); }
+
+  @media (max-width: 1024px) {
+    .services-grid, .appt-cards { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-track { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--soft-blue); flex-direction: column; padding: 20px 24px; gap: 0; border-top: 1px solid var(--gray-200); }
+    .nav-links.is-open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid var(--gray-200); }
+    .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-sub { font-size: 1rem; }
+    .hero { padding: 70px 0 60px; }
+    .services-grid, .appt-cards { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    .section-title { font-size: 1.75rem; }
+    .comfort-inner { grid-template-columns: 1fr; gap: 32px; }
+    .comfort-img { order: -1; }
+    .team-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 24px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .mobile-sticky { display: block; }
+    section { padding: 60px 0; }
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  var toggleBtn = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', function () {
+      navLinks.classList.toggle('is-open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!toggleBtn.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('is-open');
+      }
+    });
+  }
+
+  var apptCards = document.querySelectorAll('.appt-card');
+  apptCards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      apptCards.forEach(function (c) {
+        c.classList.remove('is-selected');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      this.classList.add('is-selected');
+      this.setAttribute('aria-pressed', 'true');
+      var type = this.getAttribute('data-type');
+      var typeSelect = document.getElementById('formType');
+      if (typeSelect) typeSelect.value = type;
+      var contactSection = document.getElementById('contact');
+      if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function (item) {
+    var summary = item.querySelector('.faq-question');
+    var indicator = item.querySelector('.faq-indicator');
+    if (summary) {
+      summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = item.hasAttribute('open');
+        faqItems.forEach(function (other) {
+          other.removeAttribute('open');
+          var ind = other.querySelector('.faq-indicator');
+          if (ind) ind.textContent = '+';
+        });
+        if (!isOpen) {
+          item.setAttribute('open', '');
+          if (indicator) indicator.textContent = '\u2212';
+        } else {
+          if (indicator) indicator.textContent = '+';
+        }
+      });
+    }
+    if (indicator) {
+      indicator.textContent = item.hasAttribute('open') ? '\u2212' : '+';
+    }
+  });
+
+  var form = document.getElementById('contactForm');
+  var successDiv = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var isValid = true;
+      var fields = [
+        { id: 'formName', errorId: 'nameError' },
+        { id: 'formEmail', errorId: 'emailError' },
+        { id: 'formPhone', errorId: 'phoneError' },
+        { id: 'formType', errorId: 'typeError' }
+      ];
+      fields.forEach(function (field) {
+        var input = document.getElementById(field.id);
+        var group = input ? input.closest('.form-group') : null;
+        if (!group) return;
+        var value = input.value.trim();
+        var valid = true;
+        if (field.id === 'formEmail') {
+          valid = value.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        } else if (field.id === 'formType') {
+          valid = value !== '';
+        } else {
+          valid = value.length > 0;
+        }
+        if (!valid) {
+          group.classList.add('invalid');
+          isValid = false;
+        } else {
+          group.classList.remove('invalid');
+        }
+      });
+      if (isValid) {
+        form.style.display = 'none';
+        if (successDiv) successDiv.classList.add('is-visible');
+      }
+    });
+    var inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(function (input) {
+      input.addEventListener('input', function () {
+        var group = input.closest('.form-group');
+        if (group) group.classList.remove('invalid');
+      });
+    });
+  }
+
+  var scrollLinks = document.querySelectorAll('a[href^="#"]');
+  scrollLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+})();
+</script>

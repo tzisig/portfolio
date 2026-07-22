@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const services = [
+  { title: "Articulation Therapy", desc: "Helping children and adults produce sounds clearly — from early developing sounds to complex motor sequences." },
+  { title: "Receptive & Expressive Language", desc: "Building vocabulary, sentence structure, following directions, and expressing needs, thoughts, and ideas effectively." },
+  { title: "Social Communication", desc: "Pragmatic language skills — turn-taking, topic maintenance, perspective-taking, and reading social cues." },
+  { title: "Fluency (Stuttering)", desc: "Evidence-based stuttering therapy using fluency shaping, stuttering modification, and desensitization techniques." },
+  { title: "Adult Speech & Swallowing", desc: "Aphasia therapy, voice disorders, cognitive-communication therapy, and dysphagia assessment after stroke or injury." },
+  { title: "Early Intervention", desc: "Play-based therapy for toddlers and preschoolers with speech delays, language disorders, or feeding difficulties." },
+];
+const highlights = [
+  "Masters-level, ASHA-certified clinicians",
+  "Pediatric and adult clients",
+  "In-clinic and teletherapy options",
+  "Free 15-minute consultation",
+  "Insurance accepted — OHP, Cigna, Regence, Providence",
+  "We write home programs so progress continues between sessions",
+];
+const reviews = [
+  { text: "Our son started at 4 barely saying 3-word sentences. After a year he's telling stories. The therapist is patient, warm, and made it fun for him every single session.", name: "Eric T." },
+  { text: "I had a stroke at 52 and couldn't find the words I wanted. My SLP at Portland Speech is incredible — she's helped me get back to work emails and conversations with my kids.", name: "Margaret D." },
+];
+---
+<BaseLayout title="Portland Speech & Language Therapy | SLP Services for Children & Adults" description="Portland Speech & Language offers professional speech therapy for articulation, language, social communication, fluency, and adult speech disorders. ASHA-certified. In-clinic and online." themeColor="#1F4A3C" bodyClass="speech" consent={{ bg: "#1F4A3C", fg: "#F0F9F4", accent: "#D4A373", accentFg: "#1F4A3C", border: "rgba(240,249,244,0.16)" }}>
+  <slot name="head"><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
+  </slot>
+  <div class="wave-bg"></div>
+  <section class="hero"><div class="container"><p class="hero-badge">Since 2015 &middot; ASHA-Certified</p><h1>We help people find their words.</h1><p class="hero-sub">Portland Speech &amp; Language provides compassionate, evidence-based speech therapy for children and adults. In-clinic, online, or at your child's school.</p><div class="hero-actions"><a href="#services" class="btn-primary">Our Services</a><a href="tel:+15550122" class="btn-call">(555) 555-0122</a></div></div></section>
+  <section class="highlights"><div class="container"><div class="hl-grid">{highlights.map((h) => (<div class="hl-item"><span class="hl-dot">•</span>{h}</div>))}</div></div></section>
+  <section class="services" id="services"><div class="container"><h2>Speech &amp; Language Services</h2><div class="svc-grid">{services.map((s) => (<div class="svc-card"><h3>{s.title}</h3><p>{s.desc}</p></div>))}</div></div></section>
+  <section class="testimonials"><div class="container"><div class="testimonial-pair">{reviews.map((r) => (<div class="t-card"><p>"{r.text}"</p><strong>{r.name}</strong></div>))}</div></div></section>
+  <section class="cta"><div class="container cta-inner"><h2>Ready to start?</h2><p class="cta-sub">Free 15-minute consultation. We'll answer your questions and find the right therapist for you or your child.</p><div class="cta-actions"><a href="tel:+15550122" class="btn-primary">Call (555) 555-0122</a><a href="https://portlandspeech.com/contact" class="btn-outline">Contact Us</a></div></div></section>
+  <footer class="footer"><div class="container"><p>Portland Speech &amp; Language Therapy &mdash; Portland, OR</p><nav><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a><a href="/accessibility">Accessibility</a></nav></div></footer>
+</BaseLayout>
+<style>:global(.speech){--green:#1F4A3C;--sand:#D4A373;--cream:#F0F9F4;--font-h:'Nunito',sans-serif;--font-b:'Inter',sans-serif}:global(.speech){font-family:var(--font-b);color:#444;background:var(--cream);line-height:1.6}:global(.speech) :focus-visible{outline:3px solid var(--sand);outline-offset:2px}.container{max-width:1000px;margin:0 auto;padding:0 24px}h1{font-family:var(--font-h);font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:var(--green);line-height:1.1;max-width:600px}h2{font-family:var(--font-h);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700;color:var(--green);margin-bottom:28px}.wave-bg{position:fixed;inset:0;background:linear-gradient(180deg,rgba(212,163,115,.06) 0%,transparent 40%);pointer-events:none;z-index:0}
+  .hero{padding:80px 0 60px;position:relative;z-index:1}.hero-badge{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;color:var(--sand);font-weight:600;margin-bottom:12px}.hero-sub{color:#888;font-size:1.05rem;max-width:500px;margin:20px 0 32px}.hero-actions{display:flex;gap:16px;align-items:center}.btn-primary{display:inline-block;padding:14px 32px;background:var(--green);color:#fff;text-decoration:none;font-weight:700;transition:background .25s}.btn-primary:hover{background:#245a47}.btn-call{font-size:1.15rem;font-weight:600;color:var(--green);text-decoration:none}.btn-call:hover{color:var(--sand)}.btn-outline{display:inline-block;padding:14px 32px;border:2px solid var(--green);color:var(--green);text-decoration:none;font-weight:700;transition:all .25s}.btn-outline:hover{background:var(--green);color:#fff}
+  .highlights{padding:40px 0 20px}.hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.hl-item{display:flex;align-items:center;gap:8px;color:#666;font-size:.85rem}.hl-dot{color:var(--sand);font-weight:700}
+  .services{padding:60px 0}.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.svc-card{padding:24px;background:#fff;border-radius:0;border:1px solid rgba(31,74,60,.08)}.svc-card h3{font-family:var(--font-h);font-weight:700;color:var(--green);font-size:.95rem;margin-bottom:4px}.svc-card p{color:#888;font-size:.85rem;line-height:1.6}
+  .testimonials{padding:60px 0}.testimonial-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}.t-card{padding:24px 28px;background:#fff;border-left:3px solid var(--sand)}.t-card p{font-style:italic;color:#666;font-size:.9rem;margin-bottom:8px}.t-card strong{font-size:.85rem;color:var(--green)}
+  .cta{padding:80px 0;background:var(--green);text-align:center}.cta-inner{max-width:550px}.cta h2{color:#fff}.cta-sub{color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:32px}.cta-actions{display:flex;gap:16px;justify-content:center}
+  .footer{padding:40px 0;text-align:center;color:#aaa;font-size:.8rem;border-top:1px solid rgba(0,0,0,.06)}.footer nav{display:flex;justify-content:center;gap:20px;margin-top:6px}.footer a{color:#aaa;text-decoration:underline}
+  @media(max-width:800px){.svc-grid{grid-template-columns:1fr}.hl-grid{grid-template-columns:1fr}.testimonial-pair{grid-template-columns:1fr}}
+</style>

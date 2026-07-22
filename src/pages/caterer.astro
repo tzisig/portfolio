@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const menu = [
+  { name: "Roasted Beet & Burrata", price: "18", tags: ["vegetarian", "gluten-free"], desc: "Candy beets, housemade burrata, pistachio crumb, aged balsamic" },
+  { name: "Seared Scallops", price: "24", tags: ["gluten-free"], desc: "U–10 scallops, brown butter beurre blanc, crispy capers, chive oil" },
+  { name: "Herb-Rubbed Lamb Rack", price: "38", tags: ["gluten-free"], desc: "Colorado lamb, rosemary-garlic crust, harissa yogurt, grilled lemon" },
+  { name: "Mushroom & Truffle Risotto", price: "22", tags: ["vegetarian", "gluten-free"], desc: "Arborio, maitake & oyster mushrooms, truffle oil, aged parmesan" },
+  { name: "Confit Duck Leg", price: "34", tags: ["gluten-free"], desc: "Slow-cooked duck, sour cherry gastrique, wilted escarole, sunchoke purée" },
+  { name: "Dark Chocolate Tart", price: "14", tags: ["vegetarian"], desc: "Valrhona 70%, salted caramel, vanilla crème, cocoa nib tuile" },
+  { name: "Grilled Octopus", price: "20", tags: ["gluten-free"], desc: "Spanish octopus, romesco, smoked paprika oil, pickled shallot, arugula" },
+  { name: "Wagyu Beef Carpaccio", price: "26", tags: [], desc: "A5 wagyu, shaved parmesan, micro greens, truffle vinaigrette" },
+];
+const tags = ["all", "vegetarian", "gluten-free"];
+const plans = [
+  { name: "Cocktail Reception", price: "$85/pp", desc: "8 passed hors d'oeuvres, 2 signature cocktails, seasonal display dessert" },
+  { name: "Plated Dinner", price: "$145/pp", desc: "3-course menu, wine pairing, amuse-bouche, intermezzo, petit fours" },
+  { name: "Buffet & Grill", price: "$105/pp", desc: "4-entrée buffet, carving station, 2 sides, artisan bread, dessert table" },
+];
+const reviews = [
+  { text: "They catered our wedding rehearsal dinner. Every guest asked for the scallop recipe. Professional, punctual, and the food was incredible.", name: "Natalie G." },
+  { text: "We've used Ember & Vine for three corporate events. They handle dietary restrictions seamlessly and the presentation is always stunning.", name: "Derek M." },
+];
+---
+<BaseLayout title="Ember & Vine — Portland Catering & Private Dining" description="Ember & Vine provides elevated catering for weddings, corporate events, and private dinners in Portland. Seasonal menus, dietary-inclusive." themeColor="#2A2522" bodyClass="caterer" consent={{ bg: "#2A2522", fg: "#F0EBE5", accent: "#9B3D5A", accentFg: "#F0EBE5", border: "rgba(240,235,229,0.16)" }}>
+  <slot name="head"><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" /></noscript>
+  </slot>
+  <section class="hero-image"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1800&q=80" alt="Beautifully plated dish with fresh ingredients" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async" />
+    <div class="hero-overlay"><p class="hero-tag">Ember &amp; Vine</p><h1>Exceptional food, wherever you are.</h1><p>Portland's elevated catering for weddings, corporate events, and private dinners.</p><a href="#menu" class="btn-hero">View Menu</a></div>
+  </section>
+  <main>
+    <section class="menu" id="menu"><div class="container"><div class="menu-header"><h2>Sample menu</h2><div class="filter-bar" id="filterBar">{tags.map((t) => (<button class="filter-btn" data-tag={t}>{t}</button>))}</div></div>
+      <div class="menu-grid">{menu.map((m) => (<div class="menu-item" data-tags={m.tags.join(' ')}><div class="menu-head"><h3>{m.name}</h3><span class="menu-price">${m.price}</span></div><p class="menu-desc">{m.desc}</p><div class="menu-tags">{m.tags.map((t) => (<span class="menu-tag">{t}</span>))}</div></div>))}</div>
+    </div></section>
+    <section class="plans-section"><div class="container"><h2>Event packages</h2><div class="plan-grid">{plans.map((p) => (<div class="plan-card"><h3>{p.name}</h3><span class="plan-price">{p.price}</span><p>{p.desc}</p></div>))}</div></div></section>
+    <section class="reviews"><div class="container"><div class="review-strip">{reviews.map((r) => (<div class="review-card"><p>"{r.text}"</p><strong>{r.name}</strong></div>))}</div></div></section>
+    <section class="contact"><div class="container contact-inner"><h2>Book a tasting.</h2><p>We'll design a custom menu for your event. Tastings are complimentary for events over 50 guests.</p><a href="mailto:events@emberandvine.com" class="contact-btn">events@emberandvine.com</a></div></section>
+  </main>
+  <footer class="footer"><div class="container"><p>Ember &amp; Vine Catering &mdash; Portland, OR</p><nav><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a></nav></div></footer>
+</BaseLayout>
+<style>:global(.caterer){--charcoal:#2A2522;--wine:#9B3D5A;--cream:#F0EBE5;--font-h:'Fraunces',Georgia,serif;--font-b:'Inter',sans-serif}:global(.caterer){font-family:var(--font-b);color:#444;background:var(--cream);line-height:1.6}:global(.caterer) :focus-visible{outline:3px solid var(--wine);outline-offset:2px}.container{max-width:1100px;margin:0 auto;padding:0 24px}h2{font-family:var(--font-h);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600;color:var(--charcoal);margin-bottom:32px;line-height:1.15}
+  .hero-image{position:relative;height:85vh;min-height:500px;overflow:hidden}.hero-image img{width:100%;height:100%;object-fit:cover}.hero-overlay{position:absolute;inset:0;background:linear-gradient(rgba(42,37,34,.5),rgba(42,37,34,.7));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px}.hero-tag{font-family:var(--font-h);font-size:1.1rem;font-style:italic;color:var(--wine);margin-bottom:12px}.hero-overlay h1{font-family:var(--font-h);font-size:clamp(2.5rem,6vw,4rem);color:#fff;font-weight:600;line-height:1.1;margin-bottom:12px}.hero-overlay p{color:rgba(255,255,255,.7);font-size:1.05rem;margin-bottom:32px}.btn-hero{display:inline-block;padding:14px 36px;background:var(--wine);color:#fff;text-decoration:none;font-weight:600;transition:background .25s}.btn-hero:hover{background:#b84a6c}
+  .menu{padding:80px 0}.menu-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;flex-wrap:wrap;gap:16px}.filter-bar{display:flex;gap:8px}.filter-btn{padding:6px 16px;border:1px solid rgba(0,0,0,.1);background:transparent;font-family:var(--font-b);font-size:.8rem;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .2s}.filter-btn.active,.filter-btn:hover{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}.menu-item{padding:24px 20px;border-bottom:1px solid rgba(0,0,0,.06);border-right:1px solid rgba(0,0,0,.06)}.menu-item:nth-child(even){border-right:none}.menu-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.menu-head h3{font-family:var(--font-h);font-size:1.05rem;font-weight:600;color:var(--charcoal)}.menu-price{font-weight:600;color:var(--wine)}.menu-desc{color:#888;font-size:.85rem;margin-bottom:8px}.menu-tags{display:flex;gap:6px}.menu-tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--wine);background:rgba(155,61,90,.08);padding:2px 8px}
+  .plans-section{padding:80px 0;background:var(--charcoal)}.plans-section h2{color:#fff}.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.plan-card{background:rgba(255,255,255,.06);padding:32px 24px;text-align:center}.plan-card h3{font-family:var(--font-h);font-size:1.2rem;color:#fff;margin-bottom:4px}.plan-price{display:block;font-family:var(--font-h);font-size:1.8rem;color:var(--wine);font-weight:600;margin-bottom:12px}.plan-card p{color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.65}
+  .reviews{padding:60px 0}.review-strip{display:grid;grid-template-columns:1fr 1fr;gap:24px}.review-card{padding:24px;border-left:2px solid var(--wine)}.review-card p{font-style:italic;color:#666;font-size:.9rem;margin-bottom:8px}.review-card strong{font-size:.85rem;color:var(--charcoal)}
+  .contact{padding:80px 0;text-align:center}.contact p{color:#888;margin-bottom:32px;font-size:1rem}.contact-btn{display:inline-block;font-family:var(--font-h);font-size:1.3rem;color:var(--wine);text-decoration:none;border-bottom:1px solid var(--wine);padding-bottom:4px}.contact-btn:hover{color:var(--charcoal);border-color:var(--charcoal)}
+  .footer{padding:40px 0;text-align:center;color:#bbb;font-size:.8rem}.footer nav{display:flex;justify-content:center;gap:20px;margin-top:6px}.footer a{color:#bbb;text-decoration:underline}
+  @media(max-width:800px){.menu-grid{grid-template-columns:1fr}.menu-item:nth-child(even){border-right:none}.plan-grid{grid-template-columns:1fr}.review-strip{grid-template-columns:1fr}.filter-bar{overflow-x:auto}}
+</style>
+<script>(function(){var b=document.getElementById('filterBar');if(!b)return;var btns=b.querySelectorAll('.filter-btn');var items=document.querySelectorAll('.menu-item');btns.forEach(function(btn){btn.addEventListener('click',function(){btns.forEach(function(b){b.classList.remove('active')});this.classList.add('active');var t=this.dataset.tag;items.forEach(function(item){if(t==='all'){item.style.display=''}else{var tags=item.dataset.tags||'';item.style.display=tags.includes(t)?'':'none'}})})});btns[0].classList.add('active')})();</script>

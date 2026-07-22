@@ -1,0 +1,28 @@
+<a href="/" class="home-btn" aria-label="Back to home page">⌂</a>
+<style>
+  .home-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.55);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    transition: background .2s, transform .2s;
+  }
+  .home-btn:hover, .home-btn:focus-visible {
+    background: rgba(0,0,0,.8);
+    transform: scale(1.1);
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+</style>

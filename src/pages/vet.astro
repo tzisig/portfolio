@@ -1,0 +1,601 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  { title: "Wellness Exams", desc: "Annual or biannual comprehensive physical exams that assess your pet's overall health. We check eyes, ears, teeth, heart, lungs, abdomen, skin, coat, joints, and mobility. Each exam includes a weight assessment and nutritional counseling tailored to your pet's age and breed." },
+  { title: "Vaccinations", desc: "Core and lifestyle-based vaccination protocols following AAHA guidelines. We tailor each vaccine schedule to your pet's specific risk factors, indoor or outdoor lifestyle, and local disease prevalence. Titers available upon request." },
+  { title: "Dental Care", desc: "Professional dental cleanings under general anesthesia, including supra- and sub-gingival scaling, polishing, and full oral examination. We also diagnose and treat periodontal disease, perform extractions when needed, and provide at-home dental care guidance." },
+  { title: "Surgery", desc: "Soft tissue and orthopedic surgical services performed in a sterile environment with modern monitoring equipment. We cover spay and neuter, mass removals, exploratory surgery, and orthopedic procedures. Pre-anesthetic bloodwork is included with every surgery." },
+  { title: "Diagnostics", desc: "In-house digital radiography, ultrasound, blood chemistry panels, complete blood counts, urinalysis, and fecal exams. Most results are available within minutes, allowing us to diagnose and begin treatment during your visit whenever possible." },
+  { title: "Senior Pet Care", desc: "Dedicated geriatric wellness programs for pets over seven years of age. We recommend semi-annual exams, baseline bloodwork, joint health assessment, and early detection screening for age-related conditions such as kidney disease, arthritis, and thyroid disorders." },
+];
+
+const team = [
+  { name: "Dr. Elena Vasquez, DVM", role: "Lead Veterinarian", desc: "Dr. Vasquez earned her DVM from Oregon State University's Carlson College of Veterinary Medicine and has practiced small animal medicine in Portland for over 14 years. She holds additional certification in canine rehabilitation and is a member of the American Veterinary Medical Association. She shares her home with a Border Collie named Juno and two rescued domestic shorthair cats." },
+  { name: "Dr. Marcus Chen, DVM", role: "Associate Veterinarian", desc: "Dr. Chen graduated from Washington State University's College of Veterinary Medicine and completed a small animal rotating internship at DoveLewis Emergency Animal Hospital. His clinical interests include internal medicine, ultrasonography, and feline-specific care. He lives in Southeast Portland with his partner and their chatty Siamese, Mochi." },
+];
+
+const steps = [
+  { num: "1", title: "Check-in & History", desc: "You'll be greeted by name at our front desk. We review your pet's medical history, discuss any concerns you've noted since your last visit, and confirm today's appointment goals. Coffee, tea, and complimentary calming treats are available in the waiting area." },
+  { num: "2", title: "Examination", desc: "One of our veterinarians performs a thorough nose-to-tail physical exam in a quiet, low-stress exam room. We use pheromone diffusers and soft bedding to help nervous pets feel at ease. We explain each step as we go and welcome any questions you have." },
+  { num: "3", title: "Diagnostics & Discussion", desc: "If diagnostic tests are indicated, we explain why each one is recommended and provide a clear cost estimate before proceeding. We review results together, discuss treatment options in plain language, and create a plan that respects your budget and your pet's needs." },
+  { num: "4", title: "Discharge & Follow-up", desc: "Before you leave, we provide a written summary of the visit, any medications prescribed, and clear instructions for at-home care. A follow-up email arrives within 24 hours, and we call to check on your pet's progress within two days." },
+];
+
+const testimonials = [
+  { text: "We adopted a rescue golden retriever mix who was terrified of everything, especially strangers. Dr. Vasquez spent an entire first appointment sitting on the floor, letting him come to her on his own terms. Two years later, he practically drags us through the front door. That kind of patience is rare and we are so grateful.", name: "Lauren & David Morrison", location: "Sellwood" },
+  { text: "My senior cat needed dental surgery and I was extremely anxious about anesthesia. Dr. Chen walked me through every detail of the protocol, from the pre-anesthetic bloodwork to the monitoring equipment used during the procedure. The surgery went smoothly and my cat recovered faster than I expected. I trust this team completely.", name: "Patricia Ng", location: "Goose Hollow" },
+  { text: "When our labradoodle swallowed a squeaker toy on a Sunday morning, I didn't think any vet would see us. Willow Glen fit us in within an hour, handled the situation with calm professionalism, and called us that evening to check on her. They've earned our trust for life.", name: "Tom & Rachel Kim", location: "Laurelhurst" },
+];
+
+const faqs = [
+  { q: "How often should my pet have a wellness exam?", a: "We recommend annual wellness exams for healthy adult pets and semi-annual exams for seniors (age seven and older), puppies, and kittens. Regular exams allow us to detect potential health issues early, update vaccinations, and adjust nutrition and preventive care plans as your pet ages." },
+  { q: "What should I bring to my pet's first visit?", a: "Please bring any prior veterinary records, including vaccine history and previous lab work. If your pet is on medication, bring the prescription bottles or a list of medications with dosages. A fresh stool sample (collected within 12 hours) is helpful for a fecal exam. Most importantly, bring your pet on a leash or in a carrier." },
+  { q: "Do you offer payment plans or pet insurance options?", a: "We accept cash, all major credit cards, and CareCredit, which allows you to pay for treatment over time with no interest on qualifying plans. We also work with major pet insurance providers and can help you submit claims. We provide written treatment plans with itemized costs before any procedure so there are never surprises." },
+  { q: "What are your protocols for surgical safety?", a: "Every surgical patient receives a thorough pre-anesthetic examination and bloodwork to screen for underlying conditions. During surgery, a dedicated veterinary technician monitors heart rate, respiration, oxygen saturation, blood pressure, and temperature continuously. We use modern anesthetic agents and maintain a sterile surgical environment. Pain management protocols are tailored to each patient." },
+  { q: "Do you treat exotic pets or only cats and dogs?", a: "Our practice focuses exclusively on dogs and cats. For specialized care for birds, reptiles, rabbits, ferrets, or other small mammals, we recommend scheduling a consultation with one of our trusted partner clinics in the Portland area who specialize in exotic pet medicine." },
+];
+---
+<BaseLayout
+  title="Willow Glen Veterinary Clinic | Compassionate Pet Care in Portland"
+  description="Willow Glen Veterinary Clinic provides gentle, thorough care for dogs and cats in Portland, Oregon. Wellness exams, vaccinations, dental care, surgery, and senior pet medicine in a low-stress environment."
+  themeColor="#F5F0E8"
+  bodyClass="vet"
+  consent={{
+    bg: "#F5F0E8",
+    fg: "#1A1815",
+    accent: "#C5D1B9",
+    accentFg: "#1A1815",
+    border: "rgba(26,24,21,0.12)",
+  }}
+>
+  <slot name="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" /></noscript>
+  </slot>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-inner container">
+      <a href="#" class="nav-logo">Willow Glen<br />Veterinary Clinic</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">Book an Appointment</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-image-wrapper">
+        <img src="https://images.pexels.com/photos/6235241/pexels-photo-6235241.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" alt="A veterinarian in blue scrubs performs a checkup on a dog using a stethoscope in a modern veterinary clinic" width="1600" height="1067" class="hero-img" loading="eager" fetchpriority="high" decoding="async" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-label">Willow Glen Veterinary Clinic</p>
+        <h1 class="hero-title">Gentle, Thorough Care for Your Dog or Cat.</h1>
+        <p class="hero-sub">From routine wellness exams to advanced diagnostics and surgery, Willow Glen Veterinary Clinic provides compassionate, low-stress veterinary medicine in a calm, sunlit clinic designed to put both you and your pet at ease.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+          <a href="#services" class="btn btn-outline">Explore Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What We Offer</span>
+          <h2>Comprehensive Veterinary Services</h2>
+          <p class="section-sub">Medical, surgical, and preventive care for dogs and cats at every life stage.</p>
+        </div>
+        <div class="services-grid">
+          {services.map((s) => (
+            <article class="service-card">
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="philosophy" id="philosophy">
+      <div class="container philosophy-inner">
+        <div class="philosophy-text">
+          <span class="section-label">Our Philosophy</span>
+          <h2>Low-Stress Medicine, Built Into Every Visit.</h2>
+          <p>We believe that veterinary care should not be something your pet dreads. From the pheromone diffusers in our exam rooms to the soft bedding on our stainless steel tables, every detail of Willow Glen is designed to reduce anxiety for you and your pet.</p>
+          <p>We never rush an appointment. We sit on the floor when a patient is nervous. We let fearful pets explore the room before we approach. And we communicate every recommendation clearly, with a full cost breakdown, before moving forward with any treatment.</p>
+          <p>Your trust matters more to us than any procedure. We earn it one appointment at a time.</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1581888227599-779811ae961b?w=800&q=80" alt="Veterinarian petting a golden retriever during a calm examination in a bright clinic room" width="560" height="420" loading="lazy" decoding="async" class="philosophy-img" />
+      </div>
+    </section>
+
+    <section class="team" id="team">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Your Veterinary Team</span>
+          <h2>Experienced, Compassionate, and Thorough.</h2>
+          <p class="section-sub">Our veterinarians and support staff are dedicated to providing the highest standard of care in a warm, welcoming environment.</p>
+        </div>
+        <div class="team-grid">
+          {team.map((t) => (
+            <article class="team-card">
+              <h3>{t.name}</h3>
+              <span class="team-role">{t.role}</span>
+              <p>{t.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Your Visit</span>
+          <h2>What to Expect During Your Appointment</h2>
+          <p class="section-sub">Every visit follows a thoughtful, transparent process designed to minimize stress and maximize understanding.</p>
+        </div>
+        <div class="process-steps">
+          {steps.map((s) => (
+            <div class="process-step">
+              <span class="process-num">{s.num}</span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Kind Words</span>
+          <h2>What Pet Parents Say</h2>
+        </div>
+        <div class="testimonials-grid">
+          {testimonials.map((t) => (
+            <blockquote class="testimonial-card">
+              <p class="testimonial-text">{t.text}</p>
+              <footer class="testimonial-author">
+                <strong>{t.name}</strong>
+                <span>{t.location}</span>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Common Questions</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map((f, i) => (
+            <details class="faq-item" open={i === 0 ? true : undefined}>
+              <summary class="faq-question">{f.q}<span class="faq-indicator">{i === 0 ? "−" : "+"}</span></summary>
+              <div class="faq-answer">
+                <p>{f.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Get in Touch</span>
+          <h2>Book an Appointment</h2>
+          <p class="section-sub">Fill out the form below and we'll call or email you within one business day to confirm your visit. For urgent concerns, please call us directly.</p>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formName">Your Name</label>
+              <input type="text" id="formName" name="name" required placeholder="Your full name" />
+              <span class="form-error" id="nameError">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label for="formEmail">Email Address</label>
+              <input type="email" id="formEmail" name="email" required placeholder="you@example.com" />
+              <span class="form-error" id="emailError">Please enter a valid email.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formPhone">Phone Number</label>
+              <input type="tel" id="formPhone" name="phone" required placeholder="503-555-1234" />
+              <span class="form-error" id="phoneError">Please enter your phone number.</span>
+            </div>
+            <div class="form-group">
+              <label for="formPet">Pet's Name</label>
+              <input type="text" id="formPet" name="pet" required placeholder="Your pet's name" />
+              <span class="form-error" id="petError">Please enter your pet's name.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formType">Appointment Type</label>
+              <select id="formType" name="type" required>
+                <option value="">Select type...</option>
+                <option value="wellness">Wellness Exam</option>
+                <option value="vaccination">Vaccination</option>
+                <option value="dental">Dental Cleaning</option>
+                <option value="sick">Sick Visit</option>
+                <option value="surgery">Surgery Consultation</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-error" id="typeError">Please select an appointment type.</span>
+            </div>
+            <div class="form-group">
+              <label for="formDate">Preferred Date</label>
+              <input type="date" id="formDate" name="date" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Additional Information</label>
+            <textarea id="formMessage" name="message" rows="4" placeholder="Tell us anything we should know before your visit — your pet's medication, recent symptoms, or specific concerns."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large">Request Appointment</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Willow Glen Veterinary Clinic</h3>
+        <p>Gentle, thorough care for dogs and cats. Low-stress medicine in a calm, sunlit clinic.</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>4512 SE Willow Glen Way<br />Portland, OR 97202</p>
+        <p><a href="tel:+15550199">(555) 555-0199</a></p>
+        <p><a href="mailto:hello@willowglenvet.com">hello@willowglenvet.com</a></p>
+      </div>
+      <div class="footer-hours">
+        <h4>Hours</h4>
+        <p>Mon–Fri: 8:00 AM – 6:00 PM</p>
+        <p>Saturday: 9:00 AM – 2:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <p><a href="/privacy">Privacy Policy</a></p>
+        <p><a href="/cookies">Cookie Policy</a></p>
+        <p><a href="/accessibility">Accessibility</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Willow Glen Veterinary Clinic. All rights reserved.</p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  :global(.vet) {
+    --sage: #8A9A7A;
+    --sage-light: #C5D1B9;
+    --sage-dark: #4A5D3E;
+    --cream: #F5F0E8;
+    --cream-dark: #E8E0D3;
+    --brown: #3E352B;
+    --brown-light: #6B5E50;
+    --white: #FFFFFF;
+    --font-heading: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --transition: 0.25s ease;
+  }
+
+  :global(.vet) {
+    font-family: var(--font-body);
+    color: var(--brown);
+    background: var(--cream);
+    line-height: 1.65;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(.vet) :focus-visible {
+    outline: 3px solid var(--sage);
+    outline-offset: 2px;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--sage-dark);
+    line-height: 1.25;
+  }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 12px; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.1rem; }
+
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--sage);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .section-sub { color: var(--brown-light); max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.3px;
+    border-radius: 0;
+  }
+  .btn-primary { background: var(--sage-dark); color: var(--cream); }
+  .btn-primary:hover { background: var(--sage); }
+  .btn-outline { background: transparent; color: var(--cream); border: 1px solid var(--cream); }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+  .btn-large { padding: 16px 40px; font-size: 1.05rem; }
+
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 16px 0; transition: all var(--transition);
+  }
+  .nav.scrolled { background: var(--cream); box-shadow: 0 2px 24px rgba(62,53,43,0.08); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo {
+    font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700;
+    color: var(--cream); text-decoration: none; line-height: 1.3; transition: color var(--transition);
+  }
+  .nav.scrolled .nav-logo { color: var(--sage-dark); }
+  .nav-links { display: flex; list-style: none; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-size: 0.9rem; font-weight: 500;
+    color: var(--cream); text-decoration: none; transition: color var(--transition);
+  }
+  .nav.scrolled .nav-links a { color: var(--brown); }
+  .nav-links a:hover { color: var(--sage-light); }
+  .nav.scrolled .nav-links a:hover { color: var(--sage); }
+  .nav-cta {
+    padding: 8px 20px; border: 1px solid var(--cream); color: var(--cream) !important;
+    font-weight: 600; transition: all var(--transition);
+  }
+  .nav-cta:hover { background: var(--cream); color: var(--sage-dark) !important; }
+  .nav.scrolled .nav-cta { border-color: var(--sage-dark); color: var(--sage-dark) !important; }
+  .nav.scrolled .nav-cta:hover { background: var(--sage-dark); color: var(--cream) !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--cream); margin: 5px 0; transition: all var(--transition); }
+  .nav.scrolled .nav-toggle span { background: var(--brown); }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(62,53,43,0.65) 0%, rgba(74,93,62,0.4) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 720px;
+  }
+  .hero-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--sage-light);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .hero-title { color: var(--cream); margin-bottom: 20px; }
+  .hero-sub {
+    color: rgba(245,240,232,0.9);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .services { padding: 100px 0; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--cream-dark);
+    padding: 32px 28px;
+    border-left: 3px solid var(--sage);
+  }
+  .service-card h3 { margin-bottom: 12px; color: var(--sage-dark); }
+  .service-card p { color: var(--brown-light); font-size: 0.95rem; line-height: 1.7; }
+
+  .philosophy { padding: 100px 0; background: var(--white); }
+  .philosophy-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .philosophy-text p { color: var(--brown-light); margin-bottom: 16px; font-size: 1rem; line-height: 1.75; }
+  .philosophy-img { width: 100%; height: auto; display: block; border-radius: 0; }
+
+  .team { padding: 100px 0; }
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .team-card { background: var(--cream-dark); padding: 40px 32px; }
+  .team-card h3 { margin-bottom: 4px; }
+  .team-role { display: block; font-size: 0.85rem; color: var(--sage); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .team-card p { color: var(--brown-light); font-size: 0.95rem; line-height: 1.75; }
+
+  .process { padding: 100px 0; background: var(--white); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; }
+  .process-step { text-align: center; padding: 32px 20px; background: var(--cream); position: relative; }
+  .process-num {
+    display: flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; margin: 0 auto 16px;
+    background: var(--sage); color: var(--cream);
+    font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700;
+  }
+  .process-step h3 { margin-bottom: 8px; font-size: 1.1rem; }
+  .process-step p { color: var(--brown-light); font-size: 0.9rem; line-height: 1.7; }
+
+  .testimonials { padding: 100px 0; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testimonial-card { background: var(--cream-dark); padding: 36px 28px; }
+  .testimonial-text { font-style: italic; font-size: 0.95rem; color: var(--brown); line-height: 1.75; margin-bottom: 20px; }
+  .testimonial-author strong { display: block; font-family: var(--font-heading); font-size: 1rem; color: var(--sage-dark); margin-bottom: 2px; }
+  .testimonial-author span { font-size: 0.8rem; color: var(--sage); }
+
+  .faq { padding: 100px 0; background: var(--white); }
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid rgba(74,93,62,0.15); }
+  .faq-question {
+    padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600;
+    color: var(--brown); cursor: pointer;
+  }
+  .faq-question:hover { color: var(--sage); }
+  .faq-indicator { font-size: 1.3rem; color: var(--sage); line-height: 1; }
+  .faq-answer { padding-bottom: 20px; }
+  .faq-answer p { color: var(--brown-light); font-size: 0.95rem; line-height: 1.7; }
+
+  .contact { padding: 100px 0; }
+  .contact-form { max-width: 640px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brown); margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px 16px;
+    font-family: var(--font-body); font-size: 0.95rem;
+    background: var(--cream-dark); border: 1px solid transparent;
+    transition: border-color var(--transition); color: var(--brown);
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--sage); }
+  .form-group textarea { resize: vertical; }
+  .form-error { display: none; font-size: 0.8rem; color: #C44; margin-top: 4px; }
+  .form-group.has-error .form-error { display: block; }
+  .form-group.has-error input, .form-group.has-error textarea, .form-group.has-error select { border-color: #C44; }
+
+  .footer { background: var(--sage-dark); color: var(--cream); padding: 64px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand h3 { font-family: var(--font-heading); font-size: 1.3rem; color: var(--cream); margin-bottom: 12px; }
+  .footer-brand p { color: rgba(245,240,232,0.7); font-size: 0.9rem; }
+  .footer h4 { color: var(--cream); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-body); }
+  .footer p { color: rgba(245,240,232,0.7); font-size: 0.9rem; margin-bottom: 6px; line-height: 1.6; }
+  .footer a { color: var(--sage-light); text-decoration: none; transition: color var(--transition); }
+  .footer a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.12); padding-top: 24px; text-align: center; }
+  .footer-bottom p { font-size: 0.8rem; color: rgba(245,240,232,0.45); }
+
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .philosophy-inner { grid-template-columns: 1fr; gap: 32px; }
+    .team-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .services, .philosophy, .team, .process, .testimonials, .faq, .contact { padding: 60px 0; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--cream); flex-direction: column; padding: 20px 24px;
+      gap: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a, .nav.scrolled .nav-links a { color: var(--brown); }
+    .nav.scrolled .nav-cta { border-color: var(--sage-dark); color: var(--sage-dark) !important; }
+    .nav-toggle { display: block; }
+  }
+</style>
+
+<script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          nav.classList.toggle('scrolled', window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+      links.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { links.classList.remove('open'); });
+      });
+    }
+
+    var form = document.getElementById('contactForm');
+    if (form) {
+      var fields = form.querySelectorAll('[required]');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var valid = true;
+        fields.forEach(function(f) {
+          var g = f.closest('.form-group');
+          if (!g) return;
+          if (!f.value.trim()) {
+            g.classList.add('has-error');
+            valid = false;
+          } else {
+            g.classList.remove('has-error');
+          }
+        });
+        if (valid) {
+          alert('Thank you for your appointment request. We will contact you within one business day.');
+          form.reset();
+        }
+      });
+      fields.forEach(function(f) {
+        f.addEventListener('input', function() { f.closest('.form-group')?.classList.remove('has-error'); });
+      });
+    }
+  })();
+</script>

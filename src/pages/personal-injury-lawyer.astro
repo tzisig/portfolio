@@ -1,0 +1,748 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const practiceAreas = [
+  { id: "car-accident", icon: '<circle cx="22" cy="2" r="2"/><path d="M6.5 12h-3l1.5-5H12"/><path d="M14.5 21l-1.5-5H6"/><path d="M18 9l-2.5 3-1.5-5h5l1 2"/><path d="M12 22V12l-5-5"/>', title: "Car Accidents", desc: "Whether you were hit by a distracted driver, a drunk driver, or someone who ran a red light, we pursue full compensation for medical bills, lost wages, vehicle damage, and pain and suffering. Oregon's fault-based system requires holding the at-fault driver accountable." },
+  { id: "workplace-injury", icon: '<rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>', title: "Workplace Injuries", desc: "When you are hurt on the job, you deserve more than just workers' compensation. If a third party's negligence contributed to your injury, or if your employer denied valid benefits, we help you pursue every available avenue of compensation." },
+  { id: "slip-fall", icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>', title: "Slip and Fall Cases", desc: "Property owners have a legal duty to maintain safe premises. If you slipped, tripped, or fell due to a hazardous condition in a store, apartment building, or public space, you may have a premises liability claim." },
+  { id: "medical-negligence", icon: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>', title: "Medical Negligence", desc: "Doctors, nurses, and hospitals are held to a high standard of care. When a misdiagnosis, surgical error, medication mistake, or birth injury causes harm, we help families seek accountability." },
+];
+
+const caseTypeLabels = {
+  'car-accident': { label: 'Describe Your Injuries', placeholder: 'Tell us about your injuries and how the accident happened. Include any medical treatment you have received.' },
+  'workplace-injury': { label: 'Describe Your Injury and Employer', placeholder: 'Describe how you were injured, what your employer has said, and whether you have filed a workers\' compensation claim.' },
+  'slip-fall': { label: 'Describe the Incident Location', placeholder: 'Where did the fall happen? What was the hazardous condition? Did anyone witness the accident?' },
+  'medical-negligence': { label: 'Describe the Medical Incident', placeholder: 'Which healthcare provider was involved? What procedure or treatment led to your injury? Do you have medical records?' },
+};
+---
+<BaseLayout
+  title="Personal Injury Lawyer | Harrison Legal Advocates | Free Case Review"
+  description="Injured in an accident? Harrison Legal Advocates handles car accidents, workplace injuries, slip and fall cases, and medical negligence. No-obligation confidential case review."
+  themeColor="#1c1c1c"
+  bodyClass="personal-injury-lawyer"
+  consent={{ bg: "#1c1c1c", fg: "#f5f0eb", accent: "#7f1d1d", accentFg: "#f5f0eb", border: "rgba(255,255,255,0.16)" }}
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" slot="head">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" slot="head">
+
+  <script type="application/ld+json" slot="head">
+  [{
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Harrison Legal Advocates",
+    "description": "Personal injury law firm serving Oregon. Specializing in car accidents, workplace injuries, slip and fall cases, and medical negligence.",
+    "url": "https://www.harrisonlegal.com",
+    "telephone": "+15550198",
+    "address": { "@type": "PostalAddress", "streetAddress": "400 Court Street", "addressLocality": "Portland", "addressRegion": "OR", "postalCode": "97201" },
+    "founder": { "@type": "Person", "name": "David Harrison" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Attorney",
+    "name": "David Harrison",
+    "jobTitle": "Founding Attorney",
+    "description": "Personal injury attorney with 15+ years of experience. J.D. from Northwestern University.",
+    "telephone": "+15550198",
+    "email": "info@harrisonlegal.com",
+    "areaServed": { "@type": "State", "name": "Oregon" }
+  }]
+  </script>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Harrison Legal Advocates</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#practice-areas">Practice Areas</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#case-form" class="cta-btn cta-btn-primary header-cta">Free Case Review</a>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <span class="hero-tagline">Personal Injury Law</span>
+      <h1>Injured Because of Someone Else's Negligence?</h1>
+      <p class="hero-subtext">For over 15 years, Harrison Legal Advocates has fought for the rights of injured individuals across Oregon. We take on insurance companies and negligent parties so you can focus on recovery. You do not pay unless we win your case.</p>
+      <div class="hero-actions">
+        <a href="#case-form" class="cta-btn cta-btn-primary cta-btn-large">Request a Confidential Case Review</a>
+        <a href="#process" class="cta-btn cta-btn-secondary">See How the Process Works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cream" id="practice-areas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Practice Areas</span>
+        <h2>We Handle These Types of Personal Injury Cases</h2>
+        <p class="section-desc">If you were hurt because someone acted carelessly or broke the law, you have rights. We build strong cases around these four practice areas.</p>
+      </div>
+      <div class="case-cards">
+        {practiceAreas.map((a) => (
+          <div class="case-card">
+            <div class="case-card-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7f1d1d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set-html={a.icon}></svg>
+            </div>
+            <h3>{a.title}</h3>
+            <p>{a.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="disclaimer-text">Past results do not guarantee future outcomes. Every case is unique and must be evaluated on its own facts.</p>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="case-form">
+    <div class="container">
+      <div class="section-header section-header-light">
+        <span class="section-label">Free Case Review</span>
+        <h2>Tell Us About Your Case</h2>
+        <p class="section-desc">Select your case type below. The form will adjust to capture the details most relevant to your situation. All submissions are confidential.</p>
+      </div>
+      <div class="case-type-form-wrapper">
+        <form id="caseTypeForm" class="case-type-form" novalidate>
+          <fieldset class="case-type-radios">
+            <legend>Select your case type</legend>
+            {practiceAreas.map((a, i) => (
+              <label class="radio-card">
+                <input type="radio" name="caseType" value={a.id} checked={i === 0}>
+                <span class="radio-card-content">
+                  <strong>{a.title.replace(" Cases", "").replace("s", "")}</strong>
+                  <small>{a.title === "Car Accidents" ? "Vehicle collision, hit and run, rideshare accident" : a.title === "Workplace Injuries" ? "Construction accident, repetitive strain, toxic exposure" : a.title === "Slip and Fall Cases" ? "Premises liability, unsafe property conditions" : "Misdiagnosis, surgical error, medication mistake"}</small>
+                </span>
+              </label>
+            ))}
+          </fieldset>
+
+          <div class="form-fields">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+              <div class="form-group">
+                <label for="incidentDate">Date of Incident</label>
+                <input type="date" id="incidentDate" name="incidentDate">
+              </div>
+            </div>
+            <div class="form-group dynamic-field" id="dynamicField">
+              <label for="dynamicQuestion">Describe Your Injuries</label>
+              <textarea id="dynamicQuestion" name="dynamicQuestion" rows="3" placeholder="Tell us about your injuries and how the accident happened. Include any medical treatment you have received."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="description">Additional Details</label>
+              <textarea id="description" name="description" rows="4" placeholder="Any other information you would like to share about your case."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="referral">How did you hear about us?</label>
+              <select id="referral" name="referral">
+                <option value="">Select an option</option>
+                <option value="google">Google Search</option>
+                <option value="social-media">Social Media</option>
+                <option value="referral">Friend or Family Referral</option>
+                <option value="attorney">Another Attorney</option>
+                <option value="billboard">Billboard or Advertisement</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <p class="form-disclaimer">By submitting this form you agree to be contacted by Harrison Legal Advocates. This form does not create an attorney-client relationship. Your information will be kept confidential.</p>
+            <button type="submit" class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">Submit Your Case for Review</button>
+          </div>
+        </form>
+        <div id="formSuccess" class="form-success hidden">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>Your submission has been received.</h3>
+          <p>A member of our team will review your case within 24 business hours. If you need immediate assistance, call our office at 555-0198.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cream" id="process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Legal Process</span>
+        <h2>How We Build Your Case</h2>
+        <p class="section-desc">Every case moves through these four stages. We handle the legal work so you can focus on healing.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <h3>Free Case Review</h3>
+          <p>We listen to your story, review any documents you have, and give you an honest assessment of your legal options. There is no charge and no obligation to move forward.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h3>Investigation</h3>
+          <p>Our team gathers police reports, medical records, witness statements, and expert opinions. We build a complete picture of liability and damages so insurance companies cannot dispute the facts.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h3>Negotiation</h3>
+          <p>We present your case to the at-fault party's insurance carrier and demand fair compensation. Our track record of prepared, aggressive negotiation leads to stronger settlement offers.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <h3>Litigation If Needed</h3>
+          <p>If a fair settlement cannot be reached, we are prepared to take your case to trial. Insurance companies know that Harrison Legal Advocates will go to court when necessary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-burgundy" id="rights">
+    <div class="container">
+      <div class="rights-content">
+        <h2>Know Your Legal Rights After an Injury</h2>
+        <p class="rights-intro">In the aftermath of an accident, insurance adjusters and defense lawyers will try to minimize your claim. Understanding your rights protects you from unfair settlements.</p>
+        <div class="rights-grid">
+          <div class="rights-item">
+            <h3>Insurance Companies Are Not on Your Side</h3>
+            <p>Insurance adjusters are trained to protect their company's bottom line. Do not give a recorded statement or sign any release without legal counsel. We handle all communication so you cannot be taken advantage of.</p>
+          </div>
+          <div class="rights-item">
+            <h3>Statutes of Limitations Are Strict</h3>
+            <p>Oregon law gives you a limited window to file a personal injury lawsuit. The deadline varies depending on the type of case. Missing the deadline means losing your right to compensation forever.</p>
+          </div>
+          <div class="rights-item">
+            <h3>You Are Entitled to Full Compensation</h3>
+            <p>Your claim is not limited to medical bills. You may be entitled to compensation for lost income, reduced earning capacity, pain and suffering, emotional distress, and loss of enjoyment of life.</p>
+          </div>
+          <div class="rights-item">
+            <h3>You Have the Right to Remain Silent</h3>
+            <p>You are not required to speak with the other driver's insurance company, your employer's insurer, or anyone else about the details of your accident or your injuries. Let your lawyer speak for you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lawyer">
+    <div class="container">
+      <div class="lawyer-profile">
+        <div class="lawyer-photo">
+          <div class="photo-placeholder">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#7f1d1d" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Photo of David Harrison</span>
+          </div>
+        </div>
+        <div class="lawyer-bio">
+          <span class="section-label">Your Lawyer</span>
+          <h2>Meet David Harrison</h2>
+          <p class="lawyer-title">Founding Attorney | J.D., Northwestern University</p>
+          <p>David Harrison founded Harrison Legal Advocates with a single mission: to give injured individuals the same leverage that insurance companies have. After earning his Juris Doctor from Northwestern University, he spent eight years defending large insurance carriers before switching sides. That experience gave him an insider's understanding of how insurance companies evaluate, delay, and deny claims.</p>
+          <p>Over the past 15 years, David has recovered millions of dollars for clients across Oregon. He is a member of the Oregon State Bar, the Oregon Trial Lawyers Association, and the American Association for Justice. He has been recognized by Super Lawyers and holds a Perfect 10.0 rating on Avvo.</p>
+          <p>David believes that every client deserves personal attention. At Harrison Legal Advocates, David personally reviews every new case and stays involved through every stage of representation.</p>
+          <ul class="lawyer-credentials">
+            <li>15+ years of personal injury experience</li>
+            <li>J.D., Northwestern University School of Law</li>
+            <li>Member, Oregon State Bar</li>
+            <li>Super Lawyers Rising Star (2018-2023)</li>
+            <li>Avvo Rating: 10.0 Superb</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cream" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Client Testimonials</span>
+        <h2>Stories from People We Have Helped</h2>
+        <p class="section-desc">These are real clients who trusted us with their cases. Their outcomes are not guarantees of what yours will be, but they reflect our commitment to fighting for every client.</p>
+      </div>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"I was rear-ended on I-5 and thought my insurance would take care of everything. Their adjuster offered me three thousand dollars and said that was all I would get. David reviewed my case and told me the offer was insulting. He negotiated for eight months and got me a settlement that covered all my medical bills, my lost wages, and compensated me for the chronic neck pain I still deal with. I will never talk to an insurance company without him again."</p>
+          <p class="testimonial-author">— Rebecca T.</p>
+          <p class="testimonial-case">Car Accident Client</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"A piece of equipment fell on my foot at the construction site and crushed three bones. My employer's workers' comp company tried to classify it as a minor injury and limit my benefits. David fought them at every turn, got me to a specialist, and secured a settlement that accounted for the fact that I cannot stand on that foot for more than an hour without pain. He understood what this injury cost me and did not let up until we got a fair result."</p>
+          <p class="testimonial-author">— Marcus D.</p>
+          <p class="testimonial-case">Workplace Injury Client</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"I slipped on a wet floor in a grocery store that had no warning signs. The store manager admitted it was a known leak but said I should have been watching where I was walking. I did not know what my rights were. David explained premises liability law clearly and handled everything. He got the store's security footage, proved they knew about the leak for weeks, and secured a settlement that covered my surgery and physical therapy. I am grateful every day that I called him."</p>
+          <p class="testimonial-author">— Patricia M.</p>
+          <p class="testimonial-case">Slip and Fall Client</p>
+        </div>
+      </div>
+      <p class="disclaimer-text">These testimonials reflect real client experiences. Every case is different, and past results do not guarantee future outcomes. The specifics of your case may lead to a different result.</p>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container faq-container">
+      <div class="section-header">
+        <span class="section-label">Frequently Asked Questions</span>
+        <h2>Answering Your Concerns About Personal Injury Claims</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How much does a personal injury lawyer cost?</span>
+            <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>We work on a contingency fee basis, which means you pay nothing upfront and no hourly fees. Our fee is a percentage of the compensation we recover for you. If we do not win your case, you owe us nothing. This structure ensures that everyone has access to quality legal representation regardless of their financial situation. During your free case review, we will explain our fee structure in detail so there are no surprises.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How long do I have to file a personal injury lawsuit in Oregon?</span>
+            <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Oregon's statute of limitations for most personal injury cases is two years from the date of the injury. However, there are exceptions. Claims against government entities have much shorter deadlines, often as little as 180 days. Medical malpractice cases have different rules. If you miss the deadline, you lose your right to file a lawsuit permanently. Contact us as soon as possible so we can evaluate your timeline and make sure your claim is protected.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What if I cannot afford a lawyer?</span>
+            <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Because we work on contingency, you do not need any money upfront to hire us. We front the costs of investigating your case, hiring experts, and filing court documents. Those costs are recovered from your settlement or verdict at the end. If your case does not result in compensation, you do not owe us for the fees or the costs we advanced. This system was designed to give everyone equal access to the justice system, regardless of income.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How long will my personal injury case take?</span>
+            <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>The timeline varies widely depending on the complexity of your case, the severity of your injuries, and the insurance company's willingness to negotiate fairly. Some cases settle in three to six months. Others take a year or longer, especially if surgery is involved or if the case goes to trial. During your free consultation, we can give you a realistic timeline based on the specific facts of your situation.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is my personal injury case worth?</span>
+            <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>The value of your case depends on several factors: the total amount of your medical bills, whether your injuries are permanent, how much income you have lost, the impact on your quality of life, the strength of the liability evidence, and the insurance policy limits available. Every case is unique. We cannot give you a number without reviewing your specific situation. During your free case review, we will analyze these factors and give you an honest assessment of what your case may be worth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal-disclaimer section">
+    <div class="container">
+      <div class="disclaimer-content">
+        <h3>Legal Disclaimer</h3>
+        <p>The information on this website is for general informational purposes only and does not constitute legal advice. Prior results do not guarantee a similar outcome. Viewing this website or submitting a contact form does not create an attorney-client relationship. You should consult with a qualified attorney for advice regarding your individual situation. Harrison Legal Advocates is based in Portland, Oregon and primarily serves clients in the state of Oregon.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-info">
+          <span class="section-label">Contact Us</span>
+          <h2>Request a Confidential Case Review</h2>
+          <p>We treat every inquiry with discretion and respect. There is no cost and no obligation to work with us.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-label">Address</span>
+              <span>400 Court Street, Portland, OR 97201</span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-label">Phone</span>
+              <span>555-0198</span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-label">Email</span>
+              <span>info@harrisonlegal.com</span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-label">Hours</span>
+              <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+            </div>
+          </div>
+        </div>
+        <form id="contactForm" class="contact-form-section" novalidate>
+          <div class="form-group">
+            <label for="contactName">Full Name *</label>
+            <input type="text" id="contactName" name="contactName" required>
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email Address *</label>
+            <input type="email" id="contactEmail" name="contactEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="contactPhone">Phone Number</label>
+            <input type="tel" id="contactPhone" name="contactPhone">
+          </div>
+          <div class="form-group">
+            <label for="contactCaseType">Case Type</label>
+            <select id="contactCaseType" name="contactCaseType">
+              <option value="">Select a case type</option>
+              <option value="car-accident">Car Accident</option>
+              <option value="workplace-injury">Workplace Injury</option>
+              <option value="slip-fall">Slip and Fall</option>
+              <option value="medical-negligence">Medical Negligence</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Brief Description of Your Case</label>
+            <textarea id="contactMessage" name="contactMessage" rows="4" placeholder="Tell us what happened and how we can help."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="contactReferral">How did you hear about us?</label>
+            <select id="contactReferral" name="contactReferral">
+              <option value="">Select an option</option>
+              <option value="google">Google Search</option>
+              <option value="social-media">Social Media</option>
+              <option value="referral">Friend or Family Referral</option>
+              <option value="attorney">Another Attorney</option>
+              <option value="billboard">Billboard or Advertisement</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <p class="form-disclaimer">By submitting this form you agree to be contacted by Harrison Legal Advocates. This form does not create an attorney-client relationship.</p>
+          <button type="submit" class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">Submit Your Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-info">
+        <p>400 Court Street, Portland, OR 97201</p>
+        <p>Phone: 555-0198 | Email: info@harrisonlegal.com</p>
+        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+        <p>Serving clients throughout the state of Oregon.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Harrison Legal Advocates. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky" id="mobileSticky">
+    <a href="tel:5550198" class="cta-btn cta-btn-primary cta-btn-full">Call 555-0198</a>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(.personal-injury-lawyer) {
+    --near-black: #1c1c1c;
+    --burgundy: #7f1d1d;
+    --burgundy-dark: #991b1b;
+    --cream: #faf5f0;
+    --cream-hover: #f0e8e0;
+    --white: #fff;
+    --off-white: #f5f0eb;
+    --gray-600: #555;
+    --gray-500: #888;
+    --gray-400: #aaa;
+    --gray-300: #ccc;
+    --border: #e5e0db;
+    --font-heading: 'Merriweather', Georgia, 'Times New Roman', serif;
+    --font-body: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--near-black);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; color: var(--near-black); }
+  h1 { font-size: 2.75rem; }
+  h2 { font-size: 2rem; margin-bottom: 16px; }
+  h3 { font-size: 1.35rem; margin-bottom: 8px; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+  .section-dark { background: var(--near-black); color: var(--off-white); }
+  .section-dark h2, .section-dark .section-label, .section-dark .section-desc { color: var(--off-white); }
+  .section-cream { background: var(--cream); }
+  .section-burgundy { background: var(--burgundy); color: var(--cream); }
+  .section-burgundy h2, .section-burgundy h3 { color: var(--cream); }
+  .section-header { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+  .section-header-light h2, .section-header-light .section-desc { color: var(--off-white); }
+
+  .section-label { display: inline-block; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--burgundy); margin-bottom: 8px; }
+  .section-dark .section-label { color: #b91c1c; }
+  .section-burgundy .section-label { color: var(--cream); }
+  .section-desc { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; }
+
+  .cta-btn { display: inline-block; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; padding: 14px 32px; border-radius: 4px; transition: all 0.2s ease; cursor: pointer; border: none; text-align: center; }
+  .cta-btn-primary { background: var(--burgundy); color: var(--white); }
+  .cta-btn-primary:hover { background: var(--burgundy-dark); transform: translateY(-1px); }
+  .cta-btn-secondary { background: transparent; color: var(--off-white); border: 2px solid var(--burgundy); }
+  .cta-btn-secondary:hover { background: var(--burgundy); color: var(--white); }
+  .cta-btn-large { padding: 16px 40px; font-size: 1.05rem; }
+  .cta-btn-full { width: 100%; }
+
+  .site-header { position: sticky; top: 0; z-index: 100; background: var(--near-black); color: var(--white); border-bottom: 3px solid var(--burgundy); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+  .logo { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 900; color: var(--white); letter-spacing: 0.5px; }
+  .main-nav ul { display: flex; gap: 28px; }
+  .main-nav a { font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: var(--gray-300); transition: color 0.2s; }
+  .main-nav a:hover { color: var(--white); }
+  .header-cta { padding: 10px 24px; font-size: 0.85rem; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+  .hero { min-height: 100vh; position: relative; background: var(--near-black); color: var(--off-white); padding: 120px 0 0; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--burgundy); }
+  .hero-tagline { display: inline-block; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #b91c1c; margin-bottom: 20px; }
+  .hero-content { position: relative; z-index: 2; }
+  .hero h1 { font-size: 3rem; color: var(--white); max-width: 800px; margin-bottom: 20px; }
+  .hero-subtext { font-size: 1.15rem; color: var(--gray-300); max-width: 680px; line-height: 1.8; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .case-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 24px; }
+  .case-card { background: var(--white); border-radius: 8px; padding: 32px 24px; border: 1px solid var(--border); transition: box-shadow 0.2s; }
+  .case-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .case-card-icon { margin-bottom: 16px; }
+  .case-card h3 { margin-bottom: 12px; font-size: 1.2rem; }
+  .case-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; }
+  .disclaimer-text { font-size: 0.8rem; color: var(--gray-500); text-align: center; font-style: italic; max-width: 600px; margin: 0 auto; }
+
+  .case-type-form-wrapper { max-width: 800px; margin: 0 auto; background: #2a2a2a; border-radius: 8px; padding: 40px; border: 1px solid #3a3a3a; }
+  .case-type-radios { border: none; margin-bottom: 32px; }
+  .case-type-radios legend { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--off-white); margin-bottom: 16px; }
+  .radio-card { display: block; margin-bottom: 8px; cursor: pointer; }
+  .radio-card input { position: absolute; opacity: 0; pointer-events: none; }
+  .radio-card-content { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: #333; border: 2px solid #444; border-radius: 6px; transition: all 0.2s; color: var(--gray-300); }
+  .radio-card-content strong { display: block; color: var(--off-white); font-size: 0.95rem; }
+  .radio-card-content small { font-size: 0.8rem; color: #999; }
+  .radio-card input:checked + .radio-card-content { border-color: var(--burgundy); background: #3a2525; }
+  .radio-card input:focus-visible + .radio-card-content { outline: 2px solid var(--burgundy); outline-offset: 2px; }
+  .form-fields { display: flex; flex-direction: column; gap: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--gray-300); }
+  .form-group input, .form-group select, .form-group textarea { padding: 12px 14px; border: 1px solid #444; border-radius: 4px; font-family: var(--font-body); font-size: 0.95rem; background: #333; color: var(--off-white); transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--burgundy); }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: #777; }
+  .form-group select { appearance: auto; }
+  .form-disclaimer { font-size: 0.78rem; color: var(--gray-500); line-height: 1.5; }
+  .form-success { text-align: center; padding: 60px 40px; background: #2a2a2a; border-radius: 8px; max-width: 600px; margin: 0 auto; }
+  .form-success h3 { color: var(--off-white); margin: 20px 0 12px; }
+  .form-success p { color: var(--gray-400); }
+  .hidden { display: none; }
+
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .process-step { text-align: center; padding: 32px 20px; }
+  .step-number { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 900; color: var(--burgundy); margin-bottom: 12px; opacity: 0.6; }
+  .process-step h3 { margin-bottom: 12px; font-size: 1.15rem; }
+  .process-step p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; }
+
+  .rights-content { max-width: 900px; margin: 0 auto; }
+  .rights-content h2 { text-align: center; margin-bottom: 8px; }
+  .rights-intro { text-align: center; font-size: 1.05rem; max-width: 680px; margin: 0 auto 40px; color: #e0d5cc; }
+  .rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .rights-item h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--cream); }
+  .rights-item p { font-size: 0.9rem; color: #e0d5cc; line-height: 1.7; }
+
+  .lawyer-profile { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
+  .photo-placeholder { width: 100%; aspect-ratio: 3 / 4; background: #f0ece6; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--gray-500); font-family: var(--font-body); font-size: 0.85rem; }
+  .lawyer-bio .section-label { margin-bottom: 4px; }
+  .lawyer-title { font-family: var(--font-heading); font-size: 1rem; color: var(--burgundy); margin-bottom: 20px; font-weight: 400; }
+  .lawyer-bio p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.8; }
+  .lawyer-credentials { margin-top: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .lawyer-credentials li { font-size: 0.9rem; color: var(--gray-600); padding-left: 20px; position: relative; }
+  .lawyer-credentials li::before { content: ''; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; background: var(--burgundy); border-radius: 50%; }
+
+  .testimonial-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+  .testimonial-card { background: var(--white); border-radius: 8px; padding: 32px 24px; border: 1px solid var(--border); }
+  .testimonial-stars { color: #d4a017; font-size: 1.1rem; margin-bottom: 12px; letter-spacing: 2px; }
+  .testimonial-text { font-size: 0.9rem; color: var(--gray-600); line-height: 1.8; margin-bottom: 16px; font-style: italic; }
+  .testimonial-author { font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem; color: var(--near-black); }
+  .testimonial-case { font-size: 0.8rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  .faq-container { max-width: 800px; }
+  .faq-list { display: flex; flex-direction: column; gap: 8px; }
+  .faq-item { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; background: var(--cream); border: none; cursor: pointer; font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--near-black); text-align: left; transition: background 0.2s; }
+  .faq-question:hover { background: var(--cream-hover); }
+  .faq-icon { transition: transform 0.3s; flex-shrink: 0; }
+  .faq-item.active .faq-icon { transform: rotate(180deg); }
+  .faq-item.active .faq-question { background: var(--cream-hover); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 24px; background: var(--white); }
+  .faq-item.active .faq-answer { max-height: 400px; padding: 20px 24px; }
+  .faq-answer p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.8; margin-bottom: 0; }
+
+  .legal-disclaimer { background: #f5f0eb; border-top: 1px solid var(--border); padding: 40px 0; }
+  .disclaimer-content h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gray-500); margin-bottom: 12px; }
+  .disclaimer-content p { font-size: 0.8rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 0; }
+
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .contact-info h2 { color: var(--off-white); }
+  .contact-info p { color: var(--gray-400); margin-bottom: 32px; }
+  .contact-details { display: flex; flex-direction: column; gap: 16px; }
+  .contact-detail { display: flex; flex-direction: column; gap: 2px; }
+  .contact-detail-label { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--burgundy); }
+  .contact-detail span:last-child { font-family: var(--font-body); font-size: 0.95rem; color: var(--gray-300); }
+  .contact-form-section { display: flex; flex-direction: column; gap: 16px; }
+  .contact-form-section .form-group label { color: var(--gray-400); }
+
+  .site-footer { background: #111; color: var(--gray-500); padding: 40px 0; font-size: 0.85rem; }
+  .footer-info { display: flex; flex-direction: column; gap: 4px; margin-bottom: 24px; }
+  .footer-info p { margin-bottom: 0; }
+  .footer-bottom { border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; }
+
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 200; background: var(--near-black); padding: 12px 16px; border-top: 2px solid var(--burgundy); }
+
+  @media (max-width: 1024px) {
+    .case-cards { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .testimonial-cards { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .section { padding: 60px 0; }
+    .nav-toggle { display: flex; }
+    .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--near-black); border-top: 1px solid #333; padding: 20px 24px; }
+    .main-nav.open { display: block; }
+    .main-nav ul { flex-direction: column; gap: 16px; }
+    .header-cta { display: none; }
+    .hero { min-height: 100vh; padding: 80px 0 0; }
+    .hero h1 { font-size: 2rem; }
+    .hero-actions { flex-direction: column; }
+    .case-cards { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-step { padding: 24px 16px; }
+    .rights-grid { grid-template-columns: 1fr; }
+    .lawyer-profile { grid-template-columns: 1fr; gap: 24px; }
+    .photo-placeholder { max-width: 200px; }
+    .testimonial-cards { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .case-type-form-wrapper { padding: 24px; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .mobile-sticky { display: block; }
+    .site-footer { padding-bottom: 80px; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    h1 { font-size: 1.7rem; }
+    .radio-card-content { flex-direction: column; align-items: flex-start; gap: 4px; }
+  }
+</style>
+
+<script>
+(function () {
+  var navToggle = document.querySelector('.nav-toggle');
+  var mainNav = document.querySelector('.main-nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.main-nav a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mainNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var caseTypeForm = document.getElementById('caseTypeForm');
+  var caseTypeRadios = document.querySelectorAll('input[name="caseType"]');
+  var dynamicField = document.getElementById('dynamicField');
+  var dynamicQuestion = document.getElementById('dynamicQuestion');
+
+  var caseTypeLabels = {
+    'car-accident': { label: 'Describe Your Injuries', placeholder: 'Tell us about your injuries and how the accident happened. Include any medical treatment you have received.' },
+    'workplace-injury': { label: 'Describe Your Injury and Employer', placeholder: 'Describe how you were injured, what your employer has said, and whether you have filed a workers\' compensation claim.' },
+    'slip-fall': { label: 'Describe the Incident Location', placeholder: 'Where did the fall happen? What was the hazardous condition? Did anyone witness the accident?' },
+    'medical-negligence': { label: 'Describe the Medical Incident', placeholder: 'Which healthcare provider was involved? What procedure or treatment led to your injury? Do you have medical records?' }
+  };
+
+  function updateDynamicField(value) {
+    var config = caseTypeLabels[value] || caseTypeLabels['car-accident'];
+    var labelEl = dynamicField.querySelector('label');
+    if (labelEl) labelEl.textContent = config.label;
+    if (dynamicQuestion) dynamicQuestion.placeholder = config.placeholder;
+  }
+
+  caseTypeRadios.forEach(function (radio) {
+    radio.addEventListener('change', function () {
+      if (this.checked) updateDynamicField(this.value);
+    });
+  });
+
+  if (caseTypeForm) {
+    caseTypeForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var formData = new FormData(caseTypeForm);
+      var data = {};
+      formData.forEach(function (value, key) { data[key] = value; });
+      var waMessage = 'New case review request from the website:\nCase type: ' + (data.caseType || '') + '\nName: ' + (data.fullName || '') + '\nEmail: ' + (data.email || '') + '\nPhone: ' + (data.phone || '') + '\nIncident date: ' + (data.incidentDate || 'Not specified') + '\nDetails: ' + (data.dynamicQuestion || '') + '\nAdditional info: ' + (data.description || 'None') + '\nReferral source: ' + (data.referral || 'Not specified');
+      window.open('https://wa.me/972584433181?text=' + encodeURIComponent(waMessage), '_blank');
+      caseTypeForm.classList.add('hidden');
+      document.getElementById('formSuccess').classList.remove('hidden');
+      document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function (item) {
+    var question = item.querySelector('.faq-question');
+    if (question) {
+      question.addEventListener('click', function () {
+        var isActive = item.classList.contains('active');
+        faqItems.forEach(function (other) {
+          other.classList.remove('active');
+          var otherBtn = other.querySelector('.faq-question');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+    }
+  });
+
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var formData = new FormData(contactForm);
+      var data = {};
+      formData.forEach(function (value, key) { data[key] = value; });
+      var waMessage = 'New inquiry from the website:\nName: ' + (data.contactName || '') + '\nEmail: ' + (data.contactEmail || '') + '\nPhone: ' + (data.contactPhone || 'Not specified') + '\nCase type: ' + (data.contactCaseType || 'Not specified') + '\nMessage: ' + (data.contactMessage || '') + '\nReferral source: ' + (data.contactReferral || 'Not specified');
+      window.open('https://wa.me/972584433181?text=' + encodeURIComponent(waMessage), '_blank');
+      contactForm.innerHTML = '<div class="form-success" style="background:transparent;padding:40px 0;"><h3 style="color:#f5f0eb;">Thank you for reaching out.</h3><p style="color:#aaa;">We have received your message and will respond within 24 business hours. For urgent matters, call 555-0198.</p></div>';
+    });
+  }
+})();
+</script>

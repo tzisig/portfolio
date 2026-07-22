@@ -1,186 +1,694 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import "@fontsource/cormorant-garamond/400.css";
-import "@fontsource/cormorant-garamond/500.css";
-import "@fontsource/cormorant-garamond/600.css";
-import "@fontsource/cormorant-garamond/400-italic.css";
-import "@fontsource/karla/400.css";
-import "@fontsource/karla/500.css";
 
-const collections = [
-  { name: "The Elopement", price: "from €1,400", desc: "Two to six hours, one location, quiet and unscripted." },
-  { name: "The Full Day", price: "from €3,200", desc: "Getting-ready through last dance, with a second shooter." },
-  { name: "The Weekend", price: "from €4,800", desc: "Rehearsal dinner, ceremony, and the morning after brunch." },
+const packages = [
+  {
+    name: "Essential", price: "$2,800", featured: false,
+    features: ["6 hours of coverage", "Single photographer", "Online gallery with prints", "400+ edited images", "Printing rights"],
+  },
+  {
+    name: "Storyteller", price: "$3,800", featured: true, badge: "Most Popular",
+    features: ["10 hours of coverage", "Two photographers", "Engagement session", "Online gallery with prints", "700+ edited images", "Printing rights"],
+  },
+  {
+    name: "Complete", price: "$5,200", featured: false,
+    features: ["12 hours of coverage", "Two photographers", "Engagement session", "Custom heirloom album", "Online gallery with prints", "900+ edited images", "Printing rights"],
+  },
 ];
 
-const journal = [
-  { couple: "Inês & Tomás", place: "Sintra, May" },
-  { couple: "Laila & Beatriz", place: "Comporta, September" },
-  { couple: "Marta & Duarte", place: "Douro Valley, June" },
+const timeline = [
+  { time: "10:00 AM", title: "Getting Ready", desc: "Detail shots and candid moments as you and your bridal party prepare." },
+  { time: "1:00 PM", title: "First Look", desc: "Private first look with your partner for an intimate, emotional moment." },
+  { time: "2:30 PM", title: "Ceremony", desc: "Unobtrusive coverage of your ceremony from multiple angles." },
+  { time: "3:30 PM", title: "Family Portraits", desc: "Guided but natural family and wedding party portraits." },
+  { time: "5:00 PM", title: "Reception", desc: "Speeches, first dance, dinner, and reception candids throughout the evening." },
+  { time: "9:00 PM", title: "Send-Off", desc: "Final moments captured as you make your exit." },
+];
+
+const testimonials = [
+  { text: '"Looking at our photos, I cry every time. Everlight captured moments I did not even know happened. Our parents cried when we showed them the album. That is what great photography does."', author: "Rebecca & Michael", detail: "Married June 2025, Portland" },
+  { text: '"We were nervous about being photographed all day. But they made us feel so at ease. By the end of the night it felt like having a friend document our party. The photos are stunning and so natural."', author: "Jessica & David", detail: "Married September 2024, Hood River" },
+  { text: '"Our engagement session was so much fun that we forgot it was a photoshoot. By the wedding day, we trusted them completely. The gallery was delivered in three weeks and every single photo is beautiful."', author: "Kayla & Ryan", detail: "Married April 2025, Portland" },
+];
+
+const faqs = [
+  { q: "How do we book you?", a: "Simply fill out our inquiry form or send us an email. We will send you our full pricing guide and a contract. A 30% retainer and a signed agreement secures your date. The remaining balance is due one week before the wedding." },
+  { q: "What if it rains on our wedding day?", a: "Rain can create some of the most romantic and dramatic photos. We always check the forecast leading up to your day and plan for indoor or covered backup locations. We have shot in the rain before and the results were breathtaking." },
+  { q: "When will we get our photos?", a: "You will receive a sneak peek within 48 hours of your wedding. Your full online gallery is delivered within 4 to 6 weeks. You can download all high-resolution images directly and share the gallery with family and friends." },
+  { q: "Do you travel for weddings?", a: "Absolutely. We are based in Portland but regularly travel throughout Oregon and to destinations across the country. Travel fees apply depending on location and distance. We would love to hear about your destination wedding plans." },
+  { q: "Can we meet you before booking?", a: "Yes, we encourage it. We offer complimentary in-person or video consultations so you can get to know us and see if we are the right fit. It is important that you feel completely comfortable with your photographer." },
 ];
 ---
 <BaseLayout
-  title="Rosa Vale Photography — Wedding Photographer"
-  description="Quiet, unscripted wedding photography across Portugal, documenting the day as it actually happens."
-  themeColor="#FBF3EE"
+  title="Wedding Photographer Portland | Everlight Wedding Stories | Natural, Candid Photography"
+  description="Everlight Wedding Stories captures natural, candid wedding photography. Full-day coverage, engagement sessions, elopements, and custom albums for Portland couples."
+  themeColor="#fdf8f0"
   bodyClass="wedding"
-  consent={{ bg: "#FBF3EE", fg: "#4A2338", accent: "#4A2338", accentFg: "#FBF3EE", border: "rgba(74,35,56,0.16)" }}
+  consent={{ bg: "#fdf8f0", fg: "#3c2415", accent: "#b5838d", accentFg: "#fdf8f0", border: "rgba(181,131,141,0.16)" }}
 >
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary">
-      <a href="#main" class="brand">Rosa Vale</a>
-      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
-        <span class="sr-only">Toggle menu</span>
-        <span class="nav-toggle__bar"></span>
-      </button>
-      <ul id="nav-menu" class="nav-menu">
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#journal">Journal</a></li>
-        <li><a href="#contact">Enquire</a></li>
-      </ul>
-    </nav>
-  </header>
+  <slot name="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" /></noscript>
+  </slot>
 
-  <main id="main">
+  <div class="page-wrapper">
+    <nav class="nav" id="mainNav">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">Everlight Wedding Stories</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#story">Approach</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#form" class="nav-cta">Check Your Date</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <section class="hero">
-      <p class="eyebrow">Wedding &amp; elopement photography — Portugal</p>
-      <h1>Photographs that feel<br /><em>like the day did.</em></h1>
-      <p class="hero__lede">I document weddings the way they actually unfold — the nervous laugh before the vows, not the pose after them. Based in Lisbon, available worldwide.</p>
-      <a class="hero__cta" href="#contact">Check your date</a>
-    </section>
-
-    <section class="collections" id="collections">
-      <h2>Collections</h2>
-      <div class="collections__grid">
-        {collections.map((c) => (
-          <article class="collections__card">
-            <h3>{c.name}</h3>
-            <p class="price">{c.price}</p>
-            <p>{c.desc}</p>
-          </article>
-        ))}
+      <div class="hero-bg">
+        <img src="/wedding-photographer/weddinghero.webp" alt="Couple on their wedding day" loading="eager" fetchpriority="high" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <h1>Natural Wedding Photography That Feels Like Your Day.</h1>
+        <p>We tell the story of your wedding through real, unscripted moments. No stiff poses, no awkward direction &mdash; just the joy, the tears, and the laughter that makes your day yours.</p>
+        <div class="hero-actions">
+          <a href="#form" class="btn btn-primary">Check Your Wedding Date</a>
+          <a href="#portfolio" class="btn btn-secondary">View the Portfolio</a>
+        </div>
       </div>
     </section>
 
-    <section class="journal" id="journal">
-      <h2>From the Journal</h2>
-      <div class="journal__grid">
-        {journal.map((j) => (
-          <article class="journal__card">
-            <div class="journal__plate" aria-hidden="true"></div>
-            <h3>{j.couple}</h3>
-            <p>{j.place}</p>
-          </article>
-        ))}
+    <section class="section portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Portfolio</span>
+          <h2>Recent Work</h2>
+        </div>
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="wedding">Weddings</button>
+          <button class="filter-btn" data-filter="engagement">Engagements</button>
+          <button class="filter-btn" data-filter="elopement">Elopements</button>
+        </div>
+        <div class="gallery" id="gallery">
+          <div class="gallery-item" data-category="wedding">
+            <img src="/wedding-photographer/wedding1-mobile.webp" srcset="/wedding-photographer/wedding1.webp 800w, /wedding-photographer/wedding1-mobile.webp 400w" sizes="(min-width: 768px) 800px, 100vw" alt="Wedding ceremony" loading="lazy" />
+            <div class="gallery-overlay"><span>Emily &amp; James</span></div>
+          </div>
+          <div class="gallery-item" data-category="engagement">
+            <img src="/wedding-photographer/engage1-mobile.webp" srcset="/wedding-photographer/engage1.webp 800w, /wedding-photographer/engage1-mobile.webp 400w" sizes="(min-width: 768px) 800px, 100vw" alt="Engagement session" loading="lazy" />
+            <div class="gallery-overlay"><span>Sophia &amp; Liam</span></div>
+          </div>
+          <div class="gallery-item" data-category="wedding">
+            <img src="/wedding-photographer/wedding2-mobile.webp" srcset="/wedding-photographer/wedding2.webp 800w, /wedding-photographer/wedding2-mobile.webp 400w" sizes="(min-width: 768px) 800px, 100vw" alt="Reception" loading="lazy" />
+            <div class="gallery-overlay"><span>Olivia &amp; Ethan</span></div>
+          </div>
+          <div class="gallery-item" data-category="elopement">
+            <img src="/wedding-photographer/elope1-mobile.webp" srcset="/wedding-photographer/elope1.webp 800w, /wedding-photographer/elope1-mobile.webp 400w" sizes="(min-width: 768px) 800px, 100vw" alt="Elopement" loading="lazy" />
+            <div class="gallery-overlay"><span>Ava &amp; Noah</span></div>
+          </div>
+          <div class="gallery-item" data-category="engagement">
+            <img src="/wedding-photographer/engage2-mobile.webp" srcset="/wedding-photographer/engage2.webp 800w, /wedding-photographer/engage2-mobile.webp 400w" sizes="(min-width: 768px) 800px, 100vw" alt="Engagement photos" loading="lazy" />
+            <div class="gallery-overlay"><span>Mia &amp; Oliver</span></div>
+          </div>
+          <div class="gallery-item" data-category="wedding">
+            <img src="/wedding-photographer/wedding3-mobile.webp" srcset="/wedding-photographer/wedding3.webp 800w, /wedding-photographer/wedding3-mobile.webp 400w" sizes="(min-width: 768px) 800px, 100vw" alt="First dance" loading="lazy" />
+            <div class="gallery-overlay"><span>Charlotte &amp; Henry</span></div>
+          </div>
+          <div class="gallery-item" data-category="elopement">
+            <img src="/wedding-photographer/elope2-mobile.webp" srcset="/wedding-photographer/elope2.webp 800w, /wedding-photographer/elope2-mobile.webp 400w" sizes="(min-width: 768px) 800px, 100vw" alt="Intimate elopement" loading="lazy" />
+            <div class="gallery-overlay"><span>Amelia &amp; Jack</span></div>
+          </div>
+          <div class="gallery-item" data-category="engagement">
+            <img src="/wedding-photographer/engage3-mobile.webp" srcset="/wedding-photographer/engage3.webp 800w, /wedding-photographer/engage3-mobile.webp 400w" sizes="(min-width: 768px) 800px, 100vw" alt="Couple portrait" loading="lazy" />
+            <div class="gallery-overlay"><span>Harper &amp; Daniel</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="quote">
-      <blockquote>
-        <p>She disappeared into the background so completely that half our photos, we forgot she was even there taking them.</p>
-        <footer>— Inês, married in Sintra</footer>
-      </blockquote>
+    <section class="section story" id="story">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-image">
+            <img src="/wedding-photographer/storyphoto.webp" alt="Couple sharing a quiet moment" width="700" height="900" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <span class="section-label">Our Philosophy</span>
+            <h2>We Believe in Real Moments.</h2>
+            <p>We never ask you to fake a laugh or hold a pose until it hurts. Our approach is simple: we blend into the background and let your day unfold naturally. The best photos happen when you forget the camera is there.</p>
+            <p>Before your wedding, we take the time to know you as a couple. We learn what makes you laugh, what brings you close, and what details matter most. That way, when your wedding day arrives, we are not strangers with a camera &mdash; we are friends capturing your story.</p>
+            <p>Candid photography is not a style we chose. It is the only honest way to photograph love.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="contact" id="contact">
-      <h2>Check Your Date</h2>
-      <p>Tell me the date and where you're getting married — I'll reply within 48 hours.</p>
-      <form class="contact__form">
-        <div class="field">
-          <label for="name">Your names</label>
-          <input id="name" name="name" type="text" required />
+    <section class="section approach" id="approach">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">How We Work</span>
+          <h2>Our Approach</h2>
         </div>
-        <div class="field">
-          <label for="date">Wedding date</label>
-          <input id="date" name="date" type="date" />
+        <div class="approach-grid">
+          <div class="approach-card">
+            <div class="approach-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Getting to Know You</h3>
+            <p>We start with coffee or a video call. We talk about your wedding plans, your story, and what you value most. We also plan your engagement session &mdash; a relaxed photoshoot that helps us all feel comfortable together before the big day.</p>
+          </div>
+          <div class="approach-card">
+            <div class="approach-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <h3>The Wedding Day</h3>
+            <p>From the quiet morning details to the last dance, we are there documenting every genuine moment. We work alongside your vendors and coordinator to capture the day without interrupting it.</p>
+          </div>
+          <div class="approach-card">
+            <div class="approach-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><circle cx="19" cy="5" r="1"/><circle cx="5" cy="19" r="1"/><circle cx="19" cy="19" r="1"/><circle cx="5" cy="5" r="1"/><circle cx="12" cy="21" r="1"/><circle cx="21" cy="12" r="1"/><circle cx="3" cy="12" r="1"/></svg>
+            </div>
+            <h3>The Editing Process</h3>
+            <p>Every image is hand-edited by our team to preserve the natural light and emotion of your day. You will receive a curated gallery of high-resolution images with printing rights, delivered in a beautiful online gallery.</p>
+          </div>
         </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-        </div>
-        <button type="submit" class="btn">Send Enquiry</button>
-      </form>
+      </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <p>&copy; {new Date().getFullYear()} Rosa Vale Photography.</p>
-    <nav aria-label="Legal">
-      <a href="/privacy">Privacy</a>
-      <a href="/cookies">Cookies</a>
-      <a href="/accessibility">Accessibility</a>
-    </nav>
-  </footer>
+    <section class="section packages" id="packages">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Investment</span>
+          <h2>Packages</h2>
+        </div>
+        <div class="packages-grid">
+          {packages.map((pkg) => (
+            <div class={`package-card${pkg.featured ? " featured" : ""}`}>
+              {pkg.badge && <div class="package-badge">{pkg.badge}</div>}
+              <div class="package-header">
+                <h3>{pkg.name}</h3>
+                <div class="package-price">{pkg.price}</div>
+              </div>
+              <ul class="package-features">
+                {pkg.features.map((f) => (
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="#form" class="btn btn-primary">Inquire</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline" id="timeline">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Your Day</span>
+          <h2>Sample Wedding Day Timeline</h2>
+        </div>
+        <div class="timeline-list">
+          {timeline.map((t) => (
+            <div class="timeline-item">
+              <div class="timeline-time">{t.time}</div>
+              <div class="timeline-detail">
+                <h3>{t.title}</h3>
+                <p>{t.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Kind Words</span>
+          <h2>What Couples Say</h2>
+        </div>
+        <div class="testimonials-grid">
+          {testimonials.map((t) => (
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-text">{t.text}</p>
+              <div class="testimonial-author">
+                <strong>{t.author}</strong>
+                <span>{t.detail}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Questions</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map((faq) => (
+            <div class="faq-item">
+              <button class="faq-question">
+                {faq.q}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section form-section" id="form">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Get in Touch</span>
+          <h2>Inquiry Form</h2>
+          <p>Tell us about your wedding. We will respond within 24 hours.</p>
+        </div>
+        <form class="form" id="inquiryForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formName">Name *</label>
+              <input type="text" id="formName" required placeholder="Your full name" />
+            </div>
+            <div class="form-group">
+              <label for="formEmail">Email *</label>
+              <input type="email" id="formEmail" required placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formPhone">Phone</label>
+              <input type="tel" id="formPhone" placeholder="(555) 123-4567" />
+            </div>
+            <div class="form-group">
+              <label for="formDate">Wedding Date *</label>
+              <input type="date" id="formDate" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formVenue">Venue (if known)</label>
+              <input type="text" id="formVenue" placeholder="Venue name or location" />
+            </div>
+            <div class="form-group">
+              <label for="formReferral">How did you hear about us?</label>
+              <input type="text" id="formReferral" placeholder="Instagram, friend, wedding vendor, etc." />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Message *</label>
+            <textarea id="formMessage" rows="5" required placeholder="Tell us about your wedding vision, what matters most to you, and any questions you have."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>Everlight Wedding Stories</h3>
+            <p>Natural wedding photography for couples who value real moments over staged perfection.</p>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <p>15 Oak Street<br />Portland, OR 97201</p>
+            <p><a href="tel:+15550194">555-0194</a></p>
+            <p><a href="mailto:hello@everlightweddings.com">hello@everlightweddings.com</a></p>
+          </div>
+          <div class="footer-info">
+            <h4>Visit</h4>
+            <p>By appointment only</p>
+            <p>Serving Oregon and<br />destination weddings worldwide</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Everlight Wedding Stories. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-sticky" id="mobileSticky">
+      <a href="#form" class="btn btn-primary">Check Your Date</a>
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
-  .wedding { background: #FBF3EE; color: #4A2338; font-family: "Karla", sans-serif; }
-  h1, h2, h3, .brand { font-family: "Cormorant Garamond", serif; }
-  :global(.wedding) :focus-visible { outline-color: #4A2338; }
-
-  .nav { max-width: 74rem; margin-inline: auto; display: flex; justify-content: space-between; align-items: center; padding: 2rem; }
-  .brand { font-size: 1.5rem; text-decoration: none; color: #4A2338; letter-spacing: 0.02em; }
-  .nav-menu { list-style: none; display: flex; gap: 2.25rem; }
-  .nav-menu a { text-decoration: none; color: #4A2338; font-size: 0.92rem; }
-  .nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
-  .nav-toggle__bar, .nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; display: block; width: 20px; height: 1.5px; background: #4A2338; position: relative; }
-  .nav-toggle__bar::before { position: absolute; top: -6px; }
-  .nav-toggle__bar::after { position: absolute; top: 6px; }
-
-  .hero { max-width: 46rem; margin-inline: auto; text-align: center; padding: 3rem 1.5rem 6rem; }
-  .eyebrow { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: #A9647F; margin-bottom: 1.4rem; }
-  h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 500; line-height: 1.12; margin-bottom: 1.5rem; }
-  h1 em { font-style: italic; color: #A9647F; }
-  .hero__lede { font-size: 1.1rem; line-height: 1.7; color: #6B3E52; max-width: 34rem; margin-inline: auto; margin-bottom: 2.25rem; }
-  .hero__cta { display: inline-block; border: 1px solid #4A2338; padding: 0.85rem 2rem; text-decoration: none; color: #4A2338; font-size: 0.92rem; letter-spacing: 0.03em; border-radius: 999px; }
-
-  .collections { max-width: 74rem; margin-inline: auto; padding: 4rem 1.5rem 5rem; }
-  .collections h2, .journal h2 { text-align: center; font-size: 2rem; font-weight: 500; margin-bottom: 3rem; }
-  .collections__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .collections__card { text-align: center; padding: 2.25rem 1.5rem; border: 1px solid rgba(74,35,56,0.18); border-radius: 0.75rem; }
-  .collections__card h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.4rem; }
-  .price { color: #A9647F; font-size: 0.9rem; margin-bottom: 1rem; }
-  .collections__card p:not(.price) { line-height: 1.6; color: #6B3E52; font-size: 0.95rem; }
-
-  .journal { background: #F3E4DC; padding: 5rem 1.5rem; }
-  .journal__grid { max-width: 74rem; margin-inline: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .journal__plate { aspect-ratio: 4/5; border-radius: 0.5rem; margin-bottom: 1rem; background: linear-gradient(160deg, #e9c9bd, #c98fa0); }
-  .journal__card h3 { font-size: 1.25rem; font-weight: 500; }
-  .journal__card p { color: #6B3E52; font-size: 0.9rem; }
-
-  .quote { max-width: 40rem; margin-inline: auto; padding: 5.5rem 1.5rem; text-align: center; }
-  .quote p { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.6rem; line-height: 1.5; margin-bottom: 1rem; }
-  .quote footer { color: #A9647F; font-size: 0.9rem; }
-
-  .contact { max-width: 32rem; margin-inline: auto; padding: 2rem 1.5rem 6rem; text-align: center; }
-  .contact h2 { font-size: 2rem; font-weight: 500; margin-bottom: 0.6rem; }
-  .contact > p { color: #6B3E52; margin-bottom: 2rem; }
-  .field { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; text-align: left; }
-  .field label { font-size: 0.85rem; color: #6B3E52; }
-  .field input { background: #fff; border: 1px solid rgba(74,35,56,0.25); border-radius: 0.4rem; padding: 0.7rem 0.85rem; font-family: inherit; }
-  .btn { margin-top: 0.5rem; background: #4A2338; color: #FBF3EE; border: none; padding: 0.85rem 1.6rem; border-radius: 999px; font-size: 0.95rem; }
-
-  .site-footer { max-width: 74rem; margin-inline: auto; padding: 2rem 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #8A5B71; border-top: 1px solid rgba(74,35,56,0.15); }
-  .site-footer nav { display: flex; gap: 1.25rem; }
-  .site-footer a { color: #8A5B71; text-decoration: underline; }
-
-  @media (max-width: 55rem) {
-    .collections__grid, .journal__grid { grid-template-columns: 1fr; }
+  :global(.wedding) {
+    --ivory: #fdf8f0;
+    --rose: #b5838d;
+    --rose-light: #d4b5bc;
+    --brown: #3c2415;
+    --brown-light: #5a3e2e;
+    --white: #ffffff;
+    --font-heading: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    --font-body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    --transition: 0.3s ease;
   }
-  @media (max-width: 40rem) {
+
+  :global(.wedding) {
+    font-family: var(--font-body);
+    color: var(--brown);
+    background: var(--ivory);
+    line-height: 1.7;
+    font-size: 1.1rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(.wedding) :focus-visible {
+    outline: 3px solid var(--rose);
+    outline-offset: 2px;
+  }
+
+  .page-wrapper { overflow-x: hidden; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--brown);
+    line-height: 1.2;
+  }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; margin-bottom: 16px; }
+  h3 { font-size: 1.6rem; }
+  h4 { font-size: 1.2rem; }
+
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-label {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--rose);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 36px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.5px;
+  }
+  .btn-primary { background: var(--brown); color: var(--ivory); }
+  .btn-primary:hover { background: var(--brown-light); }
+  .btn-secondary { background: transparent; color: var(--ivory); border: 1px solid var(--ivory); }
+  .btn-secondary:hover { background: rgba(253, 248, 240, 0.1); }
+
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 20px 0; transition: all var(--transition);
+  }
+  .nav.scrolled { background: var(--white); box-shadow: 0 2px 20px rgba(60,36,21,0.08); padding: 12px 0; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo {
+    font-family: var(--font-heading); font-size: 1.3rem; font-weight: 600;
+    color: var(--ivory); text-decoration: none; letter-spacing: 0.5px; transition: color var(--transition);
+  }
+  .nav.scrolled .nav-logo { color: var(--brown); }
+  .nav-links { display: flex; list-style: none; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-family: var(--font-body); font-size: 0.95rem;
+    color: var(--ivory); text-decoration: none; transition: color var(--transition); letter-spacing: 0.3px;
+  }
+  .nav.scrolled .nav-links a { color: var(--brown); }
+  .nav-links a:hover { color: var(--rose); }
+  .nav-cta {
+    padding: 8px 20px; border: 1px solid var(--rose); border-radius: 0;
+    color: var(--rose) !important; transition: all var(--transition);
+  }
+  .nav-cta:hover { background: var(--rose); color: var(--white) !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ivory); margin: 5px 0; transition: all var(--transition); }
+  .nav.scrolled .nav-toggle span { background: var(--brown); }
+
+  .hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(60,36,21,0.7) 0%, rgba(60,36,21,0.3) 100%); }
+  .hero-content { position: relative; z-index: 2; text-align: center; max-width: 780px; padding: 0 24px; }
+  .hero-content h1 { color: var(--ivory); margin-bottom: 20px; }
+  .hero-content p { color: rgba(253,248,240,0.9); font-size: 1.2rem; margin-bottom: 36px; line-height: 1.8; }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .section { padding: 100px 0; }
+  .section:nth-child(even) { background: var(--white); }
+
+  .filter-bar { display: flex; justify-content: center; gap: 8px; margin-bottom: 48px; flex-wrap: wrap; }
+  .filter-btn {
+    background: none; border: 1px solid var(--rose-light); padding: 10px 24px;
+    font-family: var(--font-body); font-size: 0.95rem; color: var(--brown);
+    cursor: pointer; transition: all var(--transition); letter-spacing: 0.5px;
+  }
+  .filter-btn:hover { border-color: var(--rose); color: var(--rose); }
+  .filter-btn.active { background: var(--rose); border-color: var(--rose); color: var(--white); }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .gallery-item { position: relative; overflow: hidden; aspect-ratio: 4 / 5; cursor: pointer; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(transparent 60%, rgba(60,36,21,0.7)); display: flex; align-items: flex-end; padding: 20px; opacity: 0; transition: opacity var(--transition); }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay span { color: var(--ivory); font-family: var(--font-heading); font-size: 1.1rem; font-style: italic; }
+  .gallery-item.hide { display: none; }
+
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .story-image img { width: 100%; height: auto; display: block; }
+  .story-text h2 { margin-bottom: 20px; }
+  .story-text p { margin-bottom: 16px; color: var(--brown-light); }
+
+  .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .approach-card { text-align: center; padding: 40px 24px; }
+  .approach-icon {
+    width: 64px; height: 64px; margin: 0 auto 24px;
+    background: var(--rose-light); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; color: var(--brown);
+  }
+  .approach-card h3 { margin-bottom: 12px; }
+  .approach-card p { color: var(--brown-light); font-size: 1rem; }
+
+  .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: start; }
+  .package-card { background: var(--ivory); padding: 48px 32px; text-align: center; position: relative; border: 1px solid transparent; transition: all var(--transition); }
+  .package-card:hover { border-color: var(--rose-light); }
+  .package-card.featured { border: 2px solid var(--rose); background: var(--white); }
+  .package-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--rose); color: var(--white);
+    padding: 4px 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .package-header { margin-bottom: 32px; }
+  .package-header h3 { font-size: 1.8rem; margin-bottom: 8px; }
+  .package-price {
+    font-family: var(--font-heading); font-size: 2.5rem;
+    font-weight: 700; color: var(--brown);
+  }
+  .package-features { list-style: none; margin-bottom: 32px; text-align: left; }
+  .package-features li { padding: 10px 0; border-bottom: 1px solid rgba(181,131,141,0.2); font-size: 0.95rem; color: var(--brown-light); display: flex; align-items: center; gap: 8px; }
+  .package-features li svg { color: var(--rose); flex-shrink: 0; }
+
+  .timeline-list { max-width: 700px; margin: 0 auto; position: relative; padding-left: 40px; }
+  .timeline-list::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 1px; background: var(--rose-light); }
+  .timeline-item { position: relative; margin-bottom: 40px; }
+  .timeline-item::before { content: ''; position: absolute; left: -29px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--rose); }
+  .timeline-time {
+    font-family: var(--font-heading); font-size: 0.85rem;
+    color: var(--rose); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .timeline-detail h3 { margin-bottom: 4px; }
+  .timeline-detail p { color: var(--brown-light); font-size: 1rem; }
+
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .testimonial-card { background: var(--ivory); padding: 40px 32px; text-align: center; }
+  .testimonial-stars { color: var(--rose); margin-bottom: 20px; font-size: 0.9rem; display: flex; justify-content: center; gap: 2px; }
+  .testimonial-text { font-style: italic; font-size: 1rem; color: var(--brown-light); margin-bottom: 20px; line-height: 1.8; }
+  .testimonial-author strong { display: block; font-family: var(--font-heading); font-size: 1.1rem; color: var(--brown); }
+  .testimonial-author span { font-size: 0.85rem; color: var(--rose); }
+
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid rgba(181,131,141,0.2); }
+  .faq-question {
+    width: 100%; display: flex; justify-content: space-between;
+    align-items: center; padding: 20px 0; background: none; border: none;
+    font-family: var(--font-heading); font-size: 1.1rem;
+    font-weight: 500; color: var(--brown); cursor: pointer; text-align: left;
+    transition: color var(--transition);
+  }
+  .faq-question:hover { color: var(--rose); }
+  .faq-question svg { transition: transform var(--transition); flex-shrink: 0; color: var(--rose); }
+  .faq-item.open .faq-question svg { transform: rotate(180deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0; }
+  .faq-item.open .faq-answer { max-height: 300px; padding: 0 0 20px; }
+  .faq-answer p { color: var(--brown-light); font-size: 1rem; }
+
+  .form-section { background: var(--white); }
+  .form { max-width: 720px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-family: var(--font-body); font-size: 0.9rem; color: var(--brown); margin-bottom: 6px; letter-spacing: 0.3px; }
+  .form-group input, .form-group textarea {
+    width: 100%; padding: 12px 16px; font-family: var(--font-body); font-size: 1rem;
+    background: var(--ivory); border: 1px solid rgba(181,131,141,0.3);
+    transition: border-color var(--transition); color: var(--brown);
+  }
+  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--rose); }
+  .form-group textarea { resize: vertical; }
+
+  .footer { background: var(--brown); color: var(--ivory); padding: 64px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand h3 { font-family: var(--font-heading); font-size: 1.4rem; color: var(--ivory); margin-bottom: 12px; }
+  .footer-brand p { color: rgba(253,248,240,0.7); font-size: 0.95rem; }
+  .footer h4 { color: var(--ivory); font-size: 1rem; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; }
+  .footer p { color: rgba(253,248,240,0.7); font-size: 0.95rem; margin-bottom: 8px; line-height: 1.6; }
+  .footer a { color: var(--rose); text-decoration: none; transition: color var(--transition); }
+  .footer a:hover { color: var(--rose-light); }
+  .footer-bottom { border-top: 1px solid rgba(253,248,240,0.1); padding-top: 24px; text-align: center; }
+  .footer-bottom p { font-size: 0.85rem; color: rgba(253,248,240,0.5); }
+
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); padding: 12px 24px; box-shadow: 0 -2px 12px rgba(60,36,21,0.1); z-index: 999; }
+  .mobile-sticky .btn { width: 100%; text-align: center; }
+
+  @media (max-width: 900px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--white); flex-direction: column; padding: 24px;
+      gap: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a, .nav.scrolled .nav-links a { color: var(--brown); }
     .nav-toggle { display: block; }
-    .nav-menu { position: absolute; inset-inline: 0; top: 100%; background: #FBF3EE; flex-direction: column; padding: 1rem 2rem 1.5rem; display: none; }
-    .nav-menu[data-open="true"] { display: flex; }
-    .nav { position: relative; }
+    .story-grid { grid-template-columns: 1fr; gap: 32px; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .mobile-sticky { display: block; }
+    .section { padding: 60px 0; }
   }
 </style>
 
 <script>
-  const toggle = document.getElementById("nav-toggle");
-  const menu = document.getElementById("nav-menu");
-  toggle?.addEventListener("click", () => {
-    const open = menu?.dataset.open === "true";
-    menu?.setAttribute("data-open", String(!open));
-    toggle.setAttribute("aria-expanded", String(!open));
-  });
+  (function () {
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (filterBtns.length && galleryItems.length) {
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          galleryItems.forEach(function (item) {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.classList.remove('hide');
+            } else {
+              item.classList.add('hide');
+            }
+          });
+        });
+      });
+    }
+
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('navLinks');
+    var navLinkItems = navLinks ? navLinks.querySelectorAll('a') : [];
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', function () {
+        navLinks.classList.toggle('open');
+      });
+      navLinkItems.forEach(function (link) {
+        link.addEventListener('click', function () {
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+
+    var nav = document.getElementById('mainNav');
+    var ticking = false;
+    function handleScroll() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          if (window.scrollY > 60) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', function () {
+          faqItems.forEach(function (other) { other.classList.remove('open'); });
+          var isOpen = item.classList.contains('open');
+          if (!isOpen) { item.classList.add('open'); }
+        });
+      }
+    });
+
+    var form = document.getElementById('inquiryForm');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('formName').value.trim();
+        var email = document.getElementById('formEmail').value.trim();
+        var phone = document.getElementById('formPhone') ? document.getElementById('formPhone').value.trim() : '';
+        var date = document.getElementById('formDate') ? document.getElementById('formDate').value : '';
+        var venue = document.getElementById('formVenue') ? document.getElementById('formVenue').value.trim() : '';
+        var referral = document.getElementById('formReferral') ? document.getElementById('formReferral').value.trim() : '';
+        var msg = document.getElementById('formMessage') ? document.getElementById('formMessage').value.trim() : '';
+
+        var message = 'New inquiry from the website:\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + (phone || 'Not specified') + '\nWedding date: ' + (date || 'Not specified') + '\nVenue: ' + (venue || 'Not specified') + '\nHow they heard about us: ' + (referral || 'Not specified') + '\nDetails: ' + msg;
+
+        window.open('https://wa.me/972584433181?text=' + encodeURIComponent(message), '_blank');
+        alert('Thank you for your inquiry. We will respond within 24 hours.');
+        form.reset();
+      });
+    }
+  })();
 </script>

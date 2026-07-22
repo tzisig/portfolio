@@ -112,21 +112,29 @@ const {
 <script>
   const KEY = "cookie-consent-v1";
   const el = document.getElementById("cookie-consent");
+  const BANNER_HEIGHT = 120;
+
+  function adjustFooter(show) {
+    document.querySelectorAll(".site-footer").forEach((f) => {
+      f.style.paddingBottom = show ? BANNER_HEIGHT + "px" : "";
+    });
+  }
 
   function show() {
     if (!el) return;
     el.dataset.visible = "true";
     el.setAttribute("aria-hidden", "false");
+    adjustFooter(true);
   }
   function hide() {
     if (!el) return;
     el.dataset.visible = "false";
     el.setAttribute("aria-hidden", "true");
+    adjustFooter(false);
   }
 
   const saved = localStorage.getItem(KEY);
   if (!saved) {
-    // Slight delay so it never competes with first paint / LCP.
     window.setTimeout(show, 700);
   }
 

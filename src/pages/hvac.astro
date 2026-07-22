@@ -1,0 +1,594 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  { title: "AC Installation & Replacement", desc: "Expert installation of central air conditioning systems, ductless mini-splits, and heat pumps. We size and select equipment using Manual J load calculations to ensure optimal efficiency, comfort, and longevity for your specific home or commercial space." },
+  { title: "Furnace Repair & Installation", desc: "Gas and electric furnace services including diagnostics, ignition control repair, heat exchanger inspection, blower motor replacement, and full system installations. We service all major brands and models." },
+  { title: "Heat Pump Services", desc: "Installation, repair, and maintenance of air-source and mini-split heat pump systems. We specialize in cold-climate heat pumps that deliver efficient heating even in sub-freezing Oregon winters." },
+  { title: "Ductwork & Ventilation", desc: "Duct sealing, replacement, and new installation for forced-air systems. We also install energy recovery ventilators (ERVs), attic fans, and whole-house ventilation to improve indoor air quality and efficiency." },
+  { title: "Commercial HVAC", desc: "Rooftop unit (RTU) installation and service, variable refrigerant flow (VRF) systems, make-up air units, and building automation controls for commercial and industrial facilities." },
+  { title: "Indoor Air Quality", desc: "Air purification systems, UV germicidal lights, humidifiers, dehumidifiers, and media cabinet filters. We test and measure IAQ parameters to recommend targeted solutions for allergies, asthma, and general comfort." },
+];
+
+const steps = [
+  { num: "01", title: "Diagnosis", desc: "We start with a thorough diagnostic assessment using digital manifold gauges, thermal imaging, and airflow measurement. No guesswork — every recommendation is backed by real data." },
+  { num: "02", title: "Transparent Estimate", desc: "You receive a detailed written estimate with itemized costs, equipment specifications, warranty terms, and financing options before any work begins. We never add surprise charges." },
+  { num: "03", title: "Expert Installation", desc: "Our NATE-certified technicians perform every installation to manufacturer specifications and local code. We pressure-test, charge, and commission every system before calling the job complete." },
+  { num: "04", title: "Follow-up & Support", desc: "After every job, we walk through the work performed, answer your questions, and provide maintenance tips. We follow up within a week to ensure your system is performing as expected." },
+];
+
+const testimonials = [
+  { text: "Our old furnace died in the middle of a January freeze. Cascade Peak sent a technician within two hours, diagnosed a failed ignitor, and had us back up and running before dinner. The price was fair and the communication was excellent.", name: "Margaret Chen", location: "Sellwood" },
+  { text: "We contracted Cascade Peak for a full HVAC replacement on our 1920s craftsman — new furnace, AC, and ductwork. The crew was punctual, respectful of our home, and completed the project on schedule. The system has been running perfectly for two years.", name: "James & Lisa Hartwell", location: "Irvington" },
+  { text: "I manage a six-story office building and Cascade Peak handles all our rooftop units. Their commercial team is responsive, thorough, and keeps detailed records of every service visit. They've earned our trust.", name: "David Okonkwo", location: "Pearl District" },
+];
+
+const faqs = [
+  { q: "How often should I have my HVAC system serviced?", a: "We recommend professional maintenance twice a year — once in spring for your air conditioning system and once in fall for your heating system. Regular maintenance improves efficiency, extends equipment life, and catches small problems before they become expensive repairs." },
+  { q: "What size HVAC system do I need for my home?", a: "Proper sizing requires a Manual J load calculation that accounts for your home's square footage, insulation levels, window area, orientation, and occupancy. Undersized systems run constantly without satisfying demand; oversized systems short-cycle, waste energy, and fail to dehumidify properly. We never guess — we calculate." },
+  { q: "Do you offer financing or payment plans?", a: "Yes. We partner with several financing providers to offer options ranging from 12-month same-as-cash to longer-term plans for major installations. We also help you identify applicable manufacturer rebates and energy-efficiency incentives from Energy Trust of Oregon." },
+  { q: "How long does a typical HVAC installation take?", a: "A standard furnace or air conditioner replacement typically takes one to two days. Full system replacements with ductwork modifications may take three to five days. Commercial projects vary based on scope — we provide a timeline estimate during the quoting process." },
+  { q: "What brands do you carry and service?", a: "We install and service all major brands including Trane, Carrier, Lennox, Rheem, Mitsubishi, Fujitsu, Daikin, and Goodman. We select equipment based on your budget, efficiency goals, and the specific requirements of your home rather than pushing a single brand." },
+];
+---
+<BaseLayout
+  title="Cascade Peak HVAC | Heating, Cooling & Indoor Air Quality in Portland"
+  description="Cascade Peak HVAC provides professional heating, air conditioning, ventilation, and indoor air quality services for homes and businesses in the Portland metro area. NATE-certified technicians, transparent pricing."
+  themeColor="#1B2D4A"
+  bodyClass="hvac"
+  consent={{ bg: "#1B2D4A", fg: "#E8EDF2", accent: "#D4943A", accentFg: "#1B2D4A", border: "rgba(232,237,242,0.16)" }}
+>
+  <slot name="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  </slot>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-inner container">
+      <a href="#" class="nav-logo">Cascade Peak HVAC</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80" alt="Professional HVAC technician in navy workwear inspecting commercial rooftop equipment against a blue sky" width="1600" height="1067" class="hero-img" loading="eager" fetchpriority="high" decoding="async" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-label">Cascade Peak HVAC</p>
+        <h1 class="hero-title">Heating, Cooling & Indoor Air Quality You Can Trust.</h1>
+        <p class="hero-sub">From a malfunctioning furnace mid-January to a complete commercial rooftop system, Cascade Peak delivers precise, honest HVAC service backed by NATE-certified technicians and transparent pricing.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get a Quote</a>
+          <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What We Do</span>
+          <h2>Comprehensive HVAC Services</h2>
+          <p class="section-sub">Installation, repair, and maintenance for residential and commercial systems across the Portland metro area.</p>
+        </div>
+        <div class="services-grid">
+          {services.map((s) => (
+            <article class="service-card">
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">How We Work</span>
+          <h2>Precision from Diagnosis to Sign-off.</h2>
+          <p class="section-sub">Every job follows a methodical process designed to eliminate surprises and deliver lasting results.</p>
+        </div>
+        <div class="process-steps">
+          {steps.map((s) => (
+            <div class="process-step">
+              <span class="process-num">{s.num}</span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-inner">
+        <div class="about-text">
+          <span class="section-label">Who We Are</span>
+          <h2>Built on Precision, Driven by Reliability.</h2>
+          <p>Cascade Peak HVAC was founded on a simple belief: that heating and cooling systems deserve the same technical rigor as any other engineered system. We don't cut corners, we don't guess at diagnoses, and we never recommend work you don't need.</p>
+          <p>Every technician on our team holds NATE certification — the industry's highest standard for HVAC knowledge. We invest in ongoing training, maintain modern diagnostic equipment, and stand behind every installation with a satisfaction guarantee.</p>
+          <p>Whether you need a seasonal tune-up, an emergency repair, or a full system design for new construction, Cascade Peak delivers the kind of thorough, no-pressure service that keeps our customers coming back year after year.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">2,400+</span>
+            <span class="stat-label">Systems Serviced</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4.9</span>
+            <span class="stat-label">Average Rating</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">NATE-Certified Techs</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">12+</span>
+            <span class="stat-label">Years in Business</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Kind Words</span>
+          <h2>What Our Customers Say</h2>
+        </div>
+        <div class="testimonials-grid">
+          {testimonials.map((t) => (
+            <blockquote class="testimonial-card">
+              <p class="testimonial-text">{t.text}</p>
+              <footer class="testimonial-author">
+                <strong>{t.name}</strong>
+                <span>{t.location}</span>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Common Questions</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map((f, i) => (
+            <details class="faq-item" open={i === 0 ? true : undefined}>
+              <summary class="faq-question">{f.q}<span class="faq-indicator">{i === 0 ? "−" : "+"}</span></summary>
+              <div class="faq-answer">
+                <p>{f.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Get in Touch</span>
+          <h2>Request a Quote or Service</h2>
+          <p class="section-sub">Fill out the form below and we'll call or email you within 4 business hours. For emergency service, please call us directly.</p>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formName">Your Name</label>
+              <input type="text" id="formName" name="name" required placeholder="Your full name" />
+              <span class="form-error" id="nameError">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label for="formEmail">Email Address</label>
+              <input type="email" id="formEmail" name="email" required placeholder="you@example.com" />
+              <span class="form-error" id="emailError">Please enter a valid email.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formPhone">Phone Number</label>
+              <input type="tel" id="formPhone" name="phone" required placeholder="503-555-1234" />
+              <span class="form-error" id="phoneError">Please enter your phone number.</span>
+            </div>
+            <div class="form-group">
+              <label for="formService">Service Needed</label>
+              <select id="formService" name="service" required>
+                <option value="">Select type...</option>
+                <option value="ac-repair">AC Repair</option>
+                <option value="ac-install">AC Installation</option>
+                <option value="furnace-repair">Furnace Repair</option>
+                <option value="furnace-install">Furnace Installation</option>
+                <option value="heat-pump">Heat Pump Service</option>
+                <option value="ductwork">Ductwork</option>
+                <option value="commercial">Commercial HVAC</option>
+                <option value="iaq">Indoor Air Quality</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-error" id="serviceError">Please select a service type.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Description of Issue</label>
+            <textarea id="formMessage" name="message" rows="4" placeholder="Describe the issue or the system you'd like us to evaluate. Include equipment age and model if known."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large">Submit Request</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Cascade Peak HVAC</h3>
+        <p>Heating, cooling & indoor air quality. NATE-certified technicians serving the Portland metro area with precision and transparency.</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>3420 SE Industrial Way<br />Portland, OR 97202</p>
+        <p><a href="tel:+15550197">(555) 555-0197</a></p>
+        <p><a href="mailto:info@cascadepeakhvac.com">info@cascadepeakhvac.com</a></p>
+      </div>
+      <div class="footer-hours">
+        <h4>Hours</h4>
+        <p>Mon–Fri: 7:00 AM – 7:00 PM</p>
+        <p>Saturday: 8:00 AM – 4:00 PM</p>
+        <p>Emergency: 24/7</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <p><a href="/privacy">Privacy Policy</a></p>
+        <p><a href="/cookies">Cookie Policy</a></p>
+        <p><a href="/accessibility">Accessibility</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Cascade Peak HVAC. All rights reserved. Licensed &amp; Insured in Oregon. CCB #234567</p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  :global(.hvac) {
+    --navy: #1B2D4A;
+    --navy-dark: #0F1C30;
+    --steel: #4A6D8C;
+    --steel-light: #C5D4E0;
+    --amber: #D4943A;
+    --amber-light: #E8B96A;
+    --warm-white: #F5F2ED;
+    --warm-white-dark: #E8E3DA;
+    --dark-text: #1A1D21;
+    --font-heading: 'Archivo', 'Arial Black', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --transition: 0.25s ease;
+  }
+
+  :global(.hvac) {
+    font-family: var(--font-body);
+    color: var(--dark-text);
+    background: var(--warm-white);
+    line-height: 1.65;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(.hvac) :focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  h1 { font-size: clamp(2.4rem, 5.5vw, 3.6rem); }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 12px; }
+  h3 { font-size: 1.2rem; }
+  h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--steel);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .section-sub { color: #555; max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.3px;
+  }
+  .btn-primary { background: var(--amber); color: var(--navy-dark); }
+  .btn-primary:hover { background: var(--amber-light); }
+  .btn-outline { background: transparent; color: var(--warm-white); border: 2px solid var(--warm-white); }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+  .btn-large { padding: 16px 40px; font-size: 1.05rem; }
+
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 16px 0; transition: all var(--transition);
+  }
+  .nav.scrolled { background: var(--warm-white); box-shadow: 0 2px 24px rgba(27,45,74,0.1); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo {
+    font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800;
+    color: var(--warm-white); text-decoration: none; transition: color var(--transition);
+    letter-spacing: -0.03em;
+  }
+  .nav.scrolled .nav-logo { color: var(--navy); }
+  .nav-links { display: flex; list-style: none; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-size: 0.9rem; font-weight: 500;
+    color: var(--warm-white); text-decoration: none; transition: color var(--transition);
+  }
+  .nav.scrolled .nav-links a { color: var(--dark-text); }
+  .nav-links a:hover { color: var(--amber-light); }
+  .nav.scrolled .nav-links a:hover { color: var(--amber); }
+  .nav-cta {
+    padding: 8px 20px; border: 2px solid var(--amber); color: var(--amber) !important;
+    font-weight: 700; transition: all var(--transition);
+  }
+  .nav-cta:hover { background: var(--amber); color: var(--navy-dark) !important; }
+  .nav.scrolled .nav-cta { border-color: var(--amber); color: var(--amber) !important; }
+  .nav.scrolled .nav-cta:hover { background: var(--amber); color: var(--navy-dark) !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--warm-white); margin: 5px 0; transition: all var(--transition); }
+  .nav.scrolled .nav-toggle span { background: var(--navy); }
+
+  .hero {
+    position: relative;
+    height: 95vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(27,45,74,0.75) 0%, rgba(74,109,140,0.35) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 760px;
+  }
+  .hero-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--amber-light);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .hero-title { color: var(--warm-white); margin-bottom: 20px; }
+  .hero-sub {
+    color: rgba(245,242,237,0.9);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .services { padding: 100px 0; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--warm-white-dark);
+    padding: 32px 28px;
+    border-top: 3px solid var(--steel);
+  }
+  .service-card h3 { margin-bottom: 12px; color: var(--navy); }
+  .service-card p { color: #555; font-size: 0.95rem; line-height: 1.7; }
+
+  .process { padding: 100px 0; background: var(--navy); }
+  .process .section-label { color: var(--amber-light); }
+  .process h2 { color: var(--warm-white); }
+  .process .section-sub { color: rgba(245,242,237,0.7); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .process-step { text-align: left; padding: 32px 24px; background: rgba(255,255,255,0.06); position: relative; }
+  .process-num {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--amber);
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .process-step h3 { color: var(--warm-white); margin-bottom: 8px; font-size: 1.1rem; }
+  .process-step p { color: rgba(245,242,237,0.7); font-size: 0.9rem; line-height: 1.7; }
+
+  .about { padding: 100px 0; }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about-text p { color: #555; margin-bottom: 16px; font-size: 1rem; line-height: 1.75; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .stat {
+    background: var(--navy);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 0.85rem; color: rgba(245,242,237,0.7); text-transform: uppercase; letter-spacing: 1px; }
+
+  .testimonials { padding: 100px 0; background: var(--warm-white-dark); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testimonial-card { background: var(--warm-white); padding: 36px 28px; }
+  .testimonial-text { font-style: italic; font-size: 0.95rem; color: var(--dark-text); line-height: 1.75; margin-bottom: 20px; }
+  .testimonial-author strong { display: block; font-family: var(--font-heading); font-size: 1rem; color: var(--navy); margin-bottom: 2px; }
+  .testimonial-author span { font-size: 0.8rem; color: var(--steel); }
+
+  .faq { padding: 100px 0; }
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid rgba(27,45,74,0.12); }
+  .faq-question {
+    padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600;
+    color: var(--navy); cursor: pointer; letter-spacing: -0.01em;
+  }
+  .faq-question:hover { color: var(--steel); }
+  .faq-indicator { font-size: 1.3rem; color: var(--amber); line-height: 1; font-weight: 700; }
+  .faq-answer { padding-bottom: 20px; }
+  .faq-answer p { color: #555; font-size: 0.95rem; line-height: 1.7; }
+
+  .contact { padding: 100px 0; background: var(--warm-white-dark); }
+  .contact-form { max-width: 640px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px 16px;
+    font-family: var(--font-body); font-size: 0.95rem;
+    background: var(--warm-white); border: 1px solid rgba(27,45,74,0.15);
+    transition: border-color var(--transition); color: var(--dark-text);
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--amber); }
+  .form-group textarea { resize: vertical; }
+  .form-error { display: none; font-size: 0.8rem; color: #C44; margin-top: 4px; }
+  .form-group.has-error .form-error { display: block; }
+  .form-group.has-error input, .form-group.has-error textarea, .form-group.has-error select { border-color: #C44; }
+
+  .footer { background: var(--navy-dark); color: var(--warm-white); padding: 64px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand h3 { font-family: var(--font-heading); font-size: 1.3rem; color: var(--warm-white); margin-bottom: 12px; }
+  .footer-brand p { color: rgba(245,242,237,0.55); font-size: 0.9rem; }
+  .footer h4 { color: var(--warm-white); font-size: 0.85rem; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-body); }
+  .footer p { color: rgba(245,242,237,0.55); font-size: 0.9rem; margin-bottom: 6px; line-height: 1.6; }
+  .footer a { color: var(--amber-light); text-decoration: none; transition: color var(--transition); }
+  .footer a:hover { color: var(--warm-white); }
+  .footer-bottom { border-top: 1px solid rgba(245,242,237,0.1); padding-top: 24px; text-align: center; }
+  .footer-bottom p { font-size: 0.8rem; color: rgba(245,242,237,0.4); }
+
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 32px; }
+    .process-steps { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .services, .process, .about, .testimonials, .faq, .contact { padding: 60px 0; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--warm-white); flex-direction: column; padding: 20px 24px;
+      gap: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a, .nav.scrolled .nav-links a { color: var(--dark-text); }
+    .nav-cta { border-color: var(--amber); color: var(--amber) !important; }
+    .nav-toggle { display: block; }
+  }
+</style>
+
+<script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          nav.classList.toggle('scrolled', window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+      links.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { links.classList.remove('open'); });
+      });
+    }
+
+    var form = document.getElementById('contactForm');
+    if (form) {
+      var fields = form.querySelectorAll('[required]');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var valid = true;
+        fields.forEach(function(f) {
+          var g = f.closest('.form-group');
+          if (!g) return;
+          if (!f.value.trim()) {
+            g.classList.add('has-error');
+            valid = false;
+          } else {
+            g.classList.remove('has-error');
+          }
+        });
+        if (valid) {
+          alert('Thank you for your request. We will contact you within 4 business hours.');
+          form.reset();
+        }
+      });
+      fields.forEach(function(f) {
+        f.addEventListener('input', function() { f.closest('.form-group')?.classList.remove('has-error'); });
+      });
+    }
+  })();
+</script>
