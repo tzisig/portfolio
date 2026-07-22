@@ -1,0 +1,314 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Laura Bennett, CPA | Bookkeeping & Tax Advisory"
+  description="Laura Bennett, CPA provides professional bookkeeping, tax advisory, and annual filing services for freelancers and small businesses."
+  themeColor="#1F2A24"
+  bodyClass="CPA"
+  consent={{ bg: "#1F2A24", fg: "#F4F3E8", accent: "#C9A227", accentFg: "#1F2A24", border: "rgba(244,243,232,0.16)" }}
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" slot="head">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head">
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@300;400;600;700&display=swap" rel="stylesheet" slot="head">
+
+  <header class="relative bg-ink text-ledger overflow-hidden">
+    <nav class="relative max-w-6xl mx-auto px-6 py-6 flex items-center justify-between border-b border-ledger/15">
+      <span class="font-display text-2xl">Laura Bennett, CPA</span>
+      <a href="#booking" class="hidden sm-inline-block bg-gold text-ink font-bold px-5 py-2 rounded-sm text-sm hover-bg-ledger transition">Book a Consultation</a>
+    </nav>
+
+    <div class="relative max-w-6xl mx-auto px-6 pt-14 pb-24 md-pt-20 md-pb-28">
+      <p class="text-gold font-bold tracking-widest text-sm mb-4">Bookkeeping · Tax Advisory · Annual Filings</p>
+      <h1 class="font-display text-4xl md-text-6xl leading-tight max-w-3xl">
+        Let your numbers<br>work for you, not against you
+      </h1>
+      <p class="mt-6 text-lg text-ledger/75 max-w-xl leading-relaxed">
+        Bookkeeping and tax advisory for freelancers and small businesses, with no surprises at tax time.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <div class="tick border border-gold/40 px-5 py-3 rounded-sm">
+          <span class="font-display text-2xl block">$0</span>
+          <span class="text-xs text-ledger/60">late penalties for my clients</span>
+        </div>
+        <div class="tick border border-gold/40 px-5 py-3 rounded-sm">
+          <span class="font-display text-2xl block">48 hrs</span>
+          <span class="text-xs text-ledger/60">average response time</span>
+        </div>
+        <div class="tick border border-gold/40 px-5 py-3 rounded-sm">
+          <span class="font-display text-2xl block">Solo + LLCs</span>
+          <span class="text-xs text-ledger/60">range of clients served</span>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#booking" class="bg-gold text-ink font-bold px-7 py-3 rounded-sm hover-bg-ledger transition">Book a consultation</a>
+        <a href="#services" class="border border-ledger/40 px-7 py-3 rounded-sm hover-bg-white/10 transition">What's included</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="max-w-6xl mx-auto px-6 py-20 ledger-bg">
+      <p class="text-moss font-bold text-sm mb-2 tracking-widest">Why clients stay</p>
+      <h2 class="font-display text-3xl md-text-4xl mb-12 max-w-2xl">Transparent reporting, no year-end surprises</h2>
+      <div class="grid md-grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-display text-xl mb-2">Clear monthly statements</h3>
+          <p class="text-ink/70 leading-relaxed">See exactly what you earned and what you'll owe, not a surprise at quarter-end.</p>
+        </div>
+        <div>
+          <h3 class="font-display text-xl mb-2">Tax planning, not tax scrambling</h3>
+          <p class="text-ink/70 leading-relaxed">We plan the savings before the year ends, not after.</p>
+        </div>
+        <div>
+          <h3 class="font-display text-xl mb-2">Available during filing season</h3>
+          <p class="text-ink/70 leading-relaxed">Direct support during the busy periods too, not just the quiet ones.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="bg-ink text-ledger py-20">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-gold font-bold text-sm mb-2 tracking-widest">What's included</p>
+        <h2 class="font-display text-3xl md-text-4xl mb-10 max-w-2xl">Services</h2>
+        <div class="divide-y divide-ledger/15">
+          <div class="py-5 flex items-center">
+            <span class="font-display">Monthly bookkeeping</span>
+            <span class="row-leader"></span>
+            <span class="text-gold text-sm">Included</span>
+          </div>
+          <div class="py-5 flex items-center">
+            <span class="font-display">Quarterly tax filings</span>
+            <span class="row-leader"></span>
+            <span class="text-gold text-sm">Included</span>
+          </div>
+          <div class="py-5 flex items-center">
+            <span class="font-display">Annual tax return</span>
+            <span class="row-leader"></span>
+            <span class="text-gold text-sm">Included</span>
+          </div>
+          <div class="py-5 flex items-center">
+            <span class="font-display">Business formation advice</span>
+            <span class="row-leader"></span>
+            <span class="text-gold text-sm">On request</span>
+          </div>
+          <div class="py-5 flex items-center">
+            <span class="font-display">IRS/audit support</span>
+            <span class="row-leader"></span>
+            <span class="text-gold text-sm">On request</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="max-w-2xl mx-auto px-6 py-20">
+      <p class="text-moss font-bold text-sm mb-2 tracking-widest">First step</p>
+      <h2 class="font-display text-3xl md-text-4xl mb-3">Book a consultation</h2>
+      <p class="text-ink/70 mb-8">Leave your details, and the message is sent straight to my WhatsApp. I'll get back to you within one business day.</p>
+
+      <form id="leadForm" class="space-y-4 bg-white rounded-sm p-6 border border-ledgerline">
+        <div>
+          <label class="block text-sm font-bold mb-1" for="name">Full name</label>
+          <input required id="name" name="name" type="text" class="w-full rounded-sm border border-ledgerline px-4 py-3 bg-ledger" placeholder="e.g. Alex Turner">
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1" for="phone">Phone</label>
+          <input required id="phone" name="phone" type="tel" class="w-full rounded-sm border border-ledgerline px-4 py-3 bg-ledger" placeholder="+1 555 123 4567">
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1" for="status">Business status</label>
+          <select id="status" name="status" class="w-full rounded-sm border border-ledgerline px-4 py-3 bg-ledger">
+            <option>Active freelancer</option>
+            <option>Starting a new business</option>
+            <option>Business owner (LLC/Corp)</option>
+            <option>Employee with side income</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1" for="reason">What's most urgent?</label>
+          <select id="reason" name="reason" class="w-full rounded-sm border border-ledgerline px-4 py-3 bg-ledger">
+            <option>Ongoing bookkeeping</option>
+            <option>Annual tax return</option>
+            <option>Business formation</option>
+            <option>IRS issue</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-gold text-ink font-bold py-3 rounded-sm hover-bg-moss hover-text-ledger transition">
+          Send via WhatsApp
+        </button>
+        <p class="text-xs text-ink/75 text-center">Clicking send will open a WhatsApp chat with your message ready to go.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-ink text-ledger/80 py-8 text-center text-sm border-t border-ledger/15">
+    <p>Laura Bennett, CPA • [Office address] • [Phone] • [Office hours]</p>
+    <p class="text-xs mt-2 text-ledger/60">Sample page only - does not represent an active CPA or firm.</p>
+  </footer>
+</BaseLayout>
+
+<style>
+  :global(.CPA) {
+    --ink: #1F2A24;
+    --ledger: #F4F3E8;
+    --gold: #C9A227;
+    --moss: #4B6B57;
+    --ledgerline: #C7D4C4;
+    font-family: "Heebo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--ledger);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  :global(.CPA) h1, :global(.CPA) h2, :global(.CPA) h3 { font-family: "Secular One", sans-serif; }
+
+  @keyframes tick {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .tick { animation: tick 0.5s ease-out both; will-change: transform, opacity; min-height: 80px; min-width: 140px; }
+  .tick:nth-child(2) { animation-delay: 0.12s; }
+  .tick:nth-child(3) { animation-delay: 0.24s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tick { animation: none; opacity: 1; transform: none; }
+  }
+
+  .ledger-bg {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 38px,
+      rgba(75,107,87,0.25) 38px, rgba(75,107,87,0.25) 39px
+    );
+  }
+
+  .row-leader {
+    background-image: linear-gradient(to right, currentColor 1px, transparent 1px);
+    background-size: 6px 1px;
+    background-repeat: repeat-x;
+    background-position: bottom;
+    height: 1px;
+    flex: 1;
+    opacity: 0.35;
+    margin: 0 12px;
+  }
+
+  .relative { position: relative; }
+  .overflow-hidden { overflow: hidden; }
+  .max-w-6xl { max-width: 72rem; }
+  .max-w-3xl { max-width: 48rem; }
+  .max-w-2xl { max-width: 42rem; }
+  .max-w-xl { max-width: 36rem; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .px-7 { padding-left: 1.75rem; padding-right: 1.75rem; }
+  .px-4 { padding-left: 1rem; padding-right: 1rem; }
+  .px-3 { padding-left: .75rem; padding-right: .75rem; }
+  .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+  .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  .py-3 { padding-top: .75rem; padding-bottom: .75rem; }
+  .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+  .py-2 { padding-top: .5rem; padding-bottom: .5rem; }
+  .pt-14 { padding-top: 3.5rem; }
+  .pb-24 { padding-bottom: 6rem; }
+  .p-6 { padding: 1.5rem; }
+  .mt-6 { margin-top: 1.5rem; }
+  .mt-10 { margin-top: 2.5rem; }
+  .mt-2 { margin-top: .5rem; }
+  .mb-1 { margin-bottom: .25rem; }
+  .mb-2 { margin-bottom: .5rem; }
+  .mb-3 { margin-bottom: .75rem; }
+  .mb-4 { margin-bottom: 1rem; }
+  .mb-8 { margin-bottom: 2rem; }
+  .mb-10 { margin-bottom: 2.5rem; }
+  .mb-12 { margin-bottom: 3rem; }
+  .flex { display: flex; }
+  .flex-wrap { flex-wrap: wrap; }
+  .items-center { align-items: center; }
+  .justify-between { justify-content: space-between; }
+  .grid { display: grid; }
+  .gap-3 { gap: .75rem; }
+  .gap-4 { gap: 1rem; }
+  .gap-8 { gap: 2rem; }
+  .space-y-4 > * + * { margin-top: 1rem; }
+  .divide-y > * + * { border-top: 1px solid; }
+  .divide-ledger\/15 > * + * { border-color: rgba(244,243,232,0.15); }
+  .block { display: block; }
+  .inline-block { display: inline-block; }
+  .hidden { display: none; }
+  .w-full { width: 100%; }
+  .border { border: 1px solid; }
+  .border-b { border-bottom-width: 1px; }
+  .border-t { border-top-width: 1px; }
+  .border-gold\/40 { border-color: rgba(201,162,39,0.4); }
+  .border-ledger\/15 { border-color: rgba(244,243,232,0.15); }
+  .border-ledger\/40 { border-color: rgba(244,243,232,0.4); }
+  .border-ledgerline { border-color: var(--ledgerline); }
+  .rounded-sm { border-radius: .125rem; }
+  .bg-ink { background: var(--ink); }
+  .bg-ledger { background: var(--ledger); }
+  .bg-gold { background: var(--gold); }
+  .bg-white { background: #fff; }
+  .text-ledger { color: var(--ledger); }
+  .text-ink { color: var(--ink); }
+  .text-gold { color: var(--gold); }
+  .text-moss { color: var(--moss); }
+  .text-ledger\/60 { color: rgba(244,243,232,0.6); }
+  .text-ledger\/75 { color: rgba(244,243,232,0.75); }
+  .text-ledger\/80 { color: rgba(244,243,232,0.8); }
+  .text-ink\/70 { color: rgba(31,42,36,0.7); }
+  .text-ink\/75 { color: rgba(31,42,36,0.75); }
+  .text-xs { font-size: .75rem; line-height: 1rem; }
+  .text-sm { font-size: .875rem; line-height: 1.25rem; }
+  .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+  .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+  .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+  .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+  .font-display { font-family: "Secular One", sans-serif; }
+  .font-bold { font-weight: 700; }
+  .tracking-widest { letter-spacing: .1em; }
+  .leading-tight { line-height: 1.25; }
+  .leading-relaxed { line-height: 1.625; }
+  .text-center { text-align: center; }
+  .transition { transition: all .2s; }
+  .hover-bg-ledger:hover { background: var(--ledger); }
+  .hover-bg-white\/10:hover { background: rgba(255,255,255,0.1); }
+  .hover-bg-moss:hover { background: var(--moss); }
+  .hover-text-ledger:hover { color: var(--ledger); }
+
+  @media (min-width: 640px) {
+    .sm-inline-block { display: inline-block; }
+  }
+  @media (min-width: 768px) {
+    .md-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .md-pt-20 { padding-top: 5rem; }
+    .md-pb-28 { padding-bottom: 7rem; }
+    .md-text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+    .md-text-6xl { font-size: 3.75rem; line-height: 1; }
+  }
+</style>
+
+<script>
+(function () {
+  var form = document.getElementById('leadForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var status = document.getElementById('status').value;
+      var reason = document.getElementById('reason').value;
+      if (!name || !phone) return;
+      var message = 'New inquiry from the website:\nName: ' + name + '\nPhone: ' + phone + '\nBusiness status: ' + status + '\nMost urgent: ' + reason;
+      window.open('https://wa.me/972584433181?text=' + encodeURIComponent(message), '_blank');
+    });
+  }
+})();
+</script>

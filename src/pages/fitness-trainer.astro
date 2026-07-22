@@ -1,0 +1,667 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Personal Fitness Trainer Portland | CoreShift Coaching | Build Strength & Improve Fitness"
+  description="CoreShift Coaching offers personal training, strength programs, weight management, and online coaching. Book a free consultation and build habits you can maintain."
+  themeColor="#0a0a0a"
+  bodyClass="fitness-trainer"
+  consent={{ bg: "#0a0a0a", fg: "#f5f5f0", accent: "#84cc16", accentFg: "#0a0a0a", border: "rgba(255,255,255,0.16)" }}
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" slot="head">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" slot="head">
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">CoreShift Coaching</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#programs" class="nav-link">Programs</a></li>
+        <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="hero-tagline">Portland Personal Training</p>
+          <h1 class="hero-headline">Build Strength, Improve Fitness, and Follow a Plan You Can Maintain.</h1>
+          <p class="hero-subtext">No gimmicks, no quick fixes. CoreShift Coaching builds training plans around your schedule, your body, and your goals. Sustainable fitness starts here.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-accent">Book a Free Consultation</a>
+            <a href="#programs" class="btn btn-outline">View Training Options</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-shape"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="goals" class="goals">
+      <div class="container">
+        <div class="section-label">Find Your Focus</div>
+        <h2 class="section-title">What Is Your Primary Goal?</h2>
+        <p class="section-subtitle">Select your goal and we will tailor a program specific to your needs.</p>
+        <div class="goals-grid" id="goalSelector">
+          <button class="goal-card" data-goal="lose-weight">
+            <span class="goal-icon">&#9660;</span>
+            <h3 class="goal-title">Lose Weight</h3>
+            <p class="goal-desc">Sustainable fat loss through structured training and nutritional guidance.</p>
+          </button>
+          <button class="goal-card" data-goal="build-strength">
+            <span class="goal-icon">&#9650;</span>
+            <h3 class="goal-title">Build Strength</h3>
+            <p class="goal-desc">Progressive resistance training to increase your strength and power.</p>
+          </button>
+          <button class="goal-card" data-goal="endurance">
+            <span class="goal-icon">&#8635;</span>
+            <h3 class="goal-title">Improve Endurance</h3>
+            <p class="goal-desc">Cardiovascular conditioning and stamina building for long-term energy.</p>
+          </button>
+          <button class="goal-card" data-goal="general-fitness">
+            <span class="goal-icon">&#9733;</span>
+            <h3 class="goal-title">General Fitness</h3>
+            <p class="goal-desc">Overall health, mobility, and balanced fitness for everyday life.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="programs" class="programs">
+      <div class="container">
+        <div class="section-label">Training Programs</div>
+        <h2 class="section-title">Choose Your Training Path</h2>
+        <p class="section-subtitle">Every program includes a personalized assessment and a plan built around your goals.</p>
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-number">01</div>
+            <h3 class="program-title">1-on-1 Training</h3>
+            <p class="program-desc">Private sessions with Alex focused entirely on your form, progress, and accountability. Each session is designed around your specific needs, whether you are new to the gym or an experienced lifter refining your technique.</p>
+            <ul class="program-features">
+              <li>Fully customized programming</li>
+              <li>Hands-on technique coaching</li>
+              <li>Flexible scheduling</li>
+              <li>Progress tracking and adjustments</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost">Get Started</a>
+          </div>
+          <div class="program-card">
+            <div class="program-number">02</div>
+            <h3 class="program-title">Small Group Sessions</h3>
+            <p class="program-desc">Train with up to four clients of similar ability levels. You get individual attention within a group setting, keeping you motivated and pushing each other toward better results.</p>
+            <ul class="program-features">
+              <li>Small groups of 2-4 people</li>
+              <li>Structured workout plans</li>
+              <li>Built-in community support</li>
+              <li>Lower cost than 1-on-1</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost">Get Started</a>
+          </div>
+          <div class="program-card">
+            <div class="program-number">03</div>
+            <h3 class="program-title">Online Coaching</h3>
+            <p class="program-desc">Full remote coaching for those who prefer to train on their own schedule. Access custom programs through our app, submit video check-ins, and communicate directly with Alex.</p>
+            <ul class="program-features">
+              <li>Custom program delivered via app</li>
+              <li>Video form checks and feedback</li>
+              <li>Weekly check-ins and adjustments</li>
+              <li>Available anywhere in the US</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy" class="philosophy">
+      <div class="container">
+        <div class="section-label">Our Approach</div>
+        <h2 class="section-title">Training That Fits Your Life</h2>
+        <div class="philosophy-content">
+          <div class="philosophy-text">
+            <p>CoreShift Coaching was built on a simple belief: fitness should work for you, not the other way around. We do not sell quick fixes or thirty-day transformations. We build habits that stick.</p>
+            <p>Every client starts with a real conversation about your schedule, your history, your limitations, and what you actually want to accomplish. From there, we design a training plan that fits into your life, not one that demands you rebuild it.</p>
+            <p>Consistency beats intensity every time. Our focus is on progressive, sustainable training that keeps you moving forward without burning out.</p>
+          </div>
+          <div class="philosophy-stats">
+            <div class="stat">
+              <span class="stat-number">90%</span>
+              <span class="stat-label">Client retention after 12 weeks</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">8+</span>
+              <span class="stat-label">Years of coaching experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">300+</span>
+              <span class="stat-label">Clients coached in Portland</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="progress" class="progress">
+      <div class="container">
+        <div class="section-label">Real Results</div>
+        <h2 class="section-title">Progress Examples</h2>
+        <p class="section-subtitle">These examples reflect real client outcomes. Individual results will vary based on effort, consistency, and other factors.</p>
+        <div class="progress-grid">
+          <div class="progress-card">
+            <div class="progress-meta">Client A &mdash; 12 Weeks</div>
+            <h3 class="progress-title">Strength Transformation</h3>
+            <p>After 12 weeks of consistent strength training three times per week, Client A increased their squat by 40 pounds and deadlift by 55 pounds. They focused on progressive overload, proper form, and nutrition adjustments.</p>
+          </div>
+          <div class="progress-card">
+            <div class="progress-meta">Client B &mdash; 16 Weeks</div>
+            <h3 class="progress-title">Mobility and Core Stability</h3>
+            <p>Client B came in with chronic lower back tightness and a goal of improving mobility. Over 16 weeks, they built core stability, improved hip mobility, and eliminated pain during daily activities and recreational sports.</p>
+          </div>
+          <div class="progress-card">
+            <div class="progress-meta">Client C &mdash; 20 Weeks</div>
+            <h3 class="progress-title">Weight Management and Endurance</h3>
+            <p>Client C wanted to lose weight and improve cardiovascular fitness. In 20 weeks, they dropped 18 pounds, improved their mile time by two minutes, and established a consistent exercise habit they maintain on their own.</p>
+          </div>
+        </div>
+        <p class="progress-disclaimer">Individual results vary. These examples are not guarantees of specific outcomes.</p>
+      </div>
+    </section>
+
+    <section id="process" class="process">
+      <div class="container">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">The CoreShift Process</h2>
+        <p class="section-subtitle">From your first conversation to your first rep, here is what to expect.</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <h3 class="step-title">Assessment</h3>
+            <p class="step-desc">We start with a movement screening, health history review, and conversation about your goals. This tells us where you are and where you need to go.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <h3 class="step-title">Goal Setting</h3>
+            <p class="step-desc">Together, we define clear, measurable goals. Whether it is a strength target, a weight range, or a consistency benchmark, we write it down.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <h3 class="step-title">Training Plan</h3>
+            <p class="step-desc">Your custom program is built around your assessment, your schedule, and your preferences. Every exercise has a purpose and a progression.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">04</div>
+            <h3 class="step-title">Progress Tracking</h3>
+            <p class="step-desc">We measure, adjust, and refine as you go. Regular check-ins keep your plan aligned with your progress so you never stall out.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="coach" class="coach">
+      <div class="container">
+        <div class="section-label">Your Coach</div>
+        <h2 class="section-title">Meet Alex Rivera</h2>
+        <div class="coach-inner">
+          <div class="coach-visual">
+            <div class="coach-placeholder"></div>
+          </div>
+          <div class="coach-content">
+            <h3 class="coach-name">Alex Rivera, NSCA-CPT</h3>
+            <p class="coach-title">Owner &amp; Head Coach at CoreShift Coaching</p>
+            <p>Alex has been coaching in Portland for eight years. He holds a degree in Exercise Science from Portland State University and is a certified personal trainer through the National Strength and Conditioning Association.</p>
+            <p>Before opening CoreShift Coaching, Alex worked in commercial gyms, physical therapy clinics, and with local sports teams. That range of experience taught him that no single approach works for everyone. He builds each program from the ground up, based on the person standing in front of him.</p>
+            <p>His coaching philosophy is straightforward: show up, do the work, and let the results follow. He holds his clients accountable without being rigid and celebrates progress at every level.</p>
+            <ul class="coach-creds">
+              <li>NSCA-Certified Personal Trainer</li>
+              <li>B.S. Exercise Science, Portland State University</li>
+              <li>CPR/AED Certified</li>
+              <li>Precision Nutrition Level 1</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-label">Client Stories</div>
+        <h2 class="section-title">What Clients Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"As a parent of two young kids, I thought I did not have time for the gym. Alex built a program that fit my schedule and actually worked. I have never been this consistent."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Sarah M.</span>
+              <span class="testimonial-role">Busy parent, 1-on-1 client</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">"I was nervous starting out because I had zero gym experience. Alex explained everything clearly and made me feel comfortable from day one. Six months later, I feel stronger and more confident than ever."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">James K.</span>
+              <span class="testimonial-role">Beginner, now training independently</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">"I had been training on my own for years and hit a plateau I could not break through. Alex's programming and coaching pushed me past it in just a few weeks. The progress tracking kept me honest."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Denise R.</span>
+              <span class="testimonial-role">Plateau breaker, 1-on-1 client</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">Do I need gym experience to work with you?</summary>
+            <p class="faq-answer">Not at all. Programs are designed for all experience levels. Beginners are welcome, and we will teach you every movement from the ground up. Experienced lifters will get programming that challenges their current level.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What if I have an injury or a medical condition?</summary>
+            <p class="faq-answer">We conduct a full assessment and modify exercises as needed to work around injuries. If you have a medical condition, we recommend getting clearance from your doctor before starting any training program. We can then build a plan that respects your limitations.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How often should I train?</summary>
+            <p class="faq-answer">Most clients train two to four times per week depending on their goals, schedule, and recovery capacity. We will find the frequency that delivers results without leading to burnout or overtraining.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do you offer nutrition advice or meal plans?</summary>
+            <p class="faq-answer">We provide general nutrition guidance to support your training goals, including macronutrient recommendations and habit-based eating strategies. For medical nutrition therapy or diagnosed conditions, we refer you to a registered dietitian.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How does online coaching work?</summary>
+            <p class="faq-answer">Online coaching includes a custom program delivered through our training app. You log your workouts, submit video of your lifts for form checks, and communicate with Alex through the app. Weekly check-ins ensure your program stays on track. No gym required.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-label">Get Started</div>
+        <h2 class="section-title">Book a Free Consultation</h2>
+        <p class="section-subtitle">No commitment, no pressure. Just a conversation about your goals and how we can help.</p>
+        <form class="contact-form" id="consultForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(503) 555-1234">
+            </div>
+            <div class="form-group">
+              <label for="goal">Primary Goal</label>
+              <select id="goal" name="goal" required>
+                <option value="" disabled selected>Select your goal</option>
+                <option value="lose-weight">Lose Weight</option>
+                <option value="build-strength">Build Strength</option>
+                <option value="endurance">Improve Endurance</option>
+                <option value="general-fitness">General Fitness</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="experience">Experience Level</label>
+              <select id="experience" name="experience" required>
+                <option value="" disabled selected>Select your level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your goals, any injuries, or questions you have."></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent btn-full">Book Free Consultation</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <div class="footer-brand">CoreShift Coaching</div>
+        <p>Personal training and fitness coaching in Portland, Oregon.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>50 Fitness Way<br>Portland, OR 97201</p>
+        <p>555-0196</p>
+        <p>info@coreshiftcoaching.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Monday &ndash; Saturday<br>6:00 AM &ndash; 8:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#programs">Programs</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 CoreShift Coaching. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky" id="mobileSticky">
+    <a href="#contact" class="btn btn-accent">Book a Free Consultation</a>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["PersonalTraining", "LocalBusiness"],
+    "name": "CoreShift Coaching",
+    "description": "Personal training and fitness coaching in Portland, Oregon. Strength programs, weight management, and online coaching.",
+    "image": "https://coreshiftcoaching.com/og-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "50 Fitness Way",
+      "addressLocality": "Portland",
+      "addressRegion": "OR",
+      "postalCode": "97201",
+      "addressCountry": "US"
+    },
+    "telephone": "555-0196",
+    "email": "info@coreshiftcoaching.com",
+    "url": "https://coreshiftcoaching.com",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "06:00",
+        "closes": "20:00"
+      }
+    ],
+    "sameAs": [
+      "https://instagram.com/coreshiftcoaching",
+      "https://facebook.com/coreshiftcoaching"
+    ]
+  }
+  </script>
+</BaseLayout>
+
+<style>
+  :global(.fitness-trainer) {
+    --black: #0a0a0a;
+    --off-white: #f5f5f0;
+    --lime: #84cc16;
+    --lime-dark: #65a30d;
+    --gray-900: #171717;
+    --gray-800: #262626;
+    --gray-700: #404040;
+    --gray-400: #a3a3a3;
+    --gray-200: #d4d4d4;
+    --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-bold: 800;
+    --radius: 0;
+    font-family: var(--font-sans);
+    background: var(--black);
+    color: var(--off-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); margin-bottom: 12px; }
+  .section-title { font-size: 2.5rem; font-weight: var(--font-bold); line-height: 1.15; color: var(--off-white); margin-bottom: 16px; }
+  .section-subtitle { font-size: 1.1rem; color: var(--gray-400); max-width: 640px; margin-bottom: 48px; }
+
+  .btn { display: inline-block; font-family: var(--font-sans); font-weight: 700; font-size: 0.95rem; padding: 14px 32px; text-decoration: none; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; text-align: center; }
+  .btn-accent { background: var(--lime); color: var(--black); border-color: var(--lime); }
+  .btn-accent:hover { background: var(--lime-dark); border-color: var(--lime-dark); transform: scale(1.03); }
+  .btn-outline { background: transparent; color: var(--off-white); border-color: var(--off-white); }
+  .btn-outline:hover { background: var(--off-white); color: var(--black); transform: scale(1.03); }
+  .btn-ghost { background: transparent; color: var(--lime); border-color: var(--lime); padding: 10px 24px; font-size: 0.85rem; }
+  .btn-ghost:hover { background: var(--lime); color: var(--black); }
+  .btn-full { width: 100%; }
+
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--black); padding: 12px 16px; border-top: 2px solid var(--lime); }
+  .mobile-sticky .btn { width: 100%; }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: var(--black); border-bottom: 1px solid var(--gray-800); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-logo { font-size: 1.25rem; font-weight: var(--font-bold); color: var(--lime); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-links { display: flex; list-style: none; gap: 32px; }
+  .nav-link { color: var(--gray-400); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+  .nav-link:hover { color: var(--lime); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--off-white); transition: all 0.3s; }
+
+  .hero { padding: 230px 0 100px; background: var(--black); position: relative; overflow: hidden; }
+  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-tagline { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); margin-bottom: 16px; }
+  .hero-headline { font-size: 3.25rem; font-weight: var(--font-bold); line-height: 1.1; color: var(--off-white); margin-bottom: 24px; }
+  .hero-subtext { font-size: 1.15rem; color: var(--gray-400); margin-bottom: 36px; max-width: 520px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-visual { position: relative; height: 400px; }
+  .hero-shape { width: 100%; height: 100%; background: linear-gradient(135deg, var(--lime) 0%, var(--black) 50%, var(--gray-800) 100%); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); opacity: 0.6; }
+
+  .goals { padding: 100px 0; background: var(--gray-900); }
+  .goals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .goal-card { background: var(--gray-800); border: 2px solid var(--gray-700); padding: 32px 24px; text-align: center; cursor: pointer; transition: all 0.25s ease; font-family: var(--font-sans); color: var(--off-white); }
+  .goal-card:hover { border-color: var(--lime); transform: translateY(-4px); }
+  .goal-card.selected { border-color: var(--lime); background: rgba(132, 204, 22, 0.1); box-shadow: 0 0 20px rgba(132, 204, 22, 0.2); }
+  .goal-icon { display: block; font-size: 2rem; color: var(--lime); margin-bottom: 16px; }
+  .goal-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+  .goal-desc { font-size: 0.85rem; color: var(--gray-400); line-height: 1.5; }
+
+  .programs { padding: 100px 0; background: var(--black); }
+  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .program-card { background: var(--gray-900); border: 1px solid var(--gray-800); padding: 40px 32px; display: flex; flex-direction: column; transition: all 0.3s ease; }
+  .program-card:hover { border-color: var(--lime); transform: translateY(-6px); }
+  .program-number { font-size: 3rem; font-weight: var(--font-bold); color: #A3E635; line-height: 1; margin-bottom: 16px; }
+  .program-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+  .program-desc { font-size: 0.9rem; color: var(--gray-400); line-height: 1.7; margin-bottom: 24px; flex: 1; }
+  .program-features { list-style: none; margin-bottom: 32px; }
+  .program-features li { font-size: 0.85rem; color: var(--gray-200); padding: 6px 0; padding-left: 20px; position: relative; }
+  .program-features li::before { content: '>'; position: absolute; left: 0; color: var(--lime); font-weight: 700; }
+
+  .philosophy { padding: 100px 0; background: var(--gray-900); }
+  .philosophy-content { display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: start; }
+  .philosophy-text p { font-size: 1.05rem; color: var(--gray-200); line-height: 1.8; margin-bottom: 20px; }
+  .philosophy-stats { display: flex; flex-direction: column; gap: 24px; }
+  .stat { background: var(--gray-800); border-left: 4px solid var(--lime); padding: 24px; }
+  .stat-number { display: block; font-size: 2.5rem; font-weight: var(--font-bold); color: var(--lime); line-height: 1; margin-bottom: 8px; }
+  .stat-label { display: block; font-size: 0.9rem; color: var(--gray-400); }
+
+  .progress { padding: 100px 0; background: var(--black); }
+  .progress-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .progress-card { background: var(--gray-900); border: 1px solid var(--gray-800); padding: 32px; transition: border-color 0.3s; }
+  .progress-card:hover { border-color: var(--lime); }
+  .progress-meta { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime); margin-bottom: 12px; }
+  .progress-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
+  .progress-card p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.7; }
+  .progress-disclaimer { margin-top: 32px; font-size: 0.8rem; color: #D1D5DB; text-align: center; font-style: italic; }
+
+  .process { padding: 100px 0; background: var(--gray-900); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .process-step { position: relative; padding-top: 48px; }
+  .process-step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gray-700); }
+  .process-step::after { content: ''; position: absolute; top: -1px; left: 0; width: 40%; height: 4px; background: var(--lime); }
+  .step-number { font-size: 0.75rem; font-weight: 700; color: var(--lime); letter-spacing: 0.1em; margin-bottom: 12px; }
+  .step-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+  .step-desc { font-size: 0.9rem; color: var(--gray-400); line-height: 1.7; }
+
+  .coach { padding: 100px 0; background: var(--black); }
+  .coach-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
+  .coach-placeholder { width: 100%; aspect-ratio: 1; background: var(--gray-800); border: 2px solid var(--gray-700); position: relative; overflow: hidden; }
+  .coach-placeholder::after { content: 'AR'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: var(--font-bold); color: var(--lime); opacity: 0.3; }
+  .coach-name { font-size: 1.75rem; font-weight: 700; margin-bottom: 4px; }
+  .coach-title { font-size: 0.9rem; color: var(--lime); margin-bottom: 24px; }
+  .coach-content p { font-size: 0.95rem; color: var(--gray-200); line-height: 1.8; margin-bottom: 16px; }
+  .coach-creds { list-style: none; margin-top: 24px; }
+  .coach-creds li { font-size: 0.85rem; color: var(--gray-400); padding: 6px 0; padding-left: 20px; position: relative; }
+  .coach-creds li::before { content: '+'; position: absolute; left: 0; color: var(--lime); font-weight: 700; }
+
+  .testimonials { padding: 100px 0; background: var(--gray-900); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .testimonial-card { background: var(--gray-800); border: 1px solid var(--gray-700); padding: 32px; display: flex; flex-direction: column; transition: border-color 0.3s; }
+  .testimonial-card:hover { border-color: var(--lime); }
+  .testimonial-text { font-size: 0.95rem; color: var(--gray-200); line-height: 1.7; flex: 1; margin-bottom: 24px; font-style: italic; }
+  .testimonial-author { border-top: 1px solid var(--gray-700); padding-top: 16px; }
+  .testimonial-name { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+  .testimonial-role { display: block; font-size: 0.8rem; color: var(--gray-400); }
+
+  .faq { padding: 100px 0; background: var(--black); }
+  .faq-list { max-width: 800px; }
+  .faq-item { border-bottom: 1px solid var(--gray-800); padding: 20px 0; }
+  .faq-question { font-size: 1.1rem; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s; }
+  .faq-question:hover { color: var(--lime); }
+  .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--lime); font-weight: 300; transition: transform 0.3s; }
+  .faq-item[open] .faq-question::after { content: '-'; }
+  .faq-answer { font-size: 0.95rem; color: var(--gray-400); line-height: 1.7; padding-top: 16px; max-width: 680px; }
+
+  .contact { padding: 100px 0; background: var(--gray-900); }
+  .contact-form { max-width: 720px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  .form-group { display: flex; flex-direction: column; }
+  .form-group label { font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--gray-200); }
+  .form-group input, .form-group select, .form-group textarea { font-family: var(--font-sans); font-size: 1rem; padding: 12px 16px; background: var(--black); border: 2px solid var(--gray-700); color: var(--off-white); transition: border-color 0.2s; border-radius: 0; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--lime); }
+  .form-group select { cursor: pointer; }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .footer { padding: 64px 0 0; background: var(--black); border-top: 1px solid var(--gray-800); }
+  .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; }
+  .footer-brand { font-size: 1.2rem; color: var(--lime); margin-bottom: 12px; }
+  .footer-col h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; color: var(--off-white); }
+  .footer-col p, .footer-col a { font-size: 0.85rem; color: var(--gray-400); line-height: 1.8; display: block; text-decoration: none; }
+  .footer-col a:hover { color: var(--lime); }
+  .footer-bottom { border-top: 1px solid var(--gray-800); padding: 24px 0; }
+  .footer-bottom p { font-size: 0.8rem; color: var(--gray-400); }
+
+  @media (max-width: 1024px) {
+    .hero-headline { font-size: 2.5rem; }
+    .goals-grid { grid-template-columns: repeat(2, 1fr); }
+    .programs-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .section-title { font-size: 2rem; }
+    .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--black); flex-direction: column; padding: 24px; gap: 16px; border-bottom: 1px solid var(--gray-800); }
+    .nav-links.active { display: flex; }
+    .nav-toggle { display: flex; }
+    .hero { padding: 120px 0 64px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .hero-headline { font-size: 2rem; }
+    .hero-visual { height: 240px; }
+    .mobile-sticky { display: block; }
+    .goals-grid { grid-template-columns: 1fr 1fr; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .philosophy-content { grid-template-columns: 1fr; gap: 32px; }
+    .progress-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .coach-inner { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  @media (max-width: 480px) {
+    .goals-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn { width: 100%; }
+  }
+</style>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', function () { navLinks.classList.toggle('active'); });
+    document.querySelectorAll('.nav-link').forEach(function (link) {
+      link.addEventListener('click', function () { navLinks.classList.remove('active'); });
+    });
+  }
+
+  var goalCards = document.querySelectorAll('.goal-card');
+  if (goalCards.length) {
+    goalCards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        goalCards.forEach(function (c) { c.classList.remove('selected'); });
+        this.classList.add('selected');
+      });
+    });
+  }
+
+  var sticky = document.querySelector('.mobile-sticky');
+  var contactSection = document.getElementById('contact');
+  if (sticky && contactSection) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        sticky.style.display = entry.isIntersecting ? 'none' : 'block';
+      });
+    }, { threshold: 0.1 });
+    observer.observe(contactSection);
+  }
+
+  var form = document.getElementById('consultForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var goal = document.getElementById('goal') ? document.getElementById('goal').value : '';
+      var experience = document.getElementById('experience') ? document.getElementById('experience').value : '';
+      var msg = document.getElementById('message') ? document.getElementById('message').value.trim() : '';
+
+      var waMessage = 'New consultation request from the website:\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nGoal: ' + goal + '\nExperience level: ' + experience + '\nNotes: ' + (msg || 'None');
+
+      window.open('https://wa.me/972584433181?text=' + encodeURIComponent(waMessage), '_blank');
+
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'Request Sent!';
+      btn.style.background = '#65a30d';
+      btn.style.borderColor = '#65a30d';
+      setTimeout(function () {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        form.reset();
+      }, 3000);
+    });
+  }
+})();
+</script>

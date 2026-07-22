@@ -1,0 +1,698 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Home Cleaning Service Portland | ClearNest | Weekly, Deep, Move-In Cleaning"
+  description="ClearNest Home Cleaning offers weekly cleaning, deep cleaning, move-in and move-out services. Flexible scheduling, simple quotes, and trusted cleaners in Portland."
+  themeColor="#4d6d54"
+  bodyClass="home-cleaning"
+  consent={{ bg: "#4d6d54", fg: "#ffffff", accent: "#fde047", accentFg: "#262626", border: "rgba(255,255,255,0.16)" }}
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" slot="head">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" slot="head">
+
+  <div class="mobile-sticky">
+    <a href="#quote" class="btn btn-accent">Get a Quote</a>
+  </div>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">ClearNest</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#trust" class="nav-link">Trust</a></li>
+        <li><a href="#quote" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="hero-tagline">Portland Home Cleaning</p>
+          <h1 class="hero-headline">A Cleaner Home Without Losing Your Weekend.</h1>
+          <p class="hero-subtext">We handle the cleaning so you can focus on what matters. Flexible scheduling, trusted cleaners, and simple online quotes. No surprises, no hassle.</p>
+          <div class="hero-actions">
+            <a href="#quote" class="btn btn-accent">Get a Cleaning Quote</a>
+            <a href="#services" class="btn btn-outline">View Cleaning Services</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-shape"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator" class="calculator">
+      <div class="container">
+        <div class="section-label">Quick Quote</div>
+        <h2 class="section-title">Estimate Your Cleaning Cost</h2>
+        <p class="section-subtitle">Select your home size and the type of cleaning you need to see an estimated price range.</p>
+        <div class="calculator-box" id="quoteCalculator">
+          <div class="calc-row">
+            <div class="calc-group">
+              <label for="homeSize">Home Size</label>
+              <select id="homeSize" name="homeSize">
+                <option value="studio">Studio</option>
+                <option value="1br" selected>1 Bedroom</option>
+                <option value="2br">2 Bedrooms</option>
+                <option value="3br">3 Bedrooms</option>
+                <option value="4brplus">4+ Bedrooms</option>
+              </select>
+            </div>
+            <div class="calc-group">
+              <label for="serviceType">Service Type</label>
+              <select id="serviceType" name="serviceType">
+                <option value="weekly">Weekly Cleaning</option>
+                <option value="deep">Deep Cleaning</option>
+                <option value="movein">Move-In Cleaning</option>
+                <option value="moveout">Move-Out Cleaning</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-result" id="calcResult">
+            <span class="calc-label">Estimated Price Range</span>
+            <span class="calc-price" id="calcPrice">$100 &mdash; $160</span>
+          </div>
+          <a href="#quote-form" class="btn btn-accent btn-full">Book This Service</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-label">Our Services</div>
+        <h2 class="section-title">Cleaning Plans for Every Need</h2>
+        <p class="section-subtitle">Whether you need weekly maintenance or a one-time deep clean, we have a plan that fits.</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">&#10003;</div>
+            <h3 class="service-title">Weekly Cleaning</h3>
+            <p class="service-price">$80 &ndash; $320 per visit</p>
+            <p class="service-desc">Consistent weekly or biweekly cleaning to keep your home fresh. Includes all rooms, surfaces, floors, and bathrooms. Perfect for maintaining a clean home on a regular schedule.</p>
+            <ul class="service-features">
+              <li>All rooms dusted and wiped</li>
+              <li>Floors vacuumed and mopped</li>
+              <li>Bathrooms and kitchen cleaned</li>
+              <li>Flexible day and time</li>
+            </ul>
+            <a href="#quote-form" class="btn btn-ghost">Choose Weekly</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">&#10003;</div>
+            <h3 class="service-title">Deep Cleaning</h3>
+            <p class="service-price">$130 &ndash; $480 per visit</p>
+            <p class="service-desc">A thorough top-to-bottom clean that reaches every corner. Baseboards, window tracks, inside cabinets, behind appliances, and more. Recommended twice a year or as needed.</p>
+            <ul class="service-features">
+              <li>Baseboards and window tracks</li>
+              <li>Inside cabinets and drawers</li>
+              <li>Behind and under appliances</li>
+              <li>Light fixtures and ceiling fans</li>
+            </ul>
+            <a href="#quote-form" class="btn btn-ghost">Choose Deep</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">&#10003;</div>
+            <h3 class="service-title">Move-In Cleaning</h3>
+            <p class="service-price">$150 &ndash; $400 per visit</p>
+            <p class="service-desc">Move into a spotless home. Our move-in cleaning covers every surface, appliance, and fixture so you can settle in without worrying about the previous occupant's dirt.</p>
+            <ul class="service-features">
+              <li>All surfaces and fixtures</li>
+              <li>Kitchen appliances interior</li>
+              <li>Bathrooms deep scrubbed</li>
+              <li>Windows and sills cleaned</li>
+            </ul>
+            <a href="#quote-form" class="btn btn-ghost">Choose Move-In</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">&#10003;</div>
+            <h3 class="service-title">Move-Out Cleaning</h3>
+            <p class="service-price">$150 &ndash; $400 per visit</p>
+            <p class="service-desc">Get your full security deposit back. Our move-out cleaning meets landlord and property manager standards. We clean every area they check and then some.</p>
+            <ul class="service-features">
+              <li>Full home deep clean</li>
+              <li>Appliances and fixtures</li>
+              <li>Walls and baseboards</li>
+              <li>Deposit-back guarantee focus</li>
+            </ul>
+            <a href="#quote-form" class="btn btn-ghost">Choose Move-Out</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist" class="checklist">
+      <div class="container">
+        <div class="section-label">What We Clean</div>
+        <h2 class="section-title">Room-by-Room Checklist</h2>
+        <p class="section-subtitle">Every cleaning visit includes these areas. Deep cleaning and move services go further.</p>
+        <div class="checklist-grid">
+          <div class="checklist-item">
+            <span class="check-icon">&#10003;</span>
+            <div>
+              <h4>Kitchen</h4>
+              <p>Countertops, sink, stovetop, microwave exterior, cabinet fronts, floors</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&#10003;</span>
+            <div>
+              <h4>Bathrooms</h4>
+              <p>Toilet, shower and tub, sink and vanity, mirror, floors, countertops</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&#10003;</span>
+            <div>
+              <h4>Living Areas</h4>
+              <p>Dusting, vacuuming, surface wiping, baseboards, blinds, electronics</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&#10003;</span>
+            <div>
+              <h4>Bedrooms</h4>
+              <p>Dusting, vacuuming, surface cleaning, mirror, baseboards, bed making</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&#10003;</span>
+            <div>
+              <h4>Floors</h4>
+              <p>Sweep, mop, and vacuum all floor types including hardwood, tile, and carpet</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&#10003;</span>
+            <div>
+              <h4>Windows</h4>
+              <p>Interior windows, window sills, and tracks cleaned streak-free</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+      <div class="container">
+        <div class="section-label">Simple Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">From quote to clean home in three easy steps.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-circle">1</div>
+            <h3 class="step-title">Choose Your Service</h3>
+            <p class="step-desc">Select the cleaning type and home size. Get an instant price and pick any extras you need.</p>
+          </div>
+          <div class="step-arrow">&#8594;</div>
+          <div class="step">
+            <div class="step-circle">2</div>
+            <h3 class="step-title">Pick a Time</h3>
+            <p class="step-desc">Choose a date and time that works for you. We offer morning, afternoon, and weekend slots.</p>
+          </div>
+          <div class="step-arrow">&#8594;</div>
+          <div class="step">
+            <div class="step-circle">3</div>
+            <h3 class="step-title">We Clean</h3>
+            <p class="step-desc">Your assigned cleaner arrives on time, cleans thoroughly, and leaves your home spotless.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trust" class="trust">
+      <div class="container">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">Trusted by Portland Homeowners</h2>
+        <p class="section-subtitle">We take the worry out of hiring a cleaner. Every team member is vetted and insured.</p>
+        <div class="trust-grid">
+          <div class="trust-card">
+            <span class="trust-icon">&#128274;</span>
+            <h3>Background Checks</h3>
+            <p>Every cleaner undergoes a thorough background check before joining our team.</p>
+          </div>
+          <div class="trust-card">
+            <span class="trust-icon">&#128737;</span>
+            <h3>Fully Insured</h3>
+            <p>We carry general liability and workers compensation insurance for your peace of mind.</p>
+          </div>
+          <div class="trust-card">
+            <span class="trust-icon">&#127881;</span>
+            <h3>Satisfaction Guarantee</h3>
+            <p>If you are not happy with any area, we will re-clean it at no charge. No questions asked.</p>
+          </div>
+          <div class="trust-card">
+            <span class="trust-icon">&#127758;</span>
+            <h3>Eco-Friendly Products</h3>
+            <p>We use non-toxic, biodegradable cleaning products that are safe for your family and pets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-label">Client Reviews</div>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"ClearNest has been cleaning our home for six months. They are reliable, thorough, and easy to communicate with. Our regular cleaner knows exactly how we like things."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Lisa T.</span>
+              <span class="testimonial-role">Weekly client, SE Portland</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">"The deep cleaning was incredible. They got into every corner, cleaned behind the refrigerator, and left everything spotless. It felt like a brand new home."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Mark D.</span>
+              <span class="testimonial-role">Deep cleaning client</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">"We used ClearNest for our move-out cleaning and got our full deposit back. The property manager even complimented how clean the place was. Highly recommend."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Rachel S.</span>
+              <span class="testimonial-role">Move-out cleaning client</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">How long does a cleaning take?</summary>
+            <p class="faq-answer">A standard weekly cleaning takes one to three hours depending on the size of your home. Deep cleaning and move services take two to five hours. We will give you a time estimate when you book.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do I need to be home during the cleaning?</summary>
+            <p class="faq-answer">Not at all. Many clients provide a key or door code and let themselves in. We will lock up when we finish. If you prefer to be home, that works too. Whatever makes you comfortable.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What cleaning products do you use?</summary>
+            <p class="faq-answer">We use eco-friendly, non-toxic cleaning products that are safe for children and pets. If you have a specific product you prefer, we are happy to use yours instead. Let us know in the notes.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Is your cleaning service insured?</summary>
+            <p class="faq-answer">Yes, we are fully insured with general liability and workers compensation coverage. Every cleaner also passes a background check before joining our team.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What if I am not satisfied with the cleaning?</summary>
+            <p class="faq-answer">We stand behind our work. If any area is not up to your standards, contact us within 24 hours and we will re-clean it at no charge. Your satisfaction is guaranteed.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" class="quote">
+      <div class="container">
+        <div class="section-label">Get Started</div>
+        <h2 class="section-title">Get Your Cleaning Quote</h2>
+        <p class="section-subtitle">Fill out the form and we will follow up within one business day with your personalized quote.</p>
+        <form class="quote-form" id="quoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="q-name">Name</label>
+              <input type="text" id="q-name" name="name" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label for="q-email">Email</label>
+              <input type="email" id="q-email" name="email" required placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="q-phone">Phone</label>
+              <input type="tel" id="q-phone" name="phone" required placeholder="(503) 555-1234">
+            </div>
+            <div class="form-group">
+              <label for="q-size">Home Size</label>
+              <select id="q-size" name="size" required>
+                <option value="studio">Studio</option>
+                <option value="1br">1 Bedroom</option>
+                <option value="2br">2 Bedrooms</option>
+                <option value="3br">3 Bedrooms</option>
+                <option value="4brplus">4+ Bedrooms</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="q-service">Service Type</label>
+              <select id="q-service" name="service" required>
+                <option value="weekly">Weekly Cleaning</option>
+                <option value="deep">Deep Cleaning</option>
+                <option value="movein">Move-In Cleaning</option>
+                <option value="moveout">Move-Out Cleaning</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="q-address">Address</label>
+              <input type="text" id="q-address" name="address" required placeholder="Street, city, zip">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="q-notes">Additional Notes</label>
+            <textarea id="q-notes" name="notes" rows="4" placeholder="Any special requests, areas to focus on, access instructions, or pet information."></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent btn-full">Get Your Cleaning Quote</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4 class="footer-brand">ClearNest Home Cleaning</h4>
+        <p>Reliable home cleaning services in Portland, Oregon.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>200 Green Lane<br>Portland, OR 97201</p>
+        <p>555-0195</p>
+        <p>info@clearnestclean.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Monday &ndash; Saturday<br>7:00 AM &ndash; 7:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Weekly Cleaning</a>
+        <a href="#services">Deep Cleaning</a>
+        <a href="#services">Move-In &amp; Move-Out</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 ClearNest Home Cleaning. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["HouseCleaning", "LocalBusiness"],
+    "name": "ClearNest Home Cleaning",
+    "description": "Reliable home cleaning services in Portland, Oregon. Weekly cleaning, deep cleaning, move-in and move-out services.",
+    "image": "https://clearnestclean.com/og-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "200 Green Lane",
+      "addressLocality": "Portland",
+      "addressRegion": "OR",
+      "postalCode": "97201",
+      "addressCountry": "US"
+    },
+    "telephone": "555-0195",
+    "email": "info@clearnestclean.com",
+    "url": "https://clearnestclean.com",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      }
+    ],
+    "sameAs": [
+      "https://instagram.com/clearnestclean",
+      "https://facebook.com/clearnestclean"
+    ]
+  }
+  </script>
+</BaseLayout>
+
+<style>
+  :global(.home-cleaning) {
+    --white: #ffffff;
+    --sage: #4d6d54;
+    --sage-dark: #3d5a43;
+    --sage-light: #e8f0e9;
+    --yellow: #fde047;
+    --yellow-dark: #eab308;
+    --gray-50: #fafafa;
+    --gray-100: #f4f4f4;
+    --gray-200: #e5e5e5;
+    --gray-400: #a3a3a3;
+    --gray-600: #525252;
+    --gray-700: #404040;
+    --gray-800: #262626;
+    --gray-900: #171717;
+    --font-sans: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-bold: 700;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-sans);
+    background: var(--white);
+    color: var(--gray-800);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .section-label { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .section-title { font-size: 2.25rem; font-weight: var(--font-bold); line-height: 1.2; color: var(--gray-900); margin-bottom: 16px; }
+  .section-subtitle { font-size: 1.1rem; color: var(--gray-600); max-width: 640px; margin-bottom: 48px; }
+
+  .btn { display: inline-block; font-family: var(--font-sans); font-weight: 700; font-size: 0.95rem; padding: 14px 32px; text-decoration: none; cursor: pointer; border: 2px solid transparent; transition: all 0.25s ease; text-align: center; border-radius: var(--radius); }
+  .btn-accent { background: var(--yellow); color: var(--gray-900); border-color: var(--yellow); }
+  .btn-accent:hover { background: var(--yellow-dark); border-color: var(--yellow-dark); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  .btn-outline { background: transparent; color: var(--sage); border-color: var(--sage); }
+  .btn-outline:hover { background: var(--sage); color: var(--white); transform: translateY(-2px); }
+  .btn-ghost { background: var(--gray-100); color: var(--sage); border-color: transparent; padding: 10px 24px; font-size: 0.85rem; border-radius: var(--radius-sm); }
+  .btn-ghost:hover { background: var(--sage); color: var(--white); }
+  .btn-full { width: 100%; }
+
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; padding: 12px 16px; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08); border-radius: 16px 16px 0 0; background: var(--white); }
+  .mobile-sticky .btn { width: 100%; border-radius: var(--radius-sm); }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: var(--white); border-bottom: 1px solid var(--gray-200); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-logo { font-size: 1.35rem; font-weight: var(--font-bold); color: var(--sage); text-decoration: none; }
+  .nav-links { display: flex; list-style: none; gap: 32px; }
+  .nav-link { color: var(--gray-600); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+  .nav-link:hover { color: var(--sage); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--gray-800); border-radius: 2px; transition: all 0.3s; }
+
+  .hero { padding: 290px 0 100px; background: var(--white); position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: var(--sage-light); border-radius: 50%; opacity: 0.5; }
+  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+  .hero-tagline { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 16px; }
+  .hero-headline { font-size: 2.75rem; font-weight: var(--font-bold); line-height: 1.15; color: var(--gray-900); margin-bottom: 20px; }
+  .hero-subtext { font-size: 1.1rem; color: var(--gray-600); margin-bottom: 36px; max-width: 480px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-visual { position: relative; height: 380px; }
+  .hero-shape { width: 100%; height: 100%; background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%); border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%; opacity: 0.8; }
+
+  .calculator { padding: 80px 0; background: var(--gray-50); }
+  .calculator-box { max-width: 640px; margin: 0 auto; background: var(--white); border-radius: var(--radius); padding: 48px; box-shadow: var(--shadow); }
+  .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .calc-group { display: flex; flex-direction: column; }
+  .calc-group label { font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--gray-700); }
+  .calc-group select { font-family: var(--font-sans); font-size: 1rem; padding: 12px 16px; background: var(--gray-50); border: 2px solid var(--gray-200); color: var(--gray-800); border-radius: var(--radius-sm); transition: border-color 0.2s; cursor: pointer; }
+  .calc-group select:focus { outline: none; border-color: var(--sage); }
+  .calc-result { background: var(--sage-light); border-radius: var(--radius-sm); padding: 24px; text-align: center; margin-bottom: 24px; }
+  .calc-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--sage); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .calc-price { display: block; font-size: 2rem; font-weight: var(--font-bold); color: var(--gray-900); }
+
+  .services { padding: 100px 0; background: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .service-card { background: var(--gray-50); border-radius: var(--radius); padding: 32px 24px; display: flex; flex-direction: column; transition: all 0.3s ease; box-shadow: var(--shadow); }
+  .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .service-icon { font-size: 1.5rem; color: var(--sage); margin-bottom: 16px; width: 48px; height: 48px; background: var(--sage-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .service-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900); }
+  .service-price { display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--sage); background: var(--sage-light); padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+  .service-desc { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; margin-bottom: 20px; flex: 1; }
+  .service-features { list-style: none; margin-bottom: 24px; }
+  .service-features li { font-size: 0.8rem; color: var(--gray-700); padding: 4px 0; padding-left: 20px; position: relative; }
+  .service-features li::before { content: ''; position: absolute; left: 0; top: 10px; width: 10px; height: 10px; background: var(--sage); border-radius: 50%; }
+
+  .checklist { padding: 100px 0; background: var(--gray-50); }
+  .checklist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 16px; background: var(--white); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); }
+  .check-icon { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--sage); color: var(--white); border-radius: 50%; font-size: 0.85rem; flex-shrink: 0; }
+  .checklist-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--gray-900); }
+  .checklist-item p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.5; }
+
+  .how-it-works { padding: 100px 0; background: var(--white); }
+  .steps { display: flex; align-items: center; gap: 32px; }
+  .step { flex: 1; text-align: center; }
+  .step-circle { width: 56px; height: 56px; background: var(--sage); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; margin: 0 auto 20px; }
+  .step-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: var(--gray-900); }
+  .step-desc { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; max-width: 280px; margin: 0 auto; }
+  .step-arrow { font-size: 1.5rem; color: var(--sage); margin-bottom: 40px; }
+
+  .trust { padding: 100px 0; background: var(--gray-50); }
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .trust-card { background: var(--white); border-radius: var(--radius); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); transition: all 0.3s ease; }
+  .trust-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .trust-icon { font-size: 2rem; display: block; margin-bottom: 16px; }
+  .trust-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; color: var(--gray-900); }
+  .trust-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
+
+  .testimonials { padding: 100px 0; background: var(--white); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .testimonial-card { background: var(--gray-50); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; box-shadow: var(--shadow); transition: box-shadow 0.3s; }
+  .testimonial-card:hover { box-shadow: var(--shadow-hover); }
+  .testimonial-text { font-size: 0.95rem; color: var(--gray-700); line-height: 1.7; flex: 1; margin-bottom: 24px; font-style: italic; }
+  .testimonial-author { border-top: 1px solid var(--gray-200); padding-top: 16px; }
+  .testimonial-name { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: var(--gray-900); }
+  .testimonial-role { display: block; font-size: 0.8rem; color: var(--gray-600); }
+
+  .faq { padding: 100px 0; background: var(--gray-50); }
+  .faq-list { max-width: 800px; }
+  .faq-item { background: var(--white); border-radius: var(--radius-sm); margin-bottom: 12px; padding: 0 24px; box-shadow: var(--shadow); }
+  .faq-question { font-size: 1rem; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; transition: color 0.2s; color: var(--gray-900); }
+  .faq-question:hover { color: var(--sage); }
+  .faq-question::after { content: '+'; font-size: 1.3rem; color: var(--sage); font-weight: 300; transition: transform 0.3s; }
+  .faq-item[open] .faq-question::after { content: '-'; }
+  .faq-answer { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; padding-bottom: 20px; max-width: 680px; }
+
+  .quote { padding: 100px 0; background: var(--white); }
+  .quote-form { max-width: 720px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  .form-group { display: flex; flex-direction: column; }
+  .form-group label { font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--gray-700); }
+  .form-group input, .form-group select, .form-group textarea { font-family: var(--font-sans); font-size: 1rem; padding: 12px 16px; background: var(--gray-50); border: 2px solid var(--gray-200); color: var(--gray-800); border-radius: var(--radius-sm); transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--sage); }
+  .form-group select { cursor: pointer; }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .footer { padding: 64px 0 0; background: var(--gray-50); border-top: 1px solid var(--gray-200); }
+  .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; }
+  .footer-brand { font-size: 1.2rem; color: var(--sage); margin-bottom: 12px; }
+  .footer-col h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; color: var(--gray-900); }
+  .footer-col p, .footer-col a { font-size: 0.85rem; color: var(--gray-600); line-height: 1.8; display: block; text-decoration: none; }
+  .footer-col a:hover { color: var(--sage); }
+  .footer-bottom { border-top: 1px solid var(--gray-200); padding: 24px 0; }
+  .footer-bottom p { font-size: 0.8rem; color: var(--gray-600); }
+
+  @media (max-width: 1024px) {
+    .hero-headline { font-size: 2.25rem; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .steps { flex-direction: column; gap: 16px; }
+    .step-arrow { transform: rotate(90deg); margin: 0; }
+  }
+
+  @media (max-width: 768px) {
+    .section-title { font-size: 1.8rem; }
+    .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 24px; gap: 16px; border-bottom: 1px solid var(--gray-200); box-shadow: var(--shadow); }
+    .nav-links.active { display: flex; }
+    .nav-toggle { display: flex; }
+    .hero { padding: 120px 0 64px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .hero-headline { font-size: 2rem; }
+    .hero-visual { height: 200px; }
+    .mobile-sticky { display: block; }
+    .calc-row { grid-template-columns: 1fr; }
+    .calculator-box { padding: 32px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .checklist-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .trust-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn { width: 100%; }
+  }
+</style>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', function () { navLinks.classList.toggle('active'); });
+    document.querySelectorAll('.nav-link').forEach(function (link) {
+      link.addEventListener('click', function () { navLinks.classList.remove('active'); });
+    });
+  }
+
+  var homeSize = document.getElementById('homeSize');
+  var serviceType = document.getElementById('serviceType');
+  var calcPrice = document.getElementById('calcPrice');
+  if (homeSize && serviceType && calcPrice) {
+    var prices = {
+      studio: { weekly: [80, 120], deep: [130, 190], movein: [150, 200], moveout: [150, 200] },
+      '1br': { weekly: [100, 160], deep: [160, 240], movein: [180, 250], moveout: [180, 250] },
+      '2br': { weekly: [130, 200], deep: [210, 310], movein: [230, 320], moveout: [230, 320] },
+      '3br': { weekly: [170, 260], deep: [270, 400], movein: [290, 380], moveout: [290, 380] },
+      '4brplus': { weekly: [210, 320], deep: [340, 480], movein: [350, 450], moveout: [350, 450] }
+    };
+    function updatePrice() {
+      var size = homeSize.value;
+      var service = serviceType.value;
+      var range = prices[size] && prices[size][service];
+      if (range) calcPrice.textContent = '$' + range[0] + ' \u2014 $' + range[1];
+    }
+    homeSize.addEventListener('change', updatePrice);
+    serviceType.addEventListener('change', updatePrice);
+    updatePrice();
+  }
+
+  var sticky = document.querySelector('.mobile-sticky');
+  var quoteSection = document.getElementById('quote');
+  if (sticky && quoteSection) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { sticky.style.display = entry.isIntersecting ? 'none' : 'block'; });
+    }, { threshold: 0.1 });
+    observer.observe(quoteSection);
+  }
+
+  var form = document.getElementById('quoteForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('q-name').value.trim();
+      var email = document.getElementById('q-email').value.trim();
+      var phone = document.getElementById('q-phone').value.trim();
+      var size = document.getElementById('q-size') ? document.getElementById('q-size').value : '';
+      var service = document.getElementById('q-service') ? document.getElementById('q-service').value : '';
+      var address = document.getElementById('q-address') ? document.getElementById('q-address').value.trim() : '';
+      var notes = document.getElementById('q-notes') ? document.getElementById('q-notes').value.trim() : '';
+      var waMessage = 'New quote request from the website:\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nHome size: ' + size + '\nService type: ' + service + '\nAddress: ' + address + '\nNotes: ' + (notes || 'None');
+      window.open('https://wa.me/972584433181?text=' + encodeURIComponent(waMessage), '_blank');
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'Quote Request Sent!';
+      btn.style.background = '#eab308';
+      btn.style.borderColor = '#eab308';
+      setTimeout(function () {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        form.reset();
+      }, 3000);
+    });
+  }
+})();
+</script>

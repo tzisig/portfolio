@@ -1,0 +1,474 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Accountant Portland | NorthPoint Accounting | Tax Preparation & Bookkeeping"
+  description="NorthPoint Accounting provides tax preparation, bookkeeping, payroll support, and business accounting for individuals and small businesses in Portland."
+  themeColor="#1E3A5F"
+  bodyClass="northpoint-accounting"
+  consent={{ bg: "#1E3A5F", fg: "#E2E8F0", accent: "#D4A843", accentFg: "#1E3A5F", border: "rgba(255,255,255,0.16)" }}
+>
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">NorthPoint Accounting</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="hero-title">Clear Accounting Support for Businesses and Individuals.</h1>
+        <p class="hero-subtitle">Straightforward, professional accounting from a Portland CPA who takes the time to understand your financial picture. Tax preparation, bookkeeping, and year-round guidance with no unnecessary complexity.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-gold">Schedule an Initial Consultation</a>
+          <a href="#services" class="btn btn-outline">Explore Accounting Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="client-type" class="section">
+      <div class="container">
+        <h2 class="section-title">Choose Your Service Path</h2>
+        <p class="section-subtitle">NorthPoint Accounting tailors its services to your specific needs. Select the option that fits you best, and the services below will update to match.</p>
+        <div class="client-selector">
+          <button class="client-card active" data-client="individual">
+            <span class="client-icon">👤</span>
+            <h3>I'm an Individual</h3>
+            <p>Personal tax preparation, tax planning, self-employment accounting, and financial reporting for your personal finances.</p>
+          </button>
+          <button class="client-card" data-client="business">
+            <span class="client-icon">🏢</span>
+            <h3>I'm a Business</h3>
+            <p>Bookkeeping, payroll support, business accounting, and tax strategy for small businesses and startups.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-light">
+      <div class="container">
+        <h2 class="section-title" id="services-title">Accounting Services for Individuals</h2>
+        <p class="section-subtitle" id="services-subtitle">Personal financial guidance designed around your goals.</p>
+        <div class="services-grid" id="services-grid">
+          <div class="service-card">
+            <h3 class="service-title">Tax Preparation</h3>
+            <p>Complete federal and state tax return preparation with thorough review of deductions, credits, and filing status to ensure accuracy and maximize your refund.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Tax Planning</h3>
+            <p>Proactive tax planning strategies designed to minimize your tax burden throughout the year, including estimated tax payments and retirement contribution planning.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Self-Employed Accounting</h3>
+            <p>Specialized accounting for freelancers, contractors, and sole proprietors including Schedule C preparation, quarterly estimates, and expense tracking guidance.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Financial Reports</h3>
+            <p>Personal financial statements, net worth tracking, and cash flow reports to give you a clear picture of your financial health and progress toward your goals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problems" class="section">
+      <div class="container">
+        <h2 class="section-title">Common Accounting Challenges We Solve</h2>
+        <p class="section-subtitle">You are not alone in facing these issues. NorthPoint Accounting helps clients work through them every day.</p>
+        <div class="problems-grid">
+          <div class="problem-card">
+            <h3 class="problem-title">Too busy to manage books?</h3>
+            <p>We take bookkeeping off your plate with regular reconciliations, categorized transactions, and monthly financial summaries so you can focus on your work and your life.</p>
+          </div>
+          <div class="problem-card">
+            <h3 class="problem-title">Worried about tax mistakes?</h3>
+            <p>Errors on tax returns can lead to audits, penalties, and stress. Our detailed review process catches discrepancies before filing so you can file with confidence.</p>
+          </div>
+          <div class="problem-card">
+            <h3 class="problem-title">Not sure what you can deduct?</h3>
+            <p>Whether you are self-employed, a homeowner, or a remote worker, we identify every deduction you qualify for and document it properly so nothing is overlooked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">How We Work Together</h2>
+        <p class="section-subtitle">A straightforward process built on clarity and communication.</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="step-number">01</span>
+            <h3>Initial Consultation</h3>
+            <p>We meet to discuss your financial situation, goals, and any concerns you have. This free consultation helps us determine the right services for you.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-number">02</span>
+            <h3>Document Review</h3>
+            <p>You provide your financial documents securely. We review everything carefully and reach out if we need additional information or clarification.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-number">03</span>
+            <h3>Preparation or Bookkeeping</h3>
+            <p>We prepare your tax returns or handle your bookkeeping, keeping you updated on progress and flagging any important items along the way.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-number">04</span>
+            <h3>Review & Filing</h3>
+            <p>You review the completed work. Once you approve, we file your returns or finalize your books and provide ongoing support for the year ahead.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">Meet Rebecca Northfield, CPA</h2>
+        <p class="section-subtitle">Over twelve years of experience in public accounting, dedicated to helping Portland individuals and businesses build financial confidence.</p>
+        <div class="about-content">
+          <div class="about-image">
+            <div class="photo-placeholder"></div>
+          </div>
+          <div class="about-text">
+            <p>Rebecca Northfield founded NorthPoint Accounting after spending nearly a decade at a regional public accounting firm in Portland. She saw that many small businesses and individuals were underserved by firms that focused primarily on large corporate clients. Her approach is personal, thorough, and built on the belief that good accounting should empower people to make better financial decisions.</p>
+            <p>A licensed CPA in Oregon, Rebecca specializes in individual tax preparation, small business accounting, and self-employed tax strategy. She is a member of the Oregon Society of CPAs and stays current with evolving tax law to provide the most relevant advice to her clients.</p>
+            <p>When she is not working with clients, Rebecca volunteers with Portland's Small Business Development Center, offering pro bono financial workshops for new entrepreneurs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light disclaimer">
+      <div class="container">
+        <p><strong>Disclaimer:</strong> Tax outcomes depend on individual circumstances. The information provided is for general guidance and does not constitute professional tax advice. NorthPoint Accounting recommends consulting with a qualified tax professional regarding your specific financial situation.</p>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section">
+      <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"Rebecca took the stress out of tax season for me. I used to dread filing, but she made the process simple and even found deductions I had been missing for years. I will never go anywhere else."</p>
+            <p class="testimonial-author">— Sarah M., Graphic Designer</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">"We started working with NorthPoint Accounting when we launched our retail shop. Their bookkeeping service keeps our finances organized month to month, and tax time is now completely painless."</p>
+            <p class="testimonial-author">— James and Priya K., Small Business Owners</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">"As a freelancer, I was always behind on quarterly estimates. Rebecca set up a simple system for me and helped me understand my cash flow. I finally feel in control of my finances."</p>
+            <p class="testimonial-author">— Amir H., Freelance Writer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">How much do you charge for tax preparation?</button>
+            <div class="faq-answer">Fees vary based on the complexity of your return. Individual tax preparation typically ranges from $150 to $450. Business returns and bookkeeping services are quoted after a free initial consultation so you know the cost upfront with no surprises.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you handle taxes for small businesses?</button>
+            <div class="faq-answer">Yes. We work with LLCs, sole proprietorships, S-corporations, and partnerships. Services include business tax preparation, bookkeeping, payroll support, and tax strategy tailored to your business structure and industry.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What documents do I need to bring to my appointment?</button>
+            <div class="faq-answer">For individual tax preparation, bring your W-2s, 1099s, prior year tax return, proof of health insurance, mortgage interest statements, charitable contribution records, and any estimated tax payments made. We send a full checklist before your appointment.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can you help if I receive an IRS notice?</button>
+            <div class="faq-answer">Absolutely. We assist clients with responding to IRS notices, audit representation, payment plans, and tax resolution. If you have received a notice, contact us immediately so we can review it and guide you through the next steps.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you offer support throughout the year, not just during tax season?</button>
+            <div class="faq-answer">Yes. We provide year-round support for all clients. Whether you have a question about estimated taxes, need to adjust your withholding, or want advice on a financial decision, we are available by phone, email, or in person throughout the year.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Schedule a Consultation</h2>
+        <p class="section-subtitle">Ready to get started? Fill out the form below and we will reach out within one business day to schedule your free initial consultation.</p>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-name">Name</label>
+              <input type="text" id="form-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="form-email">Email</label>
+              <input type="email" id="form-email" name="email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-phone">Phone</label>
+              <input type="tel" id="form-phone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="form-client-type">Client Type</label>
+              <select id="form-client-type" name="client-type">
+                <option value="individual">Individual</option>
+                <option value="business">Business</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form-service">Service Needed</label>
+            <select id="form-service" name="service">
+              <option value="tax-preparation">Tax Preparation</option>
+              <option value="tax-planning">Tax Planning</option>
+              <option value="bookkeeping">Bookkeeping</option>
+              <option value="payroll">Payroll Support</option>
+              <option value="business-accounting">Business Accounting</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="form-description">Brief Description</label>
+            <textarea id="form-description" name="description" rows="4" placeholder="Tell us about your situation and what you need help with."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold">Submit and Schedule</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>NorthPoint Accounting</h3>
+        <p>350 Commerce Drive<br>Portland, OR 97201</p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>Phone: 555-0192<br>Email: info@northpointaccounting.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Hours</h3>
+        <p>Mon–Fri: 9:00 AM – 6:00 PM<br>Sat: 10:00 AM – 2:00 PM (tax season)<br>Serving Oregon</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#contact" class="mobile-sticky">Schedule Consultation</a>
+</BaseLayout>
+
+<style>
+  :global(.northpoint-accounting) {
+    --navy: #1e3a5f;
+    --gold: #d4a843;
+    --gold-hover: #c49a3a;
+    --light-bg: #f1f5f9;
+    --text-dark: #1a1a2e;
+    --text-muted: #475569;
+    --text-light: #cbd5e1;
+    --border: #e2e8f0;
+    --radius: 6px;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.7;
+    background: #fff;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+  .section-light { background: var(--light-bg); }
+  .section-title { font-size: 2rem; font-weight: 700; color: var(--navy); text-align: center; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .section-subtitle { font-size: 1.1rem; color: var(--text-muted); text-align: center; max-width: 680px; margin: 0 auto 48px; line-height: 1.6; }
+
+  .btn { display: inline-block; padding: 14px 32px; font-size: 1rem; font-weight: 600; border-radius: var(--radius); transition: all 0.2s ease; cursor: pointer; border: none; text-align: center; text-decoration: none; }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+  /* NAV */
+  .navbar { background: var(--navy); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-size: 1.3rem; font-weight: 700; color: var(--gold); letter-spacing: -0.01em; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text-light); font-size: 0.95rem; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+  /* HERO */
+  .hero { background: var(--navy); color: #fff; padding: 175px 0 165px; }
+  .hero-inner { text-align: center; max-width: 800px; }
+  .hero-title { font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em; }
+  .hero-subtitle { font-size: 1.15rem; color: var(--text-light); line-height: 1.7; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* CLIENT SELECTOR */
+  .client-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 0 auto; }
+  .client-card { background: #fff; border: 2px solid var(--border); border-radius: 12px; padding: 36px 28px; text-align: center; cursor: pointer; transition: all 0.25s ease; }
+  .client-card:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(30,58,95,0.08); }
+  .client-card.active { border-color: var(--gold); background: #fefcf5; box-shadow: 0 8px 24px rgba(212,168,67,0.15); }
+  .client-icon { font-size: 2.4rem; display: block; margin-bottom: 12px; }
+  .client-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
+  .client-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .service-card { background: #fff; border-radius: 10px; padding: 32px 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #e8edf4; transition: transform 0.2s, box-shadow 0.2s; }
+  .service-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,58,95,0.08); }
+  .service-title { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .service-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; }
+
+  /* PROBLEMS */
+  .problems-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .problem-card { background: var(--light-bg); border-radius: 10px; padding: 32px 24px; border-left: 4px solid var(--gold); }
+  .problem-title { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .problem-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; }
+
+  /* PROCESS */
+  .process-steps { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 24px; }
+  .process-step { text-align: center; padding: 32px 16px; }
+  .step-number { font-size: 2.2rem; font-weight: 800; color: #855b0a; display: block; margin-bottom: 12px; }
+  .process-step h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .process-step p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ABOUT */
+  .about-content { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; max-width: 900px; margin: 0 auto; }
+  .photo-placeholder { width: 100%; aspect-ratio: 1; background: var(--border); border-radius: 12px; }
+  .about-text p { font-size: 1rem; color: #334155; line-height: 1.75; margin-bottom: 16px; }
+
+  /* DISCLAIMER */
+  .disclaimer p { font-size: 0.85rem; color: #64748b; text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.7; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .testimonial-card { background: var(--light-bg); border-radius: 10px; padding: 28px 24px; border: 1px solid var(--border); }
+  .testimonial-text { font-size: 0.95rem; color: #334155; line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+  .testimonial-author { font-size: 0.88rem; color: var(--navy); font-weight: 600; }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-question { width: 100%; background: none; border: none; padding: 20px 0; font-size: 1.05rem; font-weight: 600; color: var(--navy); text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .faq-question::after { content: '+'; font-size: 1.3rem; color: var(--gold); transition: transform 0.2s; }
+  .faq-item.open .faq-question::after { content: '−'; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0; color: var(--text-muted); line-height: 1.7; }
+  .faq-item.open .faq-answer { max-height: 300px; padding: 0 0 20px; }
+
+  /* FORM */
+  .contact-form { max-width: 680px; margin: 0 auto; background: #fff; padding: 40px 36px; border-radius: 12px; box-shadow: 0 4px 20px rgba(30,58,95,0.06); border: 1px solid #e8edf4; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: var(--radius); font-size: 0.95rem; font-family: inherit; color: var(--text-dark); background: #fff; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,168,67,0.12); }
+  .contact-form .btn { width: 100%; margin-top: 8px; }
+
+  /* FOOTER */
+  .footer { background: var(--navy); color: var(--text-light); padding: 48px 0 40px; }
+  .footer-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+  .footer-col h3 { color: var(--gold); font-size: 1rem; margin-bottom: 12px; font-weight: 700; }
+  .footer-col p { font-size: 0.9rem; line-height: 1.7; }
+
+  /* MOBILE STICKY */
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--gold); color: #fff; text-align: center; padding: 14px; font-weight: 700; font-size: 1rem; text-decoration: none; z-index: 200; }
+
+  @media (max-width: 900px) {
+    .services-grid, .problems-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .about-content { grid-template-columns: 1fr; text-align: center; }
+    .about-image { max-width: 260px; margin: 0 auto; }
+    .footer-inner { grid-template-columns: 1fr; text-align: center; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; background: var(--navy); position: absolute; top: 60px; left: 0; right: 0; padding: 16px 24px; gap: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+    .hero-title { font-size: 2rem; }
+    .client-selector { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .mobile-sticky { display: block; }
+  }
+</style>
+
+<script>
+(function () {
+  var clientCards = document.querySelectorAll('.client-card');
+  var servicesTitle = document.getElementById('services-title');
+  var servicesSubtitle = document.getElementById('services-subtitle');
+  var servicesGrid = document.getElementById('services-grid');
+
+  var individualServices = [
+    { title: 'Tax Preparation', desc: 'Complete federal and state tax return preparation with thorough review of deductions, credits, and filing status to ensure accuracy and maximize your refund.' },
+    { title: 'Tax Planning', desc: 'Proactive tax planning strategies designed to minimize your tax burden throughout the year, including estimated tax payments and retirement contribution planning.' },
+    { title: 'Self-Employed Accounting', desc: 'Specialized accounting for freelancers, contractors, and sole proprietors including Schedule C preparation, quarterly estimates, and expense tracking guidance.' },
+    { title: 'Financial Reports', desc: 'Personal financial statements, net worth tracking, and cash flow reports to give you a clear picture of your financial health and progress toward your goals.' }
+  ];
+
+  var businessServices = [
+    { title: 'Bookkeeping', desc: 'Monthly bookkeeping including bank reconciliation, accounts payable and receivable, categorized financial transactions, and preparation of financial statements for your business.' },
+    { title: 'Payroll Support', desc: 'Full payroll processing including employee payroll calculations, payroll tax filings, W-2 and 1099 preparation, and compliance with Oregon and federal payroll regulations.' },
+    { title: 'Business Accounting', desc: 'Comprehensive business accounting services including entity selection guidance, financial statement preparation, cash flow analysis, and QuickBooks setup and support.' },
+    { title: 'Tax Strategy', desc: 'Strategic tax planning for businesses including entity structure optimization, deductible expense planning, quarterly estimated tax calculations, and multi-year tax forecasting.' }
+  ];
+
+  function renderServices(type) {
+    var data = type === 'individual' ? individualServices : businessServices;
+    servicesTitle.textContent = type === 'individual' ? 'Accounting Services for Individuals' : 'Accounting Services for Businesses';
+    servicesSubtitle.textContent = type === 'individual' ? 'Personal financial guidance designed around your goals.' : 'Business-focused accounting to help your company thrive.';
+    servicesGrid.innerHTML = data.map(function (s) {
+      return '<div class="service-card"><h3 class="service-title">' + s.title + '</h3><p>' + s.desc + '</p></div>';
+    }).join('');
+  }
+
+  clientCards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      clientCards.forEach(function (c) { c.classList.remove('active'); });
+      card.classList.add('active');
+      renderServices(card.getAttribute('data-client'));
+    });
+  });
+
+  var toggleBtn = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', function () { navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { navLinks.classList.remove('open'); });
+    });
+  }
+
+  document.querySelectorAll('.faq-question').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = this.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('form-name').value.trim();
+      var email = document.getElementById('form-email').value.trim();
+      var phone = document.getElementById('form-phone') ? document.getElementById('form-phone').value.trim() : '';
+      var clientType = document.getElementById('form-client-type') ? document.getElementById('form-client-type').value : '';
+      var service = document.getElementById('form-service') ? document.getElementById('form-service').value : '';
+      var desc = document.getElementById('form-description') ? document.getElementById('form-description').value.trim() : '';
+      var message = 'New inquiry from the website:\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + (phone || 'Not specified') + '\nClient type: ' + clientType + '\nService needed: ' + service + '\nDetails: ' + (desc || 'None');
+      window.open('https://wa.me/972584433181?text=' + encodeURIComponent(message), '_blank');
+      alert('Thank you for your inquiry. A member of the NorthPoint Accounting team will reach out within one business day to schedule your consultation.');
+      form.reset();
+    });
+  }
+})();
+</script>
