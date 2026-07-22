@@ -1,0 +1,539 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  { title: "Spinal Adjustments", desc: "Precision manual adjustments to correct vertebral subluxations, restore joint mobility, and alleviate nerve interference. We use diversified, activator, and drop-table techniques tailored to your comfort level and specific condition." },
+  { title: "Shoulder & Extremity Care", desc: "Diagnosis and treatment of shoulder, elbow, wrist, hip, knee, and ankle dysfunction. We combine joint mobilization, soft tissue therapy, and rehabilitative exercises to restore pain-free movement." },
+  { title: "Neck Pain & Headache Relief", desc: "Gentle cervical adjustments and myofascial release for chronic neck tension, cervicogenic headaches, and migraines. We address the underlying joint dysfunction rather than just masking the symptoms." },
+  { title: "Postural Rehabilitation", desc: "Comprehensive postural assessment and corrective exercise programs for forward head posture, rounded shoulders, and spinal misalignments caused by prolonged sitting, screen use, or repetitive strain." },
+  { title: "Prenatal & Postnatal Care", desc: "Safe, gentle chiropractic care throughout pregnancy and after childbirth. Webster technique for pelvic balance and alignment to support maternal comfort and optimal fetal positioning." },
+  { title: "Wellness Maintenance", desc: "Regular chiropractic check-ups to maintain spinal health, prevent recurring issues, and support your body's natural ability to heal and adapt. We track your progress with objective outcome measures." },
+];
+
+const philosophy = [
+  "Chiropractic is not about putting bones back into place. It is about removing interference from your nervous system so your body can do what it does best — heal itself. Every adjustment we deliver is guided by this principle.",
+  "We take time to listen. Your first appointment is a conversation, not an intake form. We want to understand your history, your goals, and what relief means to you. Then we build a care plan that respects your body and your schedule.",
+  "Our approach is evidence-informed and patient-centered. We stay current with chiropractic research, use objective outcome tracking, and collaborate with other healthcare providers when your condition benefits from a multidisciplinary approach.",
+];
+
+const testimonials = [
+  { text: "I had been living with chronic shoulder pain for over three years. I tried physiotherapy, massage, and even cortisone shots. After six weeks at Bridge City, the pain I had accepted as permanent was gone. Dr. Sato is incredibly thorough and genuinely cares.", name: "Amanda Reyes", location: "Hawthorne" },
+  { text: "Dr. Sato treated me through both of my pregnancies. The Webster technique made a noticeable difference in my comfort level, and I believe it contributed to my smoother deliveries. Her gentle approach put me at ease even when I was nervous about being adjusted while pregnant.", name: "Sarah & Tom Fletcher", location: "Sellwood" },
+  { text: "I was skeptical about chiropractic care until a workplace injury left me unable to turn my head without sharp pain. After my first adjustment, I had 70% range of motion back. Two weeks later I was symptom-free. That was five years ago and I still come in for monthly maintenance.", name: "Daniel Park", location: "Pearl District" },
+];
+
+const faqs = [
+  { q: "Is chiropractic adjustment safe?", a: "Yes. Chiropractic adjustments are among the safest drug-free, non-invasive therapies available for the treatment of neuromusculoskeletal conditions. Our techniques are gentle, precise, and tailored to each patient's age, condition, and comfort level. We conduct a thorough examination and health history review before any adjustment to identify any contraindications." },
+  { q: "Does an adjustment hurt?", a: "Most patients experience immediate relief after an adjustment. You may hear a popping or cracking sound — that is simply gas being released from the joint, not bones cracking. Some patients feel mild soreness afterward, similar to what you might feel after exercise, which typically resolves within 24 hours." },
+  { q: "How many sessions will I need?", a: "Every care plan is individualized. Acute conditions often respond well to 2–3 visits per week for 4–6 weeks, followed by a gradual reduction in frequency. Chronic or long-standing conditions may require a longer care plan. We provide a clear recommendation after your initial examination and reassess your progress regularly." },
+  { q: "Do you accept insurance?", a: "We accept most major insurance plans, including Regence BlueCross BlueShield, Cigna, Aetna, Moda, and Medicare. We also offer affordable cash-pay options and flexible payment plans. Our front desk team will verify your benefits and explain your coverage before your first visit." },
+  { q: "What should I expect on my first visit?", a: "Your first visit includes a comprehensive health history review, a physical examination, orthopedic and neurological testing, and a postural assessment. If clinically indicated, we may take X-rays to evaluate spinal alignment. We then discuss our findings and recommend a personalized care plan before any treatment begins." },
+];
+---
+<BaseLayout
+  title="Bridge City Chiropractic & Wellness | Gentle, Evidence-Based Care in Portland"
+  description="Bridge City Chiropractic provides gentle, evidence-based chiropractic care for neck pain, shoulder pain, headaches, postural issues, and prenatal wellness in Portland, Oregon."
+  themeColor="#1A5C5A"
+  bodyClass="chiropractor"
+  consent={{ bg: "#1A5C5A", fg: "#E8EDE8", accent: "#DE9A6E", accentFg: "#1E1B18", border: "rgba(232,237,232,0.16)" }}
+>
+  <slot name="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  </slot>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-inner container">
+      <a href="#" class="nav-logo">Bridge City Chiropractic</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">Book a Visit</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-image-wrapper">
+        <img src="https://images.pexels.com/photos/30423030/pexels-photo-30423030.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" alt="Chiropractor performing a gentle shoulder adjustment on a patient in a calm treatment room with soft natural light" width="1600" height="1067" class="hero-img" loading="eager" fetchpriority="high" decoding="async" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-label">Bridge City Chiropractic &amp; Wellness</p>
+        <h1 class="hero-title">Movement begins with alignment. Alignment begins here.</h1>
+        <p class="hero-sub">Gentle, evidence-based chiropractic care for shoulder pain, headaches, postural strain, and whole-body wellness. We take the time to understand your story before we touch your spine.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book a Visit</a>
+          <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What We Offer</span>
+          <h2>Comprehensive Chiropractic Care</h2>
+          <p class="section-sub">Evidence-based treatments designed to relieve pain, restore mobility, and support your body's natural healing ability.</p>
+        </div>
+        <div class="services-grid">
+          {services.map((s) => (
+            <article class="service-card">
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="philosophy" id="philosophy">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Philosophy</span>
+          <h2>Care That Starts with Listening.</h2>
+        </div>
+        <div class="philosophy-grid">
+          {philosophy.map((p, i) => (
+            <div class="philosophy-card">
+              <span class="philosophy-num">{(i + 1).toString().padStart(2, "0")}</span>
+              <p>{p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Kind Words</span>
+          <h2>What Our Patients Say</h2>
+        </div>
+        <div class="testimonials-grid">
+          {testimonials.map((t) => (
+            <blockquote class="testimonial-card">
+              <p class="testimonial-text">{t.text}</p>
+              <footer class="testimonial-author">
+                <strong>{t.name}</strong>
+                <span>{t.location}</span>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Common Questions</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map((f, i) => (
+            <details class="faq-item" open={i === 0 ? true : undefined}>
+              <summary class="faq-question">{f.q}<span class="faq-indicator">{i === 0 ? "−" : "+"}</span></summary>
+              <div class="faq-answer">
+                <p>{f.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Get in Touch</span>
+          <h2>Book Your First Visit</h2>
+          <p class="section-sub">Fill out the form below and we'll call you within one business day to schedule your initial consultation. New patient appointments include a full examination and personalized care plan.</p>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formName">Your Name</label>
+              <input type="text" id="formName" name="name" required placeholder="Your full name" />
+              <span class="form-error" id="nameError">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label for="formEmail">Email Address</label>
+              <input type="email" id="formEmail" name="email" required placeholder="you@example.com" />
+              <span class="form-error" id="emailError">Please enter a valid email.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formPhone">Phone Number</label>
+              <input type="tel" id="formPhone" name="phone" required placeholder="503-555-1234" />
+              <span class="form-error" id="phoneError">Please enter your phone number.</span>
+            </div>
+            <div class="form-group">
+              <label for="formReason">Reason for Visit</label>
+              <select id="formReason" name="reason" required>
+                <option value="">Select reason...</option>
+                <option value="neck-pain">Neck Pain</option>
+                <option value="shoulder-pain">Shoulder Pain</option>
+                <option value="back-pain">Back Pain</option>
+                <option value="headaches">Headaches / Migraines</option>
+                <option value="posture">Postural Concerns</option>
+                <option value="prenatal">Prenatal Care</option>
+                <option value="wellness">Wellness Maintenance</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-error" id="reasonError">Please select a reason for your visit.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Additional Information</label>
+            <textarea id="formMessage" name="message" rows="4" placeholder="Briefly describe your symptoms, how long they've been present, and what you've tried so far."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large">Request Appointment</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Bridge City Chiropractic &amp; Wellness</h3>
+        <p>Gentle, evidence-based chiropractic care in Portland. We treat the whole person, not just the symptom.</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>2102 SE Belmont Street<br />Portland, OR 97214</p>
+        <p><a href="tel:+15550198">(555) 555-0198</a></p>
+        <p><a href="mailto:hello@bridgecitychiro.com">hello@bridgecitychiro.com</a></p>
+      </div>
+      <div class="footer-hours">
+        <h4>Hours</h4>
+        <p>Mon–Thu: 8:00 AM – 6:00 PM</p>
+        <p>Friday: 8:00 AM – 3:00 PM</p>
+        <p>Saturday: 9:00 AM – 1:00 PM</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <p><a href="/privacy">Privacy Policy</a></p>
+        <p><a href="/cookies">Cookie Policy</a></p>
+        <p><a href="/accessibility">Accessibility</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Bridge City Chiropractic &amp; Wellness. All rights reserved.</p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  :global(.chiropractor) {
+    --teal: #1A5C5A;
+    --teal-dark: #0F3D3C;
+    --teal-light: #E0EFEE;
+    --terracotta: #C2703E;
+    --terracotta-light: #DE9A6E;
+    --cream: #F5F0EB;
+    --cream-dark: #E8E0D7;
+    --brown-dark: #1E1B18;
+    --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --transition: 0.25s ease;
+  }
+
+  :global(.chiropractor) {
+    font-family: var(--font-body);
+    color: var(--brown-dark);
+    background: var(--cream);
+    line-height: 1.65;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(.chiropractor) :focus-visible {
+    outline: 3px solid var(--terracotta);
+    outline-offset: 2px;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--teal-dark);
+    line-height: 1.2;
+  }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 12px; }
+  h3 { font-size: 1.2rem; }
+  h4 { font-size: 1rem; }
+
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--teal);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .section-sub { color: #777; max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.3px;
+  }
+  .btn-primary { background: var(--terracotta); color: var(--cream); }
+  .btn-primary:hover { background: var(--terracotta-light); }
+  .btn-outline { background: transparent; color: var(--cream); border: 1px solid var(--cream); }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+  .btn-large { padding: 16px 40px; font-size: 1.05rem; }
+
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 16px 0; transition: all var(--transition);
+  }
+  .nav.scrolled { background: var(--cream); box-shadow: 0 2px 24px rgba(30,27,24,0.08); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo {
+    font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700;
+    color: var(--cream); text-decoration: none; transition: color var(--transition);
+  }
+  .nav.scrolled .nav-logo { color: var(--teal-dark); }
+  .nav-links { display: flex; list-style: none; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-size: 0.9rem; font-weight: 500;
+    color: var(--cream); text-decoration: none; transition: color var(--transition);
+  }
+  .nav.scrolled .nav-links a { color: var(--brown-dark); }
+  .nav-links a:hover { color: var(--terracotta-light); }
+  .nav.scrolled .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta {
+    padding: 8px 20px; border: 1px solid var(--cream); color: var(--cream) !important;
+    font-weight: 600; transition: all var(--transition);
+  }
+  .nav-cta:hover { background: var(--cream); color: var(--teal-dark) !important; }
+  .nav.scrolled .nav-cta { border-color: var(--terracotta); color: var(--terracotta) !important; }
+  .nav.scrolled .nav-cta:hover { background: var(--terracotta); color: var(--cream) !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--cream); margin: 5px 0; transition: all var(--transition); }
+  .nav.scrolled .nav-toggle span { background: var(--teal-dark); }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,92,90,0.7) 0%, rgba(194,112,62,0.25) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 720px;
+  }
+  .hero-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--terracotta-light);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .hero-title { color: var(--cream); margin-bottom: 20px; }
+  .hero-sub {
+    color: rgba(245,240,235,0.9);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .services { padding: 100px 0; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--cream-dark);
+    padding: 32px 28px;
+    border-left: 3px solid var(--teal);
+  }
+  .service-card h3 { margin-bottom: 12px; color: var(--teal-dark); }
+  .service-card p { color: #666; font-size: 0.95rem; line-height: 1.7; }
+
+  .philosophy { padding: 100px 0; background: var(--teal); }
+  .philosophy .section-label { color: var(--terracotta-light); }
+  .philosophy h2 { color: var(--cream); }
+  .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .philosophy-card {
+    padding: 36px 28px;
+    background: rgba(255,255,255,0.06);
+  }
+  .philosophy-num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .philosophy-card p { color: rgba(245,240,235,0.8); font-size: 0.95rem; line-height: 1.75; }
+
+  .testimonials { padding: 100px 0; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testimonial-card { background: var(--cream-dark); padding: 36px 28px; }
+  .testimonial-text { font-style: italic; font-size: 0.95rem; color: var(--brown-dark); line-height: 1.75; margin-bottom: 20px; }
+  .testimonial-author strong { display: block; font-family: var(--font-heading); font-size: 1rem; color: var(--teal-dark); margin-bottom: 2px; }
+  .testimonial-author span { font-size: 0.8rem; color: var(--teal); }
+
+  .faq { padding: 100px 0; background: var(--teal-light); }
+  .faq .section-label { color: var(--terracotta); }
+  .faq h2 { color: var(--teal-dark); }
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid rgba(26,92,90,0.15); }
+  .faq-question {
+    padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600;
+    color: var(--teal-dark); cursor: pointer;
+  }
+  .faq-question:hover { color: var(--terracotta); }
+  .faq-indicator { font-size: 1.3rem; color: var(--terracotta); line-height: 1; }
+  .faq-answer { padding-bottom: 20px; }
+  .faq-answer p { color: #555; font-size: 0.95rem; line-height: 1.7; }
+
+  .contact { padding: 100px 0; }
+  .contact-form { max-width: 640px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brown-dark); margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px 16px;
+    font-family: var(--font-body); font-size: 0.95rem;
+    background: var(--cream-dark); border: 1px solid transparent;
+    transition: border-color var(--transition); color: var(--brown-dark);
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--terracotta); }
+  .form-group textarea { resize: vertical; }
+  .form-error { display: none; font-size: 0.8rem; color: #C44; margin-top: 4px; }
+  .form-group.has-error .form-error { display: block; }
+  .form-group.has-error input, .form-group.has-error textarea, .form-group.has-error select { border-color: #C44; }
+
+  .footer { background: var(--teal-dark); color: var(--cream); padding: 64px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand h3 { font-family: var(--font-heading); font-size: 1.3rem; color: var(--cream); margin-bottom: 12px; }
+  .footer-brand p { color: rgba(245,240,235,0.6); font-size: 0.9rem; }
+  .footer h4 { color: var(--cream); font-size: 0.85rem; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-body); }
+  .footer p { color: rgba(245,240,235,0.6); font-size: 0.9rem; margin-bottom: 6px; line-height: 1.6; }
+  .footer a { color: var(--terracotta-light); text-decoration: none; transition: color var(--transition); }
+  .footer a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,235,0.1); padding-top: 24px; text-align: center; }
+  .footer-bottom p { font-size: 0.8rem; color: rgba(245,240,235,0.4); }
+
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .services, .philosophy, .testimonials, .faq, .contact { padding: 60px 0; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--cream); flex-direction: column; padding: 20px 24px;
+      gap: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a, .nav.scrolled .nav-links a { color: var(--brown-dark); }
+    .nav.scrolled .nav-cta { border-color: var(--terracotta); color: var(--terracotta) !important; }
+    .nav-toggle { display: block; }
+  }
+</style>
+
+<script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          nav.classList.toggle('scrolled', window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+      links.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { links.classList.remove('open'); });
+      });
+    }
+
+    var form = document.getElementById('contactForm');
+    if (form) {
+      var fields = form.querySelectorAll('[required]');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var valid = true;
+        fields.forEach(function(f) {
+          var g = f.closest('.form-group');
+          if (!g) return;
+          if (!f.value.trim()) {
+            g.classList.add('has-error');
+            valid = false;
+          } else {
+            g.classList.remove('has-error');
+          }
+        });
+        if (valid) {
+          alert('Thank you for your appointment request. We will contact you within one business day.');
+          form.reset();
+        }
+      });
+      fields.forEach(function(f) {
+        f.addEventListener('input', function() { f.closest('.form-group')?.classList.remove('has-error'); });
+      });
+    }
+  })();
+</script>

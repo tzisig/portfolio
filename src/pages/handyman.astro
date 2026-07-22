@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const services = [
+  { title: "Plumbing", desc: "Faucet and toilet repairs, drain clearing, shower head replacement, and leak detection and repair." },
+  { title: "Electrical", desc: "Outlet and switch replacement, light fixture installation, ceiling fans, dimmer switches, and basic rewiring." },
+  { title: "Drywall & Painting", desc: "Drywall patching and repair, texture matching, interior painting (walls, trim, ceilings), and primer and finish coats." },
+  { title: "Carpentry", desc: "Baseboard and crown molding installation, door hanging and repair, custom shelving, and cabinet repairs." },
+  { title: "Furniture Assembly", desc: "Flat-pack furniture assembly for IKEA, Wayfair, and Amazon — desks, beds, dressers, shelving units, patio sets." },
+  { title: "Outdoor & Yard", desc: "Fence and gate repair, deck staining, gutter cleaning, pressure washing, and small shed assembly." },
+  { title: "Tile & Flooring", desc: "Bathroom and kitchen tile repair, grout replacement, vinyl plank and laminate installation, and carpet patching." },
+  { title: "Home Maintenance", desc: "Caulking, weatherstripping, smoke detector and CO alarm installation, faucet aerator cleaning, and general handyperson services." },
+];
+const pitch = ["No job too small", "Same-day service available", "Materials included in estimate", "Senior and veteran discounts", "Fully insured", "Free on-site estimate"];
+const reviews = [
+  { text: "Dave replaced a broken garbage disposal, fixed two sticking windows, and hung four ceiling fans — all in one day. Fair price, great work, zero drama.", name: "Lindsay C." },
+  { text: "I needed a dozen random things done around the house before selling. He made a list, knocked them out one by one, and the inspection passed with zero issues.", name: "Greg H." },
+];
+---
+<BaseLayout title="Fix It Portland | Handyman Services — Home Repairs & Maintenance" description="Fix It Portland provides professional handyman services: plumbing, electrical, drywall, painting, carpentry, fence repair, furniture assembly, and more. No job too small." themeColor="#1E3A5F" bodyClass="handyman" consent={{ bg: "#1E3A5F", fg: "#F4F7FA", accent: "#E8644A", accentFg: "#fff", border: "rgba(244,247,250,0.16)" }}>
+  <slot name="head"><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
+  </slot>
+  <main>
+    <section class="hero"><div class="container"><h1>Fix It Portland</h1><p class="tagline">One call. Done right.</p><p class="hero-sub">Plumbing, electrical, drywall, painting, carpentry, fence repair, furniture assembly &mdash; and anything else on your list. No job too small, no project too random.</p><div class="hero-actions"><a href="tel:+15550124" class="btn-primary">(555) 555-0124</a><a href="#services" class="btn-outline">What We Fix</a></div></div></section>
+    <section class="pitch"><div class="container"><div class="pitch-grid">{pitch.map((p) => (<div class="pitch-item"><span class="pitch-icon">✓</span>{p}</div>))}</div></div></section>
+    <section class="services" id="services"><div class="container"><h2>Services</h2><div class="svc-grid">{services.map((s) => (<div class="svc-card"><h3>{s.title}</h3><p>{s.desc}</p></div>))}</div></div></section>
+    <section class="reviews"><div class="container"><div class="review-pair">{reviews.map((r) => (<div class="r-card"><p>"{r.text}"</p><strong>{r.name}</strong></div>))}</div></div></section>
+    <section class="cta"><div class="container cta-inner"><h2>Got a list?</h2><p class="cta-sub">Free on-site estimate. Same-day service available. No job too small.</p><a href="tel:+15550124" class="cta-tel">(555) 555-0124</a></div></section>
+  </main>
+  <footer class="footer"><div class="container"><p>Fix It Portland &mdash; Portland, OR &middot; Insured &middot; Free Estimates</p><nav><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a></nav></div></footer>
+</BaseLayout>
+<style>:global(.handyman){--blue:#1E3A5F;--red:#E8644A;--cream:#F4F7FA;--font-h:'Work Sans',sans-serif;--font-b:'Inter',sans-serif}:global(.handyman){font-family:var(--font-b);color:#444;background:var(--cream);line-height:1.6}:global(.handyman) :focus-visible{outline:3px solid var(--red);outline-offset:2px}.container{max-width:1000px;margin:0 auto;padding:0 24px}h1{font-family:var(--font-h);font-size:clamp(2.4rem,6vw,3.8rem);font-weight:800;color:var(--blue);line-height:1;letter-spacing:-0.02em}h2{font-family:var(--font-h);font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;color:var(--blue);margin-bottom:28px}
+  .hero{padding:80px 0 60px}.tagline{font-family:var(--font-h);font-size:1.2rem;font-weight:600;color:var(--red);margin-bottom:16px;text-transform:uppercase;letter-spacing:3px}.hero-sub{color:#888;font-size:1.05rem;max-width:550px;margin:0 0 32px}.hero-actions{display:flex;gap:16px;align-items:center}.btn-primary{display:inline-block;padding:14px 32px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;transition:background .25s}.btn-primary:hover{background:#264a72}.btn-outline{display:inline-block;padding:14px 32px;border:2px solid var(--blue);color:var(--blue);text-decoration:none;font-weight:600;transition:all .25s}.btn-outline:hover{background:var(--blue);color:#fff}
+  .pitch{padding:20px 0 40px}.pitch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pitch-item{display:flex;align-items:center;gap:10px;color:#666;font-size:.85rem}.pitch-icon{color:var(--red);font-weight:700}
+  .services{padding:60px 0}.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.svc-card{padding:24px;background:#fff;border:1px solid rgba(30,58,95,.08)}.svc-card h3{font-family:var(--font-h);font-weight:700;font-size:.9rem;color:var(--blue);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}.svc-card p{color:#888;font-size:.85rem;line-height:1.6}
+  .reviews{padding:60px 0}.review-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}.r-card{padding:24px;background:#fff;border-left:3px solid var(--red)}.r-card p{font-style:italic;color:#666;font-size:.9rem;margin-bottom:8px}.r-card strong{font-size:.85rem;color:var(--blue)}
+  .cta{padding:80px 0;background:var(--blue);text-align:center}.cta h2{color:#fff;margin-bottom:8px}.cta-sub{color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:28px}.cta-tel{font-family:var(--font-h);font-size:2.3rem;font-weight:700;color:#fff;text-decoration:none}.cta-tel:hover{color:var(--red)}
+  .footer{padding:40px 0;text-align:center;color:#bbb;font-size:.8rem}.footer nav{display:flex;justify-content:center;gap:20px;margin-top:6px}.footer a{color:#bbb;text-decoration:underline}
+  @media(max-width:800px){.svc-grid{grid-template-columns:1fr}.pitch-grid{grid-template-columns:1fr}.review-pair{grid-template-columns:1fr}}
+</style>

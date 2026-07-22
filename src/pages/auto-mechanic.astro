@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const services = [
+  { title: "Diagnostic & Check Engine", desc: "Computer diagnostics, code reading, sensor testing, and systematic troubleshooting for any make and model." },
+  { title: "Brake Service", desc: "Pad and rotor replacement, caliper repair, brake fluid flush, and ABS diagnostics. We measure thickness and test stopping distance before and after." },
+  { title: "Oil & Fluid Service", desc: "Full synthetic oil changes, transmission flush, coolant exchange, differential service, and power steering fluid replacement." },
+  { title: "Engine & Transmission", desc: "Timing belt replacement, valve cover gaskets, water pumps, transmission rebuilds, and complete engine diagnostics." },
+  { title: "Suspension & Steering", desc: "Strut and shock replacement, control arms, tie rods, sway bar links, alignment, and steering rack repair." },
+  { title: "Tires & Wheels", desc: "Mounting, balancing, alignment, rotation, and TPMS service. We price-match major tire retailers." },
+  { title: "AC & Heating", desc: "AC recharge, compressor replacement, heater core diagnosis, blend door repair, and cabin air filter service." },
+  { title: "Electrical", desc: "Battery testing and replacement, alternator and starter diagnosis, wiring repair, and accessory installation." },
+];
+const checks = ["Digital multi-point inspection with photos", "Written estimate before any work", "OE or better parts only", "12-month / 12,000-mile warranty on repairs", "Shuttle service available", "Veteran-owned & operated"];
+const reviews = [
+  { text: "Honest shop. They could have charged me for work I didn't need but they didn't. Explained everything clearly and showed me the old parts.", name: "Carlos M." },
+  { text: "Been bringing my Tacoma here for 4 years. They remember me, remember my truck, and the work is always done when they say it will be.", name: "Jenna K." },
+];
+---
+<BaseLayout title="Hawthorne Auto Works | Portland Auto Repair & Maintenance" description="Hawthorne Auto Works provides honest, high-quality auto repair and maintenance in Portland. Diagnostics, brakes, engines, transmissions, electrical." themeColor="#1F1F1F" bodyClass="mechanic" consent={{ bg: "#1F1F1F", fg: "#F0F0F0", accent: "#EAB308", accentFg: "#1F1F1F", border: "rgba(240,240,240,0.16)" }}>
+  <slot name="head"><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
+  </slot>
+  <div class="garage-bg"></div>
+  <main class="content">
+    <section class="hero"><div class="container"><p class="hero-badge">Veteran-Owned &middot; SE Portland</p><h1>Honest repairs. Fair prices. Done on time.</h1><p class="hero-p">Hawthorne Auto Works has been keeping Portland's cars on the road since 2010. We don't upsell. We just fix things right the first time.</p><div class="hero-actions"><a href="#services" class="btn-primary">View Services</a><a href="tel:+15550119" class="btn-call">(555) 555-0119</a></div></div></section>
+    <section class="checks"><div class="container"><div class="check-list">{checks.map((c) => (<div class="check-item"><span class="check-icon">✓</span>{c}</div>))}</div></div></section>
+    <section class="services-section" id="services"><div class="container"><h2>Services</h2><div class="svc-grid">{services.map((s) => (<div class="svc-card"><h3>{s.title}</h3><p>{s.desc}</p></div>))}</div></div></section>
+    <section class="reviews-section"><div class="container"><div class="review-pair">{reviews.map((r) => (<div class="r-card"><p>"{r.text}"</p><strong>{r.name}</strong></div>))}</div></div></section>
+    <section class="map-section"><div class="container map-inner"><div><h2>Come see us.</h2><p>3324 SE Hawthorne Blvd<br />Portland, OR 97214</p><p>Mon–Fri 7:30–5:30<br />Sat 8:00–2:00</p></div><a href="tel:+15550119" class="map-tel">(555) 555-0119</a></div></section>
+  </main>
+  <footer class="footer"><div class="container"><p>Hawthorne Auto Works &mdash; Portland, OR</p><nav><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a></nav></div></footer>
+</BaseLayout>
+<style>:global(.mechanic){--dark:#1F1F1F;--yellow:#EAB308;--steel:#6B7280;--cream:#F0F0F0;--font-h:'Barlow',sans-serif;--font-b:'Inter',sans-serif}:global(.mechanic){font-family:var(--font-b);color:#ddd;background:var(--dark);line-height:1.6}:global(.mechanic) :focus-visible{outline:3px solid var(--yellow);outline-offset:2px}.container{max-width:1100px;margin:0 auto;padding:0 24px}h1{font-family:var(--font-h);font-weight:800;color:#fff;line-height:1;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-0.02em}h2{font-family:var(--font-h);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:#fff;margin-bottom:24px}.garage-bg{position:fixed;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(234,179,8,.04) 0%,transparent 70%),radial-gradient(ellipse at 70% 50%,rgba(107,114,128,.03) 0%,transparent 70%);pointer-events:none;z-index:0}.content{position:relative;z-index:1}
+  .hero{padding:80px 0 60px}.hero-badge{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;color:var(--yellow);margin-bottom:12px;font-weight:600}.hero-p{color:var(--steel);font-size:1.1rem;max-width:550px;margin-bottom:32px}.hero-actions{display:flex;gap:16px;align-items:center}.btn-primary{display:inline-block;padding:14px 32px;background:var(--yellow);color:var(--dark);text-decoration:none;font-weight:700;transition:background .25s}.btn-primary:hover{background:#f5c542}.btn-call{display:inline-block;font-size:1.2rem;font-weight:700;color:var(--yellow);text-decoration:none}.btn-call:hover{color:#fff}
+  .checks{padding:40px 0}.check-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.check-item{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--steel)}.check-icon{color:var(--yellow);font-weight:700}
+  .services-section{padding:60px 0;border-top:1px solid rgba(255,255,255,.06)}.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.svc-card{background:rgba(255,255,255,.03);padding:24px 20px;border:1px solid rgba(255,255,255,.06)}.svc-card h3{font-family:var(--font-h);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:6px}.svc-card p{color:var(--steel);font-size:.82rem;line-height:1.6}
+  .reviews-section{padding:40px 0}.review-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}.r-card{background:rgba(255,255,255,.03);padding:24px;border-left:2px solid var(--yellow)}.r-card p{font-style:italic;color:#bbb;font-size:.9rem;margin-bottom:8px}.r-card strong{font-size:.85rem;color:#fff}
+  .map-section{padding:60px 0;border-top:1px solid rgba(255,255,255,.06)}.map-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}.map-inner p{color:var(--steel);font-size:.9rem;line-height:1.7}.map-tel{font-family:var(--font-h);font-size:2rem;font-weight:700;color:var(--yellow);text-decoration:none}.map-tel:hover{color:#fff}
+  .footer{padding:40px 0;text-align:center;color:rgba(255,255,255,.2);font-size:.8rem;border-top:1px solid rgba(255,255,255,.05)}.footer nav{display:flex;justify-content:center;gap:20px;margin-top:6px}.footer a{color:rgba(255,255,255,.2);text-decoration:underline}
+  @media(max-width:800px){.svc-grid{grid-template-columns:1fr}.check-list{grid-template-columns:1fr}.review-pair{grid-template-columns:1fr}}
+</style>

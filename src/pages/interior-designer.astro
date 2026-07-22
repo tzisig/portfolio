@@ -1,0 +1,553 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const expertise = [
+  { title: "Residential Interiors", desc: "Full-service interior design for homes, apartments, and townhouses. We guide each project from spatial planning and material selection through furniture sourcing and final styling. Every detail, every finish, every fixture — considered, deliberate, resolved." },
+  { title: "Commercial & Hospitality", desc: "Workspace, retail, and hospitality environments that balance aesthetic ambition with operational reality. We design for how people actually move through and inhabit commercial spaces, not just how they photograph." },
+  { title: "Renovation & Styling", desc: "Targeted interventions for existing spaces that need a second life. A kitchen reimagined, a living room restructured, an entire floor rethought. We work within existing footprints to maximize light, flow, and proportion." },
+  { title: "Furniture & Object Curation", desc: "Custom furniture design and procurement from independent makers, vintage dealers, and select showrooms. We source pieces that age well — materials that patina, forms that endure, objects with a story." },
+];
+
+const projects = [
+  { title: "Heights Residence", type: "Full Home", image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80", year: "2025" },
+  { title: "Pearl District Studio", type: "Commercial", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80", year: "2025" },
+  { title: "Laurelhurst Kitchen", type: "Renovation", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80", year: "2024" },
+  { title: "Willamette View", type: "Full Home", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80", year: "2024" },
+  { title: "Division Street Office", type: "Commercial", image: "https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=800&q=80", year: "2024" },
+  { title: "Hawthorne Loft", type: "Styling", image: "https://images.unsplash.com/photo-1618214834423-6d1ee1a7c0b0?auto=format&fit=crop&w=800&q=80", year: "2023" },
+];
+
+const process = [
+  { num: "01", title: "Listen", desc: "We begin with conversation, not questionnaires. We visit your space, learn how you live or work, and understand what you need — not just what you think you want." },
+  { num: "02", title: "Propose", desc: "A detailed design proposal with mood boards, material samples, spatial drawings, and a transparent budget. No vague estimates, no surprises." },
+  { num: "03", title: "Realize", desc: "We manage procurement, coordinate trades, oversee installation, and style every surface. You see the finished space, not the process behind it." },
+];
+---
+<BaseLayout
+  title="Atelier Hālo — Interior Design Studio | Portland"
+  description="Atelier Hālo is a Portland interior design studio specializing in residential, commercial, and hospitality spaces that balance warmth, proportion, and material integrity."
+  themeColor="#F9F7F4"
+  bodyClass="interior-designer"
+  consent={{ bg: "#1C1A18", fg: "#F4EFE9", accent: "#6B543D", accentFg: "#F4EFE9", border: "rgba(244,239,233,0.16)" }}
+>
+  <slot name="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+  </slot>
+
+  <div class="badge" id="badge">Atelier Hālo</div>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Interior Design Studio</p>
+        <h1 class="hero-title">Spaces that<br />feel like they've<br />always been there.</h1>
+        <p class="hero-sub">Residential &middot; Commercial &middot; Hospitality</p>
+        <div class="hero-rule"></div>
+      </div>
+    </section>
+
+    <section class="hero-image-full">
+      <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1800&q=80" alt="Bright living room with natural light, neutral furnishings, and carefully curated objects" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async" />
+    </section>
+
+    <section class="about">
+      <div class="about-inner container">
+        <div class="about-col about-col--num">
+          <span class="about-number">2018</span>
+          <span class="about-number-label">founded</span>
+        </div>
+        <div class="about-col about-col--text">
+          <h2>We design interiors that feel inevitable — like the space was always meant to be exactly this way.</h2>
+          <p>Atelier Hālo was founded on the belief that great interiors are not about style. They are about proportion, light, material, and the quiet intelligence of a space that works without calling attention to itself. We work slowly, think carefully, and build relationships that outlast any single project.</p>
+          <p>Based in Portland, we serve clients throughout the Pacific Northwest and beyond — from intimate apartment renovations to full-scale commercial interiors. Every project begins the same way: with a conversation, a walk through the space, and a willingness to listen before we draw a single line.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider">
+      <span class="divider-rule"></span>
+      <span class="divider-mark">✦</span>
+      <span class="divider-rule"></span>
+    </div>
+
+    <section class="expertise container">
+      <div class="expertise-header">
+        <span class="section-label">Expertise</span>
+        <h2>What we do.</h2>
+      </div>
+      <div class="expertise-grid">
+        {expertise.map((s) => (
+          <article class="expertise-card">
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="portfolio-header container">
+        <span class="section-label">Selected Work</span>
+        <h2>Projects.</h2>
+      </div>
+      <div class="portfolio-scroll" id="portfolioScroll">
+        <div class="portfolio-track">
+          {projects.map((p) => (
+            <figure class="portfolio-card">
+              <img src={p.image} alt={p.title} width="800" height="1000" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="portfolio-year">{p.year}</span>
+                <span class="portfolio-title">{p.title}</span>
+                <span class="portfolio-type">{p.type}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div class="portfolio-hint" id="portfolioHint">
+          <span>Scroll &rarr;</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider">
+      <span class="divider-rule"></span>
+      <span class="divider-mark">✦</span>
+      <span class="divider-rule"></span>
+    </div>
+
+    <section class="quote-section">
+      <div class="container">
+        <blockquote class="featured-quote">
+          <p>&ldquo;They didn't just design a room — they changed how we live in our own home. Every surface, every object, every corner feels intentional without feeling precious. That is a rare skill.&rdquo;</p>
+          <footer>
+            <strong>— Elena Marchetti</strong>
+            <span>Heights Residence, Portland</span>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <div class="container">
+        <div class="process-header">
+          <span class="section-label">How We Work</span>
+          <h2>Three movements.</h2>
+        </div>
+        <div class="process-timeline">
+          {process.map((s, i) => (
+            <div class="process-step">
+              <div class="process-step-top">
+                <span class="process-num">{s.num}</span>
+                {i < process.length - 1 && <span class="process-line"></span>}
+              </div>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <h2>Let's talk about your space.</h2>
+        <p>We take on a limited number of projects each year to ensure every client receives our full attention. Reach out for an initial conversation — no commitment, no fee, just a conversation about what's possible.</p>
+        <a href="mailto:studio@atelierhalo.com" class="cta-link">studio@atelierhalo.com <span class="cta-arrow">&rarr;</span></a>
+        <span class="cta-phone">503.555.0199</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">Atelier Hālo</div>
+      <div class="footer-tag">Interior Design Studio — Portland, Oregon</div>
+      <nav class="footer-links" aria-label="Legal">
+        <a href="/privacy">Privacy</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/accessibility">Accessibility</a>
+      </nav>
+      <p class="footer-copy">&copy; {new Date().getFullYear()} Atelier Hālo. All rights reserved.</p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  :global(.interior-designer) {
+    --charcoal: #1C1A18;
+    --warm-white: #F9F7F4;
+    --taupe: #8B6F4E;
+    --taupe-light: #E8DFD3;
+    --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  :global(.interior-designer) {
+    font-family: var(--font-sans);
+    color: var(--charcoal);
+    background: var(--warm-white);
+    line-height: 1.65;
+    font-size: 1rem;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(.interior-designer) :focus-visible {
+    outline: 2px solid var(--taupe);
+    outline-offset: 3px;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.15;
+  }
+  h1 { font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -0.03em; }
+  h2 { font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.02em; margin-bottom: 20px; }
+  h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
+
+  .section-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--taupe);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .badge {
+    position: fixed;
+    top: 24px;
+    left: 28px;
+    z-index: 1000;
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--taupe);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .badge.visible { opacity: 1; }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 28px;
+    background: var(--warm-white);
+  }
+  .hero-text { max-width: 860px; margin: 0 auto; width: 100%; }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--taupe);
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  .hero-title { margin-bottom: 28px; }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: #999;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .hero-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--taupe);
+    margin-top: 40px;
+  }
+
+  .hero-image-full {
+    width: 100%;
+    height: 80vh;
+    min-height: 500px;
+    overflow: hidden;
+  }
+  .hero-image-full img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about { padding: 120px 0; }
+  .about-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+  .about-number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--taupe);
+    letter-spacing: -0.04em;
+  }
+  .about-number-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #aaa;
+    margin-top: 4px;
+  }
+  .about-col--text p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 28px;
+  }
+  .divider-rule { flex: 1; height: 1px; background: var(--taupe-light); }
+  .divider-mark { color: var(--taupe); font-size: 0.7rem; }
+
+  .expertise { padding: 100px 0; }
+  .expertise-header { margin-bottom: 64px; }
+  .expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .expertise-card {
+    padding: 48px 40px 48px 0;
+    border-bottom: 1px solid var(--taupe-light);
+  }
+  .expertise-card:nth-last-child(-n+2) { border-bottom: none; }
+  .expertise-card:nth-child(even) {
+    padding-left: 40px;
+    padding-right: 0;
+    border-left: 1px solid var(--taupe-light);
+  }
+  .expertise-card h3 { margin-bottom: 12px; }
+  .expertise-card p { color: #777; font-size: 0.9rem; line-height: 1.75; }
+
+  .portfolio { padding: 100px 0; background: var(--charcoal); }
+  .portfolio .section-label { color: var(--taupe); }
+  .portfolio h2 { color: var(--warm-white); }
+  .portfolio-header { margin-bottom: 48px; }
+  .portfolio-scroll {
+    overflow-x: auto;
+    padding: 0 28px 32px;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--taupe) transparent;
+  }
+  .portfolio-scroll::-webkit-scrollbar { height: 3px; }
+  .portfolio-scroll::-webkit-scrollbar-track { background: transparent; }
+  .portfolio-scroll::-webkit-scrollbar-thumb { background: var(--taupe); border-radius: 0; }
+  .portfolio-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+  }
+  .portfolio-card {
+    margin: 0;
+    position: relative;
+    width: 320px;
+    flex-shrink: 0;
+  }
+  .portfolio-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+  .portfolio-card:hover img { opacity: 0.85; }
+  .portfolio-card figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 12px;
+  }
+  .portfolio-year {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(249,247,244,0.4);
+  }
+  .portfolio-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--warm-white);
+  }
+  .portfolio-type {
+    font-size: 0.8rem;
+    color: rgba(249,247,244,0.5);
+  }
+  .portfolio-hint {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(249,247,244,0.3);
+  }
+
+  .quote-section { padding: 120px 0; }
+  .featured-quote { max-width: 760px; margin: 0 auto; text-align: center; }
+  .featured-quote p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--charcoal);
+    margin-bottom: 32px;
+  }
+  .featured-quote footer strong {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 2px;
+  }
+  .featured-quote footer span {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .process-section { padding: 100px 0; background: var(--warm-white); }
+  .process-header { margin-bottom: 64px; }
+  .process-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .process-step-top { position: relative; margin-bottom: 24px; display: flex; align-items: center; }
+  .process-num {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--taupe);
+    letter-spacing: -0.04em;
+  }
+  .process-line {
+    flex: 1;
+    height: 1px;
+    background: var(--taupe-light);
+    margin-left: 16px;
+  }
+  .process-step h3 { margin-bottom: 8px; }
+  .process-step p { color: #777; font-size: 0.9rem; line-height: 1.75; }
+
+  .cta { padding: 120px 0; background: var(--charcoal); }
+  .cta-inner { text-align: center; max-width: 620px; }
+  .cta h2 { color: var(--warm-white); margin-bottom: 24px; }
+  .cta p { color: rgba(249,247,244,0.6); font-size: 1rem; line-height: 1.8; margin-bottom: 40px; }
+  .cta-link {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--taupe);
+    text-decoration: none;
+    border-bottom: 1px solid var(--taupe);
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
+  }
+  .cta-link:hover { color: var(--warm-white); border-color: var(--warm-white); }
+  .cta-arrow { display: inline-block; transition: transform 0.2s ease; }
+  .cta-link:hover .cta-arrow { transform: translateX(4px); }
+  .cta-phone {
+    display: block;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: rgba(249,247,244,0.4);
+    letter-spacing: 2px;
+  }
+
+  .footer { padding: 60px 0; background: var(--warm-white); }
+  .footer-inner { text-align: center; }
+  .footer-brand {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--taupe);
+    margin-bottom: 4px;
+  }
+  .footer-tag { font-size: 0.8rem; color: #bbb; margin-bottom: 24px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; }
+  .footer-links a { font-size: 0.8rem; color: #bbb; text-decoration: underline; text-underline-offset: 2px; }
+  .footer-links a:hover { color: var(--charcoal); }
+  .footer-copy { font-size: 0.75rem; color: #ccc; }
+
+  @media (max-width: 800px) {
+    .about-inner { grid-template-columns: 1fr; gap: 32px; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .expertise-card:nth-child(even) { padding-left: 0; border-left: none; }
+    .expertise-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--taupe-light); }
+    .expertise-card:last-child { border-bottom: none; }
+    .process-timeline { grid-template-columns: 1fr; gap: 40px; }
+    .hero { min-height: 80vh; }
+    .hero-image-full { height: 50vh; }
+    .portfolio-track { gap: 16px; }
+    .portfolio-card { width: 260px; }
+    .about, .expertise, .portfolio, .quote-section, .process-section, .cta { padding: 60px 0; }
+    .badge { top: 16px; left: 16px; }
+  }
+</style>
+
+<script>
+  (function() {
+    var badge = document.getElementById('badge');
+    if (badge) {
+      var tickingBadge = false;
+      function onScroll() {
+        if (!tickingBadge) {
+          requestAnimationFrame(function() {
+            badge.classList.toggle('visible', window.scrollY > 300);
+            tickingBadge = false;
+          });
+          tickingBadge = true;
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    var scrollEl = document.getElementById('portfolioScroll');
+    if (scrollEl) {
+      var isDown = false, startX, scrollLeft;
+      scrollEl.addEventListener('mousedown', function(e) {
+        isDown = true;
+        startX = e.pageX - scrollEl.offsetLeft;
+        scrollLeft = scrollEl.scrollLeft;
+        scrollEl.style.cursor = 'grabbing';
+      });
+      scrollEl.addEventListener('mouseleave', function() {
+        isDown = false;
+        scrollEl.style.cursor = 'grab';
+      });
+      scrollEl.addEventListener('mouseup', function() {
+        isDown = false;
+        scrollEl.style.cursor = 'grab';
+      });
+      scrollEl.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - scrollEl.offsetLeft;
+        var walk = (x - startX) * 1.5;
+        scrollEl.scrollLeft = scrollLeft - walk;
+      });
+
+      var hint = document.getElementById('portfolioHint');
+      if (hint) {
+        scrollEl.addEventListener('scroll', function() {
+          hint.style.opacity = '0';
+        }, { passive: true, once: true });
+      }
+    }
+  })();
+</script>

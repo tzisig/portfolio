@@ -1,5 +1,6 @@
 ---
 import CookieConsent from "../components/CookieConsent.astro";
+import HomeButton from "../components/HomeButton.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -25,6 +26,7 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://example.com");
+const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
 ---
 
 <!doctype html>
@@ -56,5 +58,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://example.
     <a href="#main" class="skip-link">Skip to content</a>
     <slot />
     <CookieConsent {...consent} />
+    {!isHome && <HomeButton />}
   </body>
 </html>

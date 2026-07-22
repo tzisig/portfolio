@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const services = [
+  { title: "Shingle & Composition", desc: "Architectural asphalt shingles, 3-tab, and premium designer lines. We partner with CertainTeed, GAF, and Owens Corning for 50-year warranties." },
+  { title: "Metal Roofing", desc: "Standing seam, corrugated, and stone-coated steel. Energy-efficient, fire-resistant, and built to last 40-70 years with minimal maintenance." },
+  { title: "Flat & Low-Slope", desc: "TPO, PVC, EPDM, and modified bitumen systems for commercial and residential flat roofs. Fully adhered, ballasted, or mechanically attached." },
+  { title: "Repair & Maintenance", desc: "Leak detection, flashing repair, gutter cleaning, storm damage assessment, and preventative maintenance programs for existing roofs." },
+];
+const steps = [
+  { title: "Inspect", desc: "Thorough inspection including drone photography, moisture mapping, and structural assessment." },
+  { title: "Quote", desc: "Detailed line-item estimate with material options, warranty tiers, and timeline." },
+  { title: "Prep", desc: "Permits filed, materials delivered, site protection installed — no damage to your property." },
+  { title: "Install", desc: "Manufacturer-certified installation with daily cleanup and progress updates." },
+];
+---
+<BaseLayout title="Summit Peak Roofing | Portland Roof Installation, Repair & Replacement" description="Summit Peak Roofing provides professional roof installation, repair, and replacement for residential and commercial properties in the Portland metro area." themeColor="#1C2E4A" bodyClass="roofer" consent={{ bg: "#1C2E4A", fg: "#F0F2F5", accent: "#E26D2B", accentFg: "#F0F2F5", border: "rgba(240,242,245,0.16)" }}>
+  <slot name="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
+  </slot>
+  <div class="page">
+    <section class="hero"><div class="hero-bg"></div>
+      <div class="hero-content"><p class="hero-badge">Licensed &amp; Insured &middot; OSB #214356</p><h1>Roofs that outlast the Oregon rain.</h1><p>Summit Peak installs and repairs residential and commercial roofs with manufacturer-certified workmanship and transparent pricing from estimate to final walk-through.</p><a href="#quote" class="btn-hero">Get a Free Estimate</a></div>
+    </section>
+    <section class="angle angle--reverse" id="services"><div class="container">
+      <h2>Our Services</h2><div class="svc-grid">
+        {services.map((s) => (<div class="svc-card"><h3>{s.title}</h3><p>{s.desc}</p></div>))}
+      </div>
+    </div></section>
+    <section class="angle" id="process"><div class="container">
+      <h2>How it works.</h2><div class="step-strip">
+        {steps.map((s,i) => (<div class="step"><span class="step-num">{i+1}</span><h3>{s.title}</h3><p>{s.desc}</p></div>))}
+      </div>
+    </div></section>
+    <section class="badges"><div class="container badges-inner">
+      <div class="badge-item"><span class="badge-icon">🏆</span><span>50-Year Workmanship Warranty</span></div>
+      <div class="badge-item"><span class="badge-icon">🛡</span><span>Licensed &amp; Insured</span></div>
+      <div class="badge-item"><span class="badge-icon">⭐</span><span>4.9 Stars &middot; 200+ Reviews</span></div>
+      <div class="badge-item"><span class="badge-icon">📋</span><span>Free Detailed Estimates</span></div>
+    </div></section>
+    <section class="quote" id="quote"><div class="container quote-inner">
+      <h2>Get a free estimate.</h2><p>Call or email — we'll schedule a roof inspection within 48 hours.</p><a href="tel:+15550114" class="quote-phone">(555) 555-0114</a><span class="quote-email">estimates@summitpeakroofing.com</span>
+    </div></section>
+    <footer class="footer"><div class="container footer-inner"><p>Summit Peak Roofing &mdash; Portland, OR</p><nav><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a></nav></div></footer>
+  </div>
+</BaseLayout>
+<style>:global(.roofer){--navy:#1C2E4A;--orange:#E26D2B;--orange-dark:#C45A1F;--gray:#F0F2F5;--gray-dark:#D1D5DB;--font-h:'Barlow Condensed',sans-serif;--font-b:'Inter',sans-serif}:global(.roofer){font-family:var(--font-b);color:#333;background:var(--gray);line-height:1.6}:global(.roofer) :focus-visible{outline:3px solid var(--orange);outline-offset:2px}.container{max-width:1100px;margin:0 auto;padding:0 24px}h2{font-family:var(--font-h);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:32px;line-height:1}.page{overflow:hidden}
+  .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;clip-path:polygon(0 0,100% 0,100% 85%,0 100%)}.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--navy) 0%,#2B4A6E 100%)}.hero-content{position:relative;z-index:2;max-width:680px;padding:40px 24px}.hero-badge{font-size:.8rem;text-transform:uppercase;letter-spacing:3px;color:var(--orange);margin-bottom:16px;font-weight:600}.hero h1{font-family:var(--font-h);font-size:clamp(2.8rem,7vw,4.5rem);font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:-0.02em;line-height:.95;margin-bottom:20px}.hero p{color:rgba(255,255,255,.7);font-size:1.1rem;margin-bottom:32px}.btn-hero{display:inline-block;padding:16px 40px;background:var(--orange);color:#fff;text-decoration:none;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;transition:background .25s ease}.btn-hero:hover{background:var(--orange-dark)}
+  .angle{padding:100px 0 140px}.angle--reverse{background:var(--navy)}.angle--reverse h2{color:#fff}.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.svc-card{background:rgba(255,255,255,.08);padding:28px 24px;backdrop-filter:blur(4px)}.svc-card h3{font-family:var(--font-h);font-size:1.2rem;font-weight:700;color:var(--orange);text-transform:uppercase;margin-bottom:6px}.svc-card p{color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.65}.step-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.step-num{display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--orange);color:#fff;font-weight:800;margin-bottom:12px}.step h3{font-family:var(--font-h);font-size:1.2rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin-bottom:4px}.step p{color:#777;font-size:.85rem;line-height:1.6}
+  .badges{padding:60px 0}.badges-inner{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}.badge-item{display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--navy)}.badge-icon{font-size:1.4rem}
+  .quote{padding:100px 0;background:var(--navy);clip-path:polygon(0 15%,100% 0,100% 100%,0 100%)}.quote-inner{text-align:center;padding-top:80px}.quote h2{color:#fff}.quote p{color:rgba(255,255,255,.6);margin-bottom:32px}.quote-phone{display:inline-block;font-family:var(--font-h);font-size:2.2rem;font-weight:800;color:var(--orange);text-decoration:none;letter-spacing:1px}.quote-phone:hover{color:#fff}.quote-email{display:block;margin-top:8px;color:rgba(255,255,255,.4);font-size:.9rem}
+  .footer{padding:40px 0;text-align:center;color:#999;font-size:.85rem}.footer-inner nav{display:flex;justify-content:center;gap:20px;margin-top:8px}.footer a{color:#999;text-decoration:underline}
+  @media(max-width:800px){.svc-grid{grid-template-columns:1fr}.step-strip{grid-template-columns:1fr}.hero{clip-path:none;min-height:70vh}.quote{clip-path:none;padding:80px 0}}
+</style>
