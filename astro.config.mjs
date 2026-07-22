@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   // Keep self-hosted font files as separate cacheable assets instead of
@@ -13,4 +15,6 @@ export default defineConfig({
       assetsInlineLimit: 0,
     },
   },
+
+  adapter: cloudflare(),
 });
