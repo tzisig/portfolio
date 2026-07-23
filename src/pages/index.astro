@@ -6,6 +6,16 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 
 const pages = [
+  { href: "/web-developer", title: "Web Developer", desc: "Northbound Software — Web & Product Development", bg: "#0D1117", fg: "#C9D1D9", accent: "#3FB950" },
+  { href: "/dog-groomer", title: "Dog Groomer", desc: "Wag & Wash — Dog Grooming Studio", bg: "#2A6F63", fg: "#FFF7ED", accent: "#F2994A" },
+  { href: "/yoga-instructor", title: "Yoga Instructor", desc: "Still Water Yoga — Studio Classes", bg: "#2F3E2E", fg: "#EDEEE4", accent: "#C68B59" },
+  { href: "/bakery", title: "Bakery", desc: "Hearth & Honey Bakery — Bread, Pastry & Custom Cakes", bg: "#6B4423", fg: "#FBF3E7", accent: "#C1447E" },
+  { href: "/florist", title: "Florist", desc: "Marigold & Fern — Weddings & Everyday Flowers", bg: "#5C6E4E", fg: "#F7F1EC", accent: "#C98A96" },
+  { href: "/barber-shop", title: "Barber Shop", desc: "Marchetti's Barbershop — Cuts, Fades & Shaves", bg: "#16232D", fg: "#EFE9DD", accent: "#B9975B" },
+  { href: "/moving-company", title: "Moving Company", desc: "Steadfast Movers — Local & Long-Distance Moving", bg: "#1F2933", fg: "#F5F5F5", accent: "#FF6B35" },
+  { href: "/solar-installer", title: "Solar Installer", desc: "Cascade Solar — Residential Solar Installation", bg: "#0B2545", fg: "#F5F8FC", accent: "#F4B400" },
+  { href: "/piano-teacher", title: "Piano Teacher", desc: "Aldergrove Piano Studio — Private Piano Lessons", bg: "#5C2A2A", fg: "#F7F4EE", accent: "#C9A25D" },
+  { href: "/optometrist", title: "Optometrist", desc: "Clearview Eye Care — Exams, Glasses & Contacts", bg: "#0E7C86", fg: "#F3F8F9", accent: "#16323F" },
   { href: "/attorney", title: "Attorney", desc: "Whitfield & Cole — Law Firm", bg: "#0F1B2D", fg: "#F4F0E6", accent: "#A9832D" },
   { href: "/architect", title: "Architect", desc: "Monolith — Architecture Studio", bg: "#E8E6E1", fg: "#16171A", accent: "#B5651D" },
   { href: "/trainer", title: "Personal Trainer", desc: "Forge — Strength Coaching", bg: "#1447E6", fg: "#F4F6FF", accent: "#F2C94C" },
@@ -49,8 +59,8 @@ const pages = [
 ];
 ---
 <BaseLayout
-  title="Design Portfolio | Built for every profession"
-  description="A collection of ten fully custom, WCAG-conscious landing page designs, one for each profession."
+  title="Landing Page Portfolio — A Landing Page for Every Profession"
+  description="A growing collection of fully custom, WCAG-conscious landing page designs, one for each profession."
   themeColor="#0A0A0A"
   bodyClass="gallery"
   consent={{ bg: "#0A0A0A", fg: "#F5F5F5", accent: "#6E56CF", accentFg: "#F5F5F5", border: "rgba(245,245,245,0.16)" }}
@@ -58,9 +68,8 @@ const pages = [
   <main id="main">
     <header class="gallery__hero">
       <p class="eyebrow">Design Portfolio</p>
-      <h1>Built for every profession.<br>
-          One distinct landing page each.</h1>
-      <p class="lede">Every page below was built as a real client site would be — its own visual identity, layout, and structure, tailored to the profession it serves.</p>
+      <h1>Every profession.<br />A distinct landing page.</h1>
+      <p class="lede">Every page below is a fully built, standalone site: unique palette, typography, and layout for the profession it represents — built with performance, accessibility, and privacy compliance in mind from the start.</p>
     </header>
 
     <section class="grid" aria-label="Landing page designs">
@@ -93,7 +102,7 @@ const pages = [
   .gallery__hero { max-width: 52rem; margin-inline: auto; padding: 5rem 1.5rem 3.5rem; text-align: center; }
   .eyebrow { font-family: "Space Grotesk", sans-serif; color: #6E56CF; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; margin-bottom: 1.4rem; }
   h1 { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-bottom: 1.3rem; }
-  .lede { color: #000; line-height: 1.7; max-width: 38rem; margin-inline: auto; }
+  .lede { color: #B8B8B8; line-height: 1.7; max-width: 38rem; margin-inline: auto; }
 
   .grid { max-width: 74rem; margin-inline: auto; padding: 1rem 1.5rem 5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1.25rem; }
   .card {
