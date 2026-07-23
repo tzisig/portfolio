@@ -31,6 +31,8 @@ const pricing = [
   <nav class="topnav"><div class="container nav-inner"><a href="#" class="brand">Still Water</a><ul class="nav-links"><li><a href="#classes">Classes</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#pricing">Pricing</a></li></ul></div></nav>
   <main>
     <section class="hero">
+      <img src="https://images.pexels.com/photos/4057534/pexels-photo-4057534.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" alt="Woman practicing a calm yoga stretch in a sunlit room" width="1600" height="1067" class="hero-bg-img" loading="eager" fetchpriority="high" decoding="async" />
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
       <div class="ring" aria-hidden="true"></div>
       <div class="container hero-inner">
         <p class="hero-eyebrow">A one-room studio in Sellwood</p>
@@ -111,8 +113,10 @@ h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:34px}
 .nav-links{display:flex;gap:30px;list-style:none;font-size:.9rem}
 .nav-links a{color:var(--forest);text-decoration:none}
 .hero{position:relative;padding:60px 0 110px;text-align:center;overflow:hidden}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3}
+.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(247,246,240,.55),var(--paper) 90%)}
 .ring{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:520px;height:520px;border:1px solid rgba(47,62,46,.14);border-radius:50%}
-.hero-inner{position:relative;max-width:600px;margin:0 auto}
+.hero-inner{position:relative;max-width:600px;margin:0 auto;z-index:1}
 .hero-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--clay);margin-bottom:26px}
 h1{font-size:clamp(2.6rem,6vw,4rem);font-weight:500;line-height:1.05;margin-bottom:24px}
 h1 em{color:var(--clay);font-style:italic}
